@@ -1,0 +1,4 @@
+*.out
+main.c
+main.cpp
+*.txt
