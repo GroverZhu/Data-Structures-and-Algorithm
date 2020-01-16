@@ -1,4 +1,4 @@
 *.out
-main.c
-main.cpp
+main*
+Makefile
 *.txt

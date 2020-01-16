@@ -9,6 +9,7 @@
 - [数据结构](./8.数据结构.MD)
 - [思维的体操](./9.思维的体操.MD)
 - [挑战ACM-ICPC](./10.挑战ACM-ICPC.MD)
-
+   
+CPSKILL中的题目是随机抽取的，欢迎补充👏👏👏   
 
 文件中所有代码均通过 **Apple LLVM version 10.0.1 (clang-1001.0.46.4)** 编译。 如有问题请提issue或pull request
