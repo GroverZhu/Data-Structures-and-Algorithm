@@ -5,3 +5,9 @@ Makefile
 *.DAT
 *.CPP
 *.bmp
+
+
+noj/.vscode/
+__pycache__/
+./noj/noj/__pycache__/
+./noj/noj/spiders/__pycache__/
