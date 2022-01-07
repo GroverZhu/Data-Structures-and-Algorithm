@@ -1,6 +1,16 @@
 #include <stdio.h>
 
-#include "tree.h"
+#ifndef TREE_H__
+#define TREE_H__
+
+// 二叉树节点定义
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+};
+
+#endif
 
 int max(int a, int b) {
     return a >= b ? a : b;
@@ -34,6 +44,6 @@ int minDepth(struct TreeNode* root){
     }
 }
 
-int main() {
+int main(int argc, char* argv[]) {
     return 0;
 }

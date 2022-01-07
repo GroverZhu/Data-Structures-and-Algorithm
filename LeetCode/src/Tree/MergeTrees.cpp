@@ -1,13 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "tree.h"
+#ifndef TREE_H__
+#define TREE_H__
+
+// 二叉树节点定义
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+};
+
+#endif
 
 
 struct TreeNode* buildTree(int *preorder, int preorderSize, int *inorder, int inorderSize) {
     if (preorderSize <= 0) return NULL;
     
-    struct TreeNode *root = malloc(sizeof(struct TreeNode));
+    struct TreeNode *root = (struct TreeNode *)malloc(sizeof(struct TreeNode));
     root->val = preorder[0];
     int i = 0;
     while (i < inorderSize && inorder[i] != preorder[0]) i++;
@@ -36,5 +46,6 @@ int main() {
     struct TreeNode *root1 = buildTree(pre1, size1, in1, size1);
     struct TreeNode *root2 = buildTree(pre2, size2, in2, size2);
     struct TreeNode *merge = mergeTrees(root1, root2);
+    merge = nullptr;
     return 0;
 }

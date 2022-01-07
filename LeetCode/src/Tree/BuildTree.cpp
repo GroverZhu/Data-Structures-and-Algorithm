@@ -1,6 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "tree.h"
+
+#ifndef TREE_H__
+#define TREE_H__
+
+// 二叉树节点定义
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+};
+
+#endif
 
 /**
  * 根据前序遍历与中序遍历建立二叉树
@@ -12,7 +23,7 @@
  */ 
 struct TreeNode* preInorderBuildTree(int* preorder, int preorderSize, int* inorder, int inorderSize) {
     if (preorderSize <= 0) return NULL;
-    struct TreeNode *root = malloc(sizeof(struct TreeNode));
+    struct TreeNode *root = (struct TreeNode *)malloc(sizeof(struct TreeNode));
     root->val = preorder[0];
     int i = 0;
     while (i < preorderSize && inorder[i] != preorder[0]) i++;
@@ -31,7 +42,7 @@ struct TreeNode* preInorderBuildTree(int* preorder, int preorderSize, int* inord
  */ 
 struct TreeNode* inPostorderBuildTree(int* inorder, int inorderSize, int *postorder, int postorderSize) {
     if (postorderSize <= 0) return NULL;
-    struct TreeNode *root = malloc(sizeof(struct TreeNode));
+    struct TreeNode *root = (struct TreeNode *)malloc(sizeof(struct TreeNode));
     root->val = postorder[postorderSize - 1];
     int i = 0;
     while (i < postorderSize && inorder[i] != postorder[postorderSize - 1]) i++;
@@ -49,7 +60,7 @@ struct TreeNode* inPostorderBuildTree(int* inorder, int inorderSize, int *postor
  */
 struct TreeNode* bstFromPreorder(int* preorder, int preorderSize){
     if (preorderSize <= 0) return NULL;
-    struct TreeNode *root = malloc(sizeof(struct TreeNode));
+    struct TreeNode *root = (struct TreeNode *)malloc(sizeof(struct TreeNode));
     int pivot = preorder[0];
     root->val = pivot;
     int i = 0;

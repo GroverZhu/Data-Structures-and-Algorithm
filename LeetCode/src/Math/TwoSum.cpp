@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 
 
 /**
@@ -77,7 +77,7 @@ int* twoSum(int *nums, int numsSize, int target, int *returnSize) {
             left++;
         } else {
             *returnSize = 2;
-            int *result = malloc(sizeof(int)*(*returnSize));
+            int *result = (int*)malloc(sizeof(int)*(*returnSize));
             *(result + 0) = (array + left)->index;
             *(result + 1) = (array + right)->index;
             return result;

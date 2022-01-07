@@ -2,11 +2,21 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "tree.h"
+#ifndef TREE_H__
+#define TREE_H__
+
+// 二叉树节点定义
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+};
+
+#endif
 
 struct TreeNode* buildTree(int *inorder, int inorderSize, int *postorder, int postorderSize) {
     if (postorderSize <= 0) return NULL;
-    struct TreeNode *root = malloc(sizeof(struct TreeNode));
+    struct TreeNode *root = (struct TreeNode *)malloc(sizeof(struct TreeNode));
     root->val = postorder[postorderSize - 1];
     int pivot = 0;
     while (pivot < inorderSize && inorder[pivot] != postorder[postorderSize - 1]) pivot++;
@@ -34,14 +44,14 @@ void inorderTraversalHelper(struct TreeNode *root, int *result, int *returnSize)
 
 int* inorderTraversal(struct TreeNode *root, int *returnSize) {
     int size = treeSize(root);
-    int *result = malloc(size * sizeof(int));
+    int *result = (int*)malloc(size * sizeof(int));
     *returnSize = 0;
     memset(result, 0, size);
     inorderTraversalHelper(root, result, returnSize);
     return result;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
     int size = 3;
     int inorders[] = {1, 3, 2};
     int postorders[] = {3, 2, 1};
