@@ -1,7 +1,7 @@
 #include <iostream>
 #include <list>
 #include <map>
-#include <cstdlib>
+#include <cassert>
 
 using namespace std;
 
@@ -59,13 +59,12 @@ int main(int argc, char* argv[]) {
     LRUCache lru = LRUCache(2);
     lru.put(1, 1);
     lru.put(2, 2);
-    lru.get(1);
+    assert(lru.get(1) == 1);
     lru.put(3, 3);
-    lru.get(2);
+    assert(lru.get(2) == -1);
     lru.put(4, 4);
-    lru.get(1);
-    lru.get(3);
-    lru.get(4);
-
+    assert(lru.get(1) == -1);
+    assert(lru.get(3) == 3);
+    assert(lru.get(4) == 4);
     return 0;
 }
