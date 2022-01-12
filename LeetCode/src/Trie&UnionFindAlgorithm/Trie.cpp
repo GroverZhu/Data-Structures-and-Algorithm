@@ -151,6 +151,8 @@ vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
 
 
 int main(int argc, char* argv[]) {
+    auto begin = clock();
+
     Trie trie1;
     trie1.insert("apple");
     assert(true == trie1.search("apple"));
@@ -181,11 +183,11 @@ int main(int argc, char* argv[]) {
     board = {{'b','d','a','a','c','c','b','e'},{'d','c','e','b','b','e','e','b'},{'b','d','b','e','b','a','a','e'},{'b','c','d','a','d','d','a','c'},{'e','d','b','c','a','d','a','c'},{'e','b','a','a','c','d','c','d'},{'d','e','c','c','b','d','d','c'},{'c','a','c','e','c','b','d','c'},{'a','e','d','b','c','b','a','a'},{'e','a','a','a','a','c','c','b'},{'d','e','e','e','c','b','c','e'}};
     words = {"cbcccec"};
     results = {"cbcccec"};
-    // auto begin = time(0);
     tmp = findWords(board, words);
-    // auto end = time(0);
-    // cout << end - begin << endl;
     assert(results == tmp);
+
+    auto end = clock();
+    cout << "All tests passed. Time cost: " << (1.0 * (end - begin) / CLOCKS_PER_SEC * 1000) << "ms." << endl;
     
     return 0;
 }

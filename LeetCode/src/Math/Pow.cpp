@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <cstdio>
 
 /**
  * 计算x^n

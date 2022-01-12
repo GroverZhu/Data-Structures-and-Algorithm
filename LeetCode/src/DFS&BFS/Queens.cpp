@@ -76,6 +76,7 @@ int main(int argc, char* argv[]) {
     assert(40 == totalNQueens(7));
     assert(92 == totalNQueens(8));
     assert(352 == totalNQueens(9));
+
     auto end = clock();
 
     cout << "All tests passed. Time cost: " << (1.0 * (end - begin) / CLOCKS_PER_SEC * 1000) << "ms." << endl;
