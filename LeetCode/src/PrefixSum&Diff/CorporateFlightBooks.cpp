@@ -2,6 +2,7 @@
 #include <vector>
 using namespace std;
 
+// https://leetcode-cn.com/problems/corporate-flight-bookings/
 vector<int> corpFlightBookings(vector<vector<int>>& bookings, int n) {
     vector<int> diff(n + 1, 0);
     for (auto node : bookings) {
