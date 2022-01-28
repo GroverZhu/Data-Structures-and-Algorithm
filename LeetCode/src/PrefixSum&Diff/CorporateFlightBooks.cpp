@@ -1,5 +1,8 @@
 #include <iostream>
 #include <vector>
+
+#include <cassert>
+
 using namespace std;
 
 // https://leetcode-cn.com/problems/corporate-flight-bookings/
