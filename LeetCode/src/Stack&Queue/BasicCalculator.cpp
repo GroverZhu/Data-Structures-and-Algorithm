@@ -7,6 +7,9 @@
 
 using namespace std;
 
+// https://leetcode-cn.com/problems/basic-calculator/
+// https://leetcode-cn.com/problems/basic-calculator-ii/
+// https://leetcode-cn.com/problems/basic-calculator-iii/
 int calculateHelper(deque<char>& s) {
     stack<int> stk;
     int num = 0;

@@ -3,6 +3,8 @@
 #include <stack>
 #include <ctime>
 
+#include <cassert>
+
 using namespace std;
 
 // https://leetcode-cn.com/problems/trapping-rain-water/
