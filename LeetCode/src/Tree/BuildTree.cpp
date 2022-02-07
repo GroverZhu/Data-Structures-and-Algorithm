@@ -7,31 +7,10 @@
 #include <deque>
 #include <cassert>
 
+#include "../../include/Tree/BinaryTreeNode.h"
+
 using namespace std;
 
-#ifndef TREE_H__
-#define TREE_H__
-
-// 二叉树节点定义
-struct TreeNode {
-    int val;
-    struct TreeNode *left;
-    struct TreeNode *right;
-
-    TreeNode() {
-        val = 0;
-        left = nullptr;
-        right = nullptr;
-    }
-
-    TreeNode(int val) {
-        this->val = val;
-        left = nullptr;
-        right = nullptr;
-    }
-};
-
-#endif
 
 // 从前序与中序遍历序列 https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
 // [pre_bgn, pre_end], [in_bgn, in_end]
@@ -233,18 +212,6 @@ vector<vector<int>> levelOrderRecursive(TreeNode* root) {
     levelOrderRecursiveHelper(root, result, 0);
     return result;
 }
-
-
-void destroyTree(TreeNode* root) {
-    if (!root) return;
-    destroyTree(root->left);
-    destroyTree(root->right);
-    delete root;
-    root = nullptr;
-}
-
-
-
 
 
 int main() {

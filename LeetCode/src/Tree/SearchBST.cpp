@@ -1,17 +1,8 @@
-#include <stdio.h>
+#include <iostream>
 
+#include "../../include/Tree/BinaryTreeNode.h"
 
-#ifndef TREE_H__
-#define TREE_H__
-
-// 二叉树节点定义
-struct TreeNode {
-    int val;
-    struct TreeNode *left;
-    struct TreeNode *right;
-};
-
-#endif
+using namespace std;
 
 struct TreeNode* searchBST(struct TreeNode *root, int val) {
     if (root) {

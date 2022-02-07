@@ -1,16 +1,6 @@
-#include <stdio.h>
+#include <iostream>
 
-#ifndef TREE_H__
-#define TREE_H__
-
-// 二叉树节点定义
-struct TreeNode {
-    int val;
-    struct TreeNode *left;
-    struct TreeNode *right;
-};
-
-#endif
+#include "../../include/Tree/BinaryTreeNode.h"
 
 int rangeSumBST(struct TreeNode *root, int L, int R) {
     if (!root) return 0;

@@ -1,24 +1,8 @@
-#include <stdio.h>
+#include <iostream>
 
-#ifndef TREE_H__
-#define TREE_H__
+#include "../../include/Tree/BinaryTreeNode.h"
 
-// 二叉树节点定义
-struct TreeNode {
-    int val;
-    struct TreeNode *left;
-    struct TreeNode *right;
-};
-
-#endif
-
-int max(int a, int b) {
-    return a >= b ? a : b;
-}
-
-int min(int a, int b) {
-    return a < b ? a : b;
-}
+using namespace std;
 
 // 求最大深度
 int maxDepth(struct TreeNode* root){
