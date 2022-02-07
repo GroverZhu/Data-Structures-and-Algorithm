@@ -1,45 +1,12 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-
 #include <cassert>
+
+#include "../../include/List/ListNode.h"
 
 using namespace std;
 
-#ifndef __ListNode__
-#define __ListNode__
-
-struct ListNode {
-    int val;
-    ListNode* next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-};
-
-#endif
-
-ListNode* buildList(vector<int>& nums) {
-    ListNode dummy;
-    ListNode* node = nullptr;;
-    auto cur = &dummy;
-
-    for (auto num : nums) {
-        node = new ListNode(num);
-        cur->next = node;
-        cur = cur->next;
-    }
-    return dummy.next;
-}
-
-void destoryList(ListNode* head) {
-    auto cur = head;
-    while (cur) {
-        auto del = cur;
-        cur = cur->next;
-        delete del;
-        del = nullptr;
-    }
-}
 
 // https://leetcode-cn.com/problems/merge-two-sorted-lists/
 ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
@@ -126,8 +93,8 @@ int main(int argc, char* argv[]) {
     nums1 = {1, 2, 4};
     nums2 = {1, 3, 4};
     ans = {1, 1, 2, 3, 4, 4};
-    auto list1 = buildList(nums1);
-    auto list2 = buildList(nums2);
+    auto list1 = buildList(nums1).first;
+    auto list2 = buildList(nums2).first;
     auto merge = mergeTwoLists(list1, list2);
     auto cur = merge;
     for (auto num : ans) {
@@ -141,9 +108,9 @@ int main(int argc, char* argv[]) {
     nums2 = {1, 3, 4};
     vector<int> nums3 = {2, 6};
     ans = {1, 1, 2, 3, 4, 4, 5, 6};
-    list1 = buildList(nums1);
-    list2 = buildList(nums2);
-    auto list3 = buildList(nums3);
+    list1 = buildList(nums1).first;
+    list2 = buildList(nums2).first;
+    auto list3 = buildList(nums3).first;
     vector<ListNode*> lists = {list1, list2, list3};
     merge = mergeKLists(lists);
     cur = merge;

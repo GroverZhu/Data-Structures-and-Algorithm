@@ -1,44 +1,11 @@
 #include <iostream>
 #include <vector>
-
 #include <cassert>
+
+#include "../../include/List/ListNode.h"
 
 using namespace std;
 
-#ifndef __ListNode__
-#define __ListNode__
-
-struct ListNode {
-    int val;
-    ListNode* next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-};
-
-#endif
-
-ListNode* buildList(vector<int>& nums) {
-    ListNode dummy;
-    ListNode* node = nullptr;;
-    auto cur = &dummy;
-
-    for (auto num : nums) {
-        node = new ListNode(num);
-        cur->next = node;
-        cur = cur->next;
-    }
-    return dummy.next;
-}
-
-void destoryList(ListNode* head) {
-    auto cur = head;
-    while (cur) {
-        auto del = cur;
-        cur = cur->next;
-        delete del;
-        del = nullptr;
-    }
-}
 
 // https://leetcode-cn.com/problems/reverse-linked-list/
 
@@ -126,7 +93,7 @@ ListNode* reverseKGroup(ListNode* head, int k) {
 int main(int argc, char* argv[]) {
     vector<int> nums = {1, 2, 3, 4, 5};
     vector<int> ans = {5, 4, 3, 2, 1};
-    auto head = buildList(nums);
+    auto head = buildList(nums).first;
     head = reverseList(head);
     auto cur = head;
     for (auto num : ans) {
@@ -139,7 +106,7 @@ int main(int argc, char* argv[]) {
 
     nums = {1, 2};
     ans = {2, 1};
-    head = buildList(nums);
+    head = buildList(nums).first;
     head = reverseList(head);
     cur = head;
     for (auto num : ans) {
@@ -152,7 +119,7 @@ int main(int argc, char* argv[]) {
     // swap pairs
     nums = {1, 2, 3, 4};
     ans = {2, 1, 4, 3};
-    head = buildList(nums);
+    head = buildList(nums).first;
     head = swapPair(head);
     cur = head;
     for (auto num : ans) {
@@ -166,7 +133,7 @@ int main(int argc, char* argv[]) {
     nums = {1, 2, 3, 4, 5};
     ans = {2, 1, 4, 3, 5};
     int k = 2;
-    head = buildList(nums);
+    head = buildList(nums).first;
     head = reverseKGroup(head, k);
     cur = head;
     for (auto num : ans) {
@@ -179,7 +146,7 @@ int main(int argc, char* argv[]) {
     nums = {1, 2, 3, 4, 5};
     ans = {3, 2, 1, 4, 5};
     k = 3;
-    head = buildList(nums);
+    head = buildList(nums).first;
     head = reverseKGroup(head, k);
     cur = head;
     for (auto num : ans) {
