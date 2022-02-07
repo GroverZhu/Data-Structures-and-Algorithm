@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "../../include/Tree/BinaryTreeNode.h"
+#include "../include/Tree/BinaryTreeNode.h"
 
 using namespace std;
 

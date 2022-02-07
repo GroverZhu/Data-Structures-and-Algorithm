@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "../../include/Tree/BinaryTreeNode.h"
+#include "../include/Tree/BinaryTreeNode.h"
 
 int rangeSumBST(struct TreeNode *root, int L, int R) {
     if (!root) return 0;

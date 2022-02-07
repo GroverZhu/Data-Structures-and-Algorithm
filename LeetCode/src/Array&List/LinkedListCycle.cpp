@@ -2,7 +2,7 @@
 #include <cassert>
 #include <vector>
 
-#include "../../include/List/ListNode.h"
+#include "../include/List/ListNode.h"
 
 using namespace std;
 
