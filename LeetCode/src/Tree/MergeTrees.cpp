@@ -2,7 +2,8 @@
 #include <vector>
 #include <stack>
 #include <cassert>
-#include "../include/Tree/BinaryTreeNode.h"
+
+#include "Tree/BinaryTreeNode.h"
 
 using namespace std;
 
