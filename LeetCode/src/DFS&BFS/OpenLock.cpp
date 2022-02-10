@@ -3,6 +3,8 @@
 #include <string>
 #include <set>
 
+#include <cassert>
+
 using namespace std;
 
 char rollUp(char c) {
@@ -15,6 +17,7 @@ char rollDown(char c) {
     return c - 1;
 }
 
+// https://leetcode-cn.com/problems/open-the-lock/
 int openLock(vector<string>& deadends, string target) {
     set<string> visited(deadends.begin(), deadends.end());
     if (visited.find(target) != visited.end() || visited.find("0000") != visited.end()) return -1;

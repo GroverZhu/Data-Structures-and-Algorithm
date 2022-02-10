@@ -8,7 +8,8 @@
 
 using namespace std;
 
-int joseph_ring(int n, int m) {
+// https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/
+int josephRing(int n, int m) {
 
 #ifdef FORCE
     // 失业解法
@@ -40,35 +41,35 @@ int main(int argc, char* argv[]) {
     // Test 1
     n = 10, m = 17;
     start = clock();
-    assert(2 == joseph_ring(n, m));
+    assert(2 == josephRing(n, m));
     end = clock();
     printf("Test1 costs time: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
 
     //Test 2
     n = 5, m = 3;
     start = clock();
-    assert(3 == joseph_ring(n, m));
+    assert(3 == josephRing(n, m));
     end = clock();
     printf("Test2 costs time: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
 
     // Test 3
     start = clock();
     n = 71989, m = 111059;
-    assert(34203 == joseph_ring(n, m));
+    assert(34203 == josephRing(n, m));
     end = clock();
     printf("Test3 costs time: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
 
     // Test 4
     start = clock();
     n = 100000, m = 2;
-    assert(68928 == joseph_ring(n, m));
+    assert(68928 == josephRing(n, m));
     end = clock();
     printf("Test4 costs time: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
 
     // Test 5
     start = clock();
     n = 100000, m = 1;
-    assert(99999 == joseph_ring(n, m));
+    assert(99999 == josephRing(n, m));
     end = clock();
     printf("Test5 costs time: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
 }

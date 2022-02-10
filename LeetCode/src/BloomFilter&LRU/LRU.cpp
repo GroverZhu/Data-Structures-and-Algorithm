@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// https://leetcode-cn.com/problems/lru-cache/
 class LRUCache {
 public:
     LRUCache(int capacity) {

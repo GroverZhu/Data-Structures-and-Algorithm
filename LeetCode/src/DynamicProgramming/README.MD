@@ -5,7 +5,8 @@
 - https://leetcode-cn.com/problems/maximum-product-subarray/description/ 
 - https://leetcode-cn.com/problems/coin-change/description/ 
 - https://leetcode-cn.com/problems/house-robber/ 
-- https://leetcode-cn.com/problems/house-robber-ii/description/ 
+- https://leetcode-cn.com/problems/house-robber-ii/
+- https://leetcode-cn.com/problems/house-robber-iii/
 - https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/#/description 
 - https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/ 
 - https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/ 
@@ -35,3 +36,7 @@
 - https://leetcode-cn.com/problems/palindromic-substrings/ 
 - https://leetcode-cn.com/problems/minimum-window-substring/ 
 - https://leetcode-cn.com/problems/burst-balloons/ 
+- https://leetcode-cn.com/problems/maximal-rectangle/
+- https://leetcode-cn.com/problems/distinct-subsequences/
+- https://leetcode-cn.com/problems/race-car/
+- https://leetcode-cn.com/problems/russian-doll-envelopes/

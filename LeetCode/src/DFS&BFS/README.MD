@@ -1,10 +1,25 @@
  DFS & BFS
 
-- https://leetcode-cn.com/problems/binary-tree-level-order-traversal//description 
-- https://leetcode-cn.com/problems/minimum-genetic-mutation//description 
-- https://leetcode-cn.com/problems/generate-parentheses//description 
-- https://leetcode-cn.com/problems/find-largest-value-in-each-tree-row//description 
-- https://leetcode-cn.com/problems/word-ladder/description/  
-- https://leetcode-cn.com/problems/word-ladder-ii/description/ 
-- https://leetcode-cn.com/problems/number-of-islands/ 
-- https://leetcode-cn.com/problems/minesweeper/description/ 
+- https://leetcode-cn.com/problems/generate-parentheses/ 
+- https://leetcode-cn.com/problems/combinations/ 
+- https://leetcode-cn.com/problems/permutations/ 
+- https://leetcode-cn.com/problems/permutations-ii/
+- https://leetcode-cn.com/problems/powx-n/
+- https://leetcode-cn.com/problems/subsets/ 
+- https://leetcode-cn.com/problems/majority-element/
+- https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
+- https://leetcode-cn.com/problems/n-queens/
+- https://leetcode-cn.com/problems/minimum-genetic-mutation/
+- https://leetcode-cn.com/problems/open-the-lock/
+- https://leetcode-cn.com/problems/generate-parentheses/
+- https://leetcode-cn.com/problems/find-largest-value-in-each-tree-row/
+- https://leetcode-cn.com/problems/word-ladder/
+- https://leetcode-cn.com/problems/word-ladder-ii/
+- https://leetcode-cn.com/problems/number-of-islands/
+- https://leetcode-cn.com/problems/minesweeper/
+- https://leetcode-cn.com/problems/word-search/
+- https://leetcode-cn.com/problems/valid-sudoku/
+- https://leetcode-cn.com/problems/sudoku-solver/
+- https://leetcode-cn.com/problems/minimum-genetic-mutation/
+- https://leetcode-cn.com/problems/shortest-path-in-binary-matrix/ 
+- https://leetcode-cn.com/problems/sliding-puzzle/
