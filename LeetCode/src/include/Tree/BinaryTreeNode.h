@@ -3,6 +3,7 @@
 #define BINARY_TREE_H__
 
 #include <vector>
+#include <string>
 
 // 二叉树节点定义
 struct TreeNode {
@@ -39,6 +40,28 @@ TreeNode* buildTreeFromPreOrderAndInorderSerial(std::vector<int>& preorder, int 
 
     return root;
 
+}
+
+/**
+ * @brief 根据前序遍历的结果创建二叉树，有空节点的话，以"#"表示
+ * @param data "1,2,4,#,#,5,#,#,3,#,#"
+ * @return TreeNode* 根节点
+ */
+TreeNode* deserialBinaryTree(std::string& data) {
+    if (data[0] == '#') {
+        if (data.size() > 2) {
+            data = data.substr(2);
+        }
+        return nullptr;
+    }
+
+    int index = data.find(",");
+    int val = stoi(data.substr(0, index));
+    data = data.substr(index + 1);
+    TreeNode* root = new TreeNode(val);
+    root->left = deserialBinaryTree(data);
+    root->right = deserialBinaryTree(data);
+    return root;
 }
 
 void destroyTree(TreeNode* root) {
