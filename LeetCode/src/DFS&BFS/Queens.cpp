@@ -8,21 +8,6 @@ using namespace std;
 
 // https://leetcode-cn.com/problems/n-queens-II/
 
-void dfsBits(int& result, int n, int row, int col, int postiveDigonal, int negativeDigonal) {
-    if (row == n) {
-        ++result;
-        return;
-    }
-
-    int bits = (~(col | postiveDigonal | negativeDigonal)) & ((1 << n) - 1);
-
-    while (bits) {
-        int pos = bits & (-bits);
-        bits &= (bits - 1);
-        dfsBits(result, n, row + 1, col | pos, (postiveDigonal | pos) << 1, (negativeDigonal | pos) >> 1);
-    }
-}
-
 void dfs(int& result, int n, int row, set<int>& cols, set<int>& postiveDiagonal, set<int>& negativeDiagonal) {
     if (row == n) {
         ++result;
@@ -61,11 +46,53 @@ int totalNQueens(int n) {
 }
 
 
+vector<string> genBoard(vector<int>& rows) {
+    int size = static_cast<int>(rows.size());
+    vector<string> board(size);
+    for (int i = 0; i < size; i++) {
+        board[i] = string(size, '.');
+        board[i][rows[i]] = 'Q';
+    }
+    return board;
+}
+
+void dfs(vector<vector<string>>& result, int n, int row, vector<int>& rows, set<int>& cols, set<int>& pos, set<int>& neg) {
+    if (row == n) {
+        result.push_back(genBoard(rows));
+        return;
+    }
+
+    for (int i = 0; i < n; i++) {
+        if (cols.find(i) != cols.end()) continue;
+        if (pos.find(i - row) != pos.end()) continue;
+        if (neg.find(i + row) != neg.end()) continue;
+
+        cols.insert(i);
+        pos.insert(i - row);
+        neg.insert(i + row);
+        rows[row] = i;
+
+        dfs(result, n, row + 1, rows, cols, pos, neg);
+
+        cols.erase(i);
+        pos.erase(i - row);
+        neg.erase(i + row);
+    }
+}
+
+// https://leetcode-cn.com/problems/n-queens/
+vector<vector<string>> solveNQueens(int n) {
+    vector<vector<string>> result;
+    vector<int> rows(n);
+    set<int> cols;
+    set<int> pos;
+    set<int> neg;
+    dfs(result, n, 0, rows, cols, pos, neg);
+    return result;
+}
 
 
 int main(int argc, char* argv[]) {
-
-    auto begin = clock();
 
     assert(1 == totalNQueens(1));
     assert(0 == totalNQueens(2));
@@ -77,9 +104,17 @@ int main(int argc, char* argv[]) {
     assert(92 == totalNQueens(8));
     assert(352 == totalNQueens(9));
 
-    auto end = clock();
+    set<vector<string>> ans = {{"Q"}};
+    auto result = solveNQueens(1);
+    set<vector<string>> result_set = set<vector<string>>(result.begin(), result.end());
+    assert(ans == result_set);
 
-    cout << "All tests passed. Time cost: " << (1.0 * (end - begin) / CLOCKS_PER_SEC * 1000) << "ms." << endl;
+    ans = {{".Q..","...Q","Q...","..Q."}, {"..Q.","Q...","...Q",".Q.."}};
+    result = solveNQueens(4);
+    result_set = set<vector<string>>(result.begin(), result.end());
+    assert(ans == result_set);
+
+
 
     return 0;
 }
