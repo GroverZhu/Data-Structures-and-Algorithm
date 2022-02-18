@@ -4,6 +4,7 @@
 // x = x - f(x)/f'(x), f(x) = x^2 - a
 // x = x / 2  + a / 2x 
 int newtonIter(int x) {
+    if (x <= 1) return x;
     double epsilon = 1e-5;
     double cur = x;
     double next = cur / 2.0 + x / (2.0 * cur);
