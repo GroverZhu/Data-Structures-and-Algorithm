@@ -16,7 +16,7 @@ bool isPalindromeRecursive(ListNode* right, ListNode*& left) {
 
 }
 
-bool isPalindromeInteration(ListNode* head) {
+bool isPalindromeIteration(ListNode* head) {
     if (!head || !head->next) return true;
 
     auto slow = head;
@@ -64,21 +64,21 @@ int main(int argc, char* argv[]) {
     auto node = buildList(nums);
     auto head = node.first;
     assert(true == isPalindrome(head));
-    assert(true == isPalindromeInteration(head));
+    assert(true == isPalindromeIteration(head));
     destoryList(head);
 
     nums = {1, 2};
     node = buildList(nums);
     head = node.first;
     assert(false == isPalindrome(head));
-    assert(false == isPalindromeInteration(head));
+    assert(false == isPalindromeIteration(head));
     destoryList(head);
 
     nums = {1, 2, 1, 2, 1};
     node = buildList(nums);
     head = node.first;
     assert(true == isPalindrome(head));
-    assert(true == isPalindromeInteration(head));
+    assert(true == isPalindromeIteration(head));
     destoryList(head);
     return 0;
 }
