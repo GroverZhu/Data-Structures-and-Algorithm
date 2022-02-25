@@ -26,7 +26,7 @@ double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succPro
         graph[to].push_back(State(from, prob));
     }
 
-    // dijkdtra算法
+    // dijkstra算法
     vector<double> probs(n, -1.0);
     probs[start] = 1.0;
 
