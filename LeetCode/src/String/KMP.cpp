@@ -22,6 +22,7 @@ void getNext(vector<int>& next, string& pat) {
     }
 }
 
+// https://leetcode-cn.com/problems/implement-strstr/
 int strStr(string& txt, string& pat) {
     int txt_size = static_cast<int>(txt.size());
     int pat_size = static_cast<int>(pat.size());
