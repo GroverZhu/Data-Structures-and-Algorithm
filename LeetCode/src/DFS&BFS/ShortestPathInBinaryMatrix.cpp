@@ -19,7 +19,7 @@ int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
     constexpr int dx[size] = {0, -1, -1, -1, 0, 1, 1, 1};
     constexpr int dy[size] = {1, 1, 0, -1, -1, -1, 0, 1};
 
-#if defined(BFS)
+#if 0
     queue<pair<pair<int, int>, int>> q;
     q.push({{0, 0}, 1});
     int step = INT_MAX;
@@ -43,8 +43,9 @@ int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
         }
     }
     return step == INT_MAX ? - 1 : step;
+#endif
 
-#elif defined(BIBFS)
+#if 0
     set<pair<int, int>> begin;
     set<pair<int, int>> end;
 
@@ -81,8 +82,9 @@ int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
 
     return -1;
 
-#else
+#endif
 
+#if 1
     auto cmp = [&](const pair<pair<int, int>, int>& lhs, const pair<pair<int, int>, int>& rhs) {
         int manhattenLhs = (rows - 1 - lhs.first.first) + (cols - 1 - lhs.first.second);
         int manhattenRhs = (rows - 1 - rhs.first.second) + (cols - 1 - rhs.first.second);

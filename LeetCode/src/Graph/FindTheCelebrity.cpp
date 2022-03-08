@@ -12,7 +12,7 @@ bool knows(int a, int b) {
 
 //  https://leetcode-cn.com/problems/find-the-celebrity/
 int findCelebrity(int n) {
-#ifdef QUEUE
+#if 0
     queue<int> q;
     for (int i = 0; i < n; i++) {
         q.push(i);
@@ -38,8 +38,8 @@ int findCelebrity(int n) {
         if (!knows(other, cand) || knows(cand, other)) return -1;
     }
     return cand;
-
-#else 
+#endif
+#if 1
 
     int cand = 0;
     for (int other = 1; other < n; other++) {

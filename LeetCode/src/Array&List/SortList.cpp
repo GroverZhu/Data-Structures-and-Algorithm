@@ -133,12 +133,19 @@ ListNode* quickSort(ListNode* head, ListNode* tail) {
 
 // https://leetcode-cn.com/problems/sort-list/
 ListNode* sortList(ListNode* head) {
-    // return selectSort(head);
 
-    // return mergeSort(head, nullptr);
+#if 0
+     return selectSort(head);
+#endif
 
+#if 0
+     return mergeSort(head, nullptr);
+#endif
+
+#if 1
     if (!head || !head->next) return head;
     return quickSort(head, nullptr);
+#endif
 }
 
 // 判断是否为排序的链表，返回从头节点开始的有序链表的长度

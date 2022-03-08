@@ -9,14 +9,16 @@ using namespace std;
 int minCostClimbingStairs(vector<int>& cost) {
     int size = static_cast<int>(cost.size());
     if (size < 2) return 0;
-#ifdef RAW
+#if 0
     vector<int> fees(size + 1, 0);
 
     for (int i = 2; i <= size; i++) {
         fees[i] += min(fees[i - 2] + cost[i - 2], fees[i - 1] + cost[i - 1]);
     }
     return fees[size];
-#else 
+#endif
+
+#if 1
     int first = 0, second = 0;
     for (int i = 2; i <= size; i++) {
         int tmp = second;

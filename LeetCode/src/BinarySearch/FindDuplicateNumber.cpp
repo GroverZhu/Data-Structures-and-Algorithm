@@ -7,7 +7,7 @@ using namespace std;
 
 // https://leetcode-cn.com/problems/find-the-duplicate-number/
 int findDuplicate(vector<int>& nums) {
-#ifdef TWOPOINTER
+#if 0
 
     int slow = 0;
     int fast = 0;
@@ -26,8 +26,9 @@ int findDuplicate(vector<int>& nums) {
 
 
     return slow;
-#else
+#endif
 
+#if 1
     int size = static_cast<int>(nums.size());
     int left = 0;
     int right = size;

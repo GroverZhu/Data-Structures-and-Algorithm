@@ -32,14 +32,14 @@ int minimumMoves(vector<int>& arr) {
         }
     }
 
-// #ifndef NDEBUG
-//     for (auto& lst : operations) {
-//         for (auto& num : lst) {
-//             cout << num << "\t";
-//         }
-//         cout << endl;
-//     }
-// #endif
+ #if 0
+     for (auto& lst : operations) {
+         for (auto& num : lst) {
+             cout << num << "\t";
+         }
+         cout << endl;
+     }
+ #endif
 
     return operations[0][size - 1];
 }

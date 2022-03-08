@@ -7,7 +7,7 @@ using namespace std;
 // https://leetcode-cn.com/problems/find-peak-element/
 int findPeakElement(vector<int>& nums) {
 
-#ifdef FORCE
+#if 0
     int size = static_cast<int>(nums.size());
     if (size == 1) return 0;
     int prev = 0;
@@ -21,7 +21,9 @@ int findPeakElement(vector<int>& nums) {
     }
     if (cur == size) return cur - 1;
     return -1;
-#else 
+#endif
+
+#if 1
     int size = static_cast<int>(nums.size());
     if (size == 1) return 0;
     int left = 0;

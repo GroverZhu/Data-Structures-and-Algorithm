@@ -9,7 +9,7 @@ using namespace std;
 
 // https://leetcode-cn.com/problems/first-unique-character-in-a-string/
 int firstUniqChar(string s) {
-#ifdef RAW
+#if 0
     map<char, int> ref;
     for (auto c : s) {
         ref[c]++;
@@ -21,7 +21,9 @@ int firstUniqChar(string s) {
         }
     }
     return -1;
-#else 
+#endif
+
+#if 1
     map<char, int> ref;
     queue<pair<char, int>> q;
     int size = static_cast<int>(s.size());

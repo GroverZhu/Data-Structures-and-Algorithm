@@ -11,7 +11,7 @@ using namespace std;
 // https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/
 int josephRing(int n, int m) {
 
-#ifdef FORCE
+#if 0
     // 失业解法
     vector<int> circle(n, 0);
     for (int i = 0; i < n; i++) circle[i] = i;
@@ -23,7 +23,10 @@ int josephRing(int n, int m) {
         --n;
     }
     return circle[0];
-#else
+
+#endif
+
+#if 1
 
    int ans = 0;
    for (int i = 2; i <= n; i++) {

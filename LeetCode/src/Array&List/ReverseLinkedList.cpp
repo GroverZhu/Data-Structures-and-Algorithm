@@ -11,7 +11,7 @@ using namespace std;
 
 ListNode* reverseList(ListNode* head) {
 
-#ifdef ITER
+#if 0
     // 迭代
     if (!head || !head->next) return head;
 
@@ -26,7 +26,9 @@ ListNode* reverseList(ListNode* head) {
         cur = next;
     }
     return prev;
-#else
+#endif
+
+#if 1
     // 递归
     if (!head || !head->next) return head;
     auto last = reverseList(head->next);

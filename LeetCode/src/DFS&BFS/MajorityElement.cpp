@@ -25,7 +25,7 @@ int dfs(vector<int>& nums, int begin, int end) {
 
 // https://leetcode-cn.com/problems/majority-element/
 int majorityElement(vector<int>& nums) {
-#ifdef MOORE
+#if 0
     // 摩尔投票法
     int size = static_cast<int>(nums.size());
     if (size <= 2) return nums[0];
@@ -47,7 +47,9 @@ int majorityElement(vector<int>& nums) {
         index++;
     }
     return result;
-#else 
+#endif
+
+#if 1
     // 递归
     int size = static_cast<int>(nums.size());
     return dfs(nums, 0, size);

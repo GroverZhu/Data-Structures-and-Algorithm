@@ -9,7 +9,7 @@ using namespace std;
 
 // https://leetcode-cn.com/problems/max-sum-of-rectangle-no-larger-than-k/
 int maxSumSubmatrix(vector<vector<int>>& matrix, int k) {
-#ifdef RAW
+#if 0
     int rows = static_cast<int>(matrix.size());
     int cols = static_cast<int>(matrix[0].size());
     vector<vector<int>> prefix(rows + 1, vector<int>(cols + 1, 0));
@@ -33,7 +33,9 @@ int maxSumSubmatrix(vector<vector<int>>& matrix, int k) {
         }
     }
     return result;
-#else
+#endif
+
+#if 1
     int rows = static_cast<int>(matrix.size());
     int cols = static_cast<int>(matrix[0].size());
     vector<vector<int>> prefix(rows + 1, vector<int>(cols + 1, 0));
