@@ -9,6 +9,47 @@ using namespace std;
 
 // https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/
 vector<int> findAnagrams(string s, string p) {
+#if 1
+    int left = 0;
+    int right = 0;
+    int size = static_cast<int>(s.size());
+    int count = 0;
+    vector<int> result;
+
+    map<char, int> window;
+    map<char, int> need;
+
+    for (auto& c : p) {
+        need[c]++;
+    }
+
+    while (right < size) {
+        auto add = s[right];
+        ++right;
+        if (need.find(add) != need.end()) {
+            window[add]++;
+            if (window[add] == need[add]) ++count;
+        }
+
+        while ((right - left) >= static_cast<int>(p.size())) {
+            if (count == static_cast<int>(need.size())) {
+                result.push_back(left);
+            }
+            auto del = s[left];
+            left++;
+            if (window.find(del) != window.end()) {
+                if (window[del] == need[del]) --count;
+                window[del]--;
+            }
+
+        }
+
+    }
+
+    return result;
+#endif
+
+#if 0
     int size1 = static_cast<int>(s.size());
     int size2 = static_cast<int>(p.size());
 
@@ -45,11 +86,8 @@ vector<int> findAnagrams(string s, string p) {
         }
     }
 
-    // for (auto num : result) {
-    //     cout << num << "\t";
-    // }
-    // cout << endl;
     return result;
+#endif
 }
 
 int main(int argc, char* argv[]) {
