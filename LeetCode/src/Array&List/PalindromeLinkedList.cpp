@@ -16,7 +16,28 @@ bool isPalindromeRecursive(ListNode* right, ListNode*& left) {
 
 }
 
+// [head, tail)
+ListNode* reverse(ListNode* head, ListNode* tail) {
+    if (!head || head == tail || head->next == tail) return head;
+
+    ListNode* prev = nullptr;
+    ListNode* cur = head;
+    ListNode* next;
+
+    while (cur != tail) {
+        next = cur->next;
+        cur->next = prev;
+        prev = cur;
+        cur = next;
+    }
+
+
+    return prev;
+}
+
 bool isPalindromeIteration(ListNode* head) {
+
+#if 1
     if (!head || !head->next) return true;
 
     auto slow = head;
@@ -27,7 +48,43 @@ bool isPalindromeIteration(ListNode* head) {
         fast = fast->next->next;
     } while (fast && fast->next);
 
+    auto left = reverse(head, slow);
+    head->next = slow;
+
+    ListNode* right = nullptr;
+    if (fast) {
+        right = slow->next;
+    } else {
+        right = slow;
+    }
+
+    while (right) {
+        if (left->val != right->val) return false;
+        left = left->next;
+        right = right->next;
+    }
+
+    return true;
+
+
+#endif
+
+#if 0
+    if (!head || !head->next) return true;
+
+    auto slow = head;
+    auto fast = head;
+
+    while (fast && fast->next) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
     if (fast) slow = slow->next;
+
+    // 前半段的最后一个指针
+    auto reserve = head;
+    while (reserve->next != slow) reserve = reserve->next;
 
     // 反转后半部分链表
     auto cur = slow;
@@ -40,6 +97,8 @@ bool isPalindromeIteration(ListNode* head) {
         cur = next;
     }
 
+    reserve->next = prev; // 讲链表拼接起来，避免内存泄露
+
     // 比较左右两部分
     auto left = head;
     auto right = prev;
@@ -51,6 +110,7 @@ bool isPalindromeIteration(ListNode* head) {
     }
 
     return true;
+#endif
 }
 
 // https://leetcode-cn.com/problems/palindrome-linked-list/
