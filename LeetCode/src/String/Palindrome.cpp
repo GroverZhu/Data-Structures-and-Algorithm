@@ -166,5 +166,8 @@ int main(int argc, char* argv[]) {
     s = "cbbd";
     assert(2 == longestPalindromeSubseq(s));
 
+    s = "ccbcabaabba";
+    assert(6 == longestPalindromeSubseq(s));
+
     return 0;
 }

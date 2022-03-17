@@ -46,5 +46,11 @@ int main(int argc, char* argv[]) {
     k = 2;
     ans = {12};
     assert(ans == maxSlidingWindow(nums, k));
+
+    nums = {2,3,4,2,6,2,5,1};
+    k = 3;
+    ans = {4,4,6,6,6,5};
+    assert(ans == maxSlidingWindow(nums, k));
+
     return 0;
 }
