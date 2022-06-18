@@ -74,6 +74,10 @@ if [[ $1 = "run" ]]; then
     echo "In debug mode all tests passed!"
 fi
 
+if [[ $1 && $1 = "format" ]]; then
+    find src -name "*.cpp" -o -name "*.h" | xargs clang-format -i
+fi
+
 if [[ $1 && $1 = "clean" ]]; then
     rm -rf cmake-build-*
 fi
