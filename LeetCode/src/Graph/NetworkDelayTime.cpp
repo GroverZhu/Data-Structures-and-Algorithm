@@ -1,9 +1,9 @@
+#include <cassert>
+#include <climits>
 #include <iostream>
-#include <vector>
 #include <map>
 #include <queue>
-#include <climits>
-#include <cassert> 
+#include <vector>
 
 using namespace std;
 
@@ -68,7 +68,7 @@ int main(int argc, char* argv[]) {
     n = 2;
     k = 1;
     assert(1 == networkDelayTime(times, n, k));
-    
+
     times = {{1, 2, 1}};
     n = 2;
     k = 2;

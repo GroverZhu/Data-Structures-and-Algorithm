@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <map>
+#include <string>
 
 #include <cassert>
 
@@ -38,7 +38,6 @@ bool checkInClusion(string s1, string s2) {
                 if (window[del] == need[del]) --count;
                 --window[del];
             }
-
         }
     }
     return false;

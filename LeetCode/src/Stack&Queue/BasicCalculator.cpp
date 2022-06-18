@@ -1,9 +1,9 @@
-#include <iostream>
-#include <string>
-#include <stack>
-#include <deque>
 #include <ctype.h>
 #include <cassert>
+#include <deque>
+#include <iostream>
+#include <stack>
+#include <string>
 
 using namespace std;
 
@@ -52,7 +52,7 @@ int calculateHelper(deque<char>& s) {
             sign = cur;
             num = 0;
         }
-    
+
         if (cur == ')') break;
     }
 

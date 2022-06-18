@@ -1,10 +1,9 @@
-#include <iostream>
-#include <vector>
-#include <string>
 #include <cassert>
+#include <iostream>
+#include <string>
+#include <vector>
 
 #include "Tree/BinaryTreeNode.h"
-
 
 using namespace std;
 
@@ -22,7 +21,6 @@ int rob(vector<int>& nums) {
 
     return profits[size - 1];
 }
-
 
 // https://leetcode-cn.com/problems/house-robber-ii/
 // [begin, end]

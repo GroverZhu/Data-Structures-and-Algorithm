@@ -1,6 +1,6 @@
+#include <cassert>
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -13,7 +13,7 @@ int maxCoins(vector<int>& nums) {
     nums.insert(nums.begin(), 1);
     nums.push_back(1);
     size += 2;
-    
+
     vector<vector<int>> coins(size, vector<int>(size, 0));
     coins[0][0] = 1;
     coins[size - 1][size - 1] = 1;

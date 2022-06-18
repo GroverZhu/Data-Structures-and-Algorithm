@@ -1,6 +1,6 @@
+#include <cassert>
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -24,10 +24,9 @@ int minPathSum(vector<vector<int>>& grid) {
     return grid[rows - 1][cols - 1];
 }
 
-
 int main(int argc, char* argv[]) {
     vector<vector<int>> grid;
-    
+
     grid = {{1, 3, 1}, {1, 5, 1}, {4, 2, 1}};
     assert(7 == minPathSum(grid));
 

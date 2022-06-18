@@ -1,6 +1,6 @@
+#include <cassert>
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -18,7 +18,7 @@ int mergeSort(vector<int>& nums, int begin, int end) {
     int rightIndex = mid + 1;
 
     while (leftIndex <= mid && rightIndex <= end) {
-        if (nums[leftIndex] / 2.0 >  nums[rightIndex]) {
+        if (nums[leftIndex] / 2.0 > nums[rightIndex]) {
             result += (mid - leftIndex + 1);
             ++rightIndex;
         } else {
@@ -48,7 +48,6 @@ int mergeSort(vector<int>& nums, int begin, int end) {
     }
 
     return result;
-
 }
 
 // https://leetcode-cn.com/problems/reverse-pairs/

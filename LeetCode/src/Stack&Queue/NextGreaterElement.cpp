@@ -1,8 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <stack>
-#include <map>
 #include <cassert>
+#include <iostream>
+#include <map>
+#include <stack>
+#include <vector>
 
 using namespace std;
 
@@ -79,11 +79,11 @@ int main(int argc, char* argv[]) {
     ans = {2, -1, 2};
     assert(ans == nextGreaterElements(nums1));
 
-    nums1 = {73,74,75,71,69,72,76,73};
-    ans = {1,1,4,2,1,1,0,0};
+    nums1 = {73, 74, 75, 71, 69, 72, 76, 73};
+    ans = {1, 1, 4, 2, 1, 1, 0, 0};
     assert(ans == dailyTemperatures(nums1));
 
-    nums1 = {30,40,50,60};
+    nums1 = {30, 40, 50, 60};
     ans = {1, 1, 1, 0};
     assert(ans == dailyTemperatures(nums1));
 

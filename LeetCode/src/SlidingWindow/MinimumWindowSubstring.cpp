@@ -1,7 +1,7 @@
 #include <iostream>
-#include <vector>
-#include <string>
 #include <map>
+#include <string>
+#include <vector>
 
 #include <cassert>
 
@@ -15,7 +15,7 @@ string minWindow(string s, string t) {
     if (tSize > sSize) return "";
 
     map<char, int> need;
-    for (int i = 0; i < tSize; i++){
+    for (int i = 0; i < tSize; i++) {
         need[t[i]]++;
     }
 
@@ -56,8 +56,6 @@ string minWindow(string s, string t) {
     }
 
     return result;
-
-
 }
 
 int main(int argc, char* argv[]) {

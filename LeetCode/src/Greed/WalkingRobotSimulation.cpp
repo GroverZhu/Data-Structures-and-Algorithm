@@ -1,12 +1,12 @@
-#include <iostream>
-#include <vector>
-#include <set>
 #include <cassert>
+#include <iostream>
+#include <set>
+#include <vector>
 
 using namespace std;
 
-enum class Direction {NORTH, SOUTH, WEST, EAST};
-enum class Turn {LEFT = -2, RIGHT = -1};
+enum class Direction { NORTH, SOUTH, WEST, EAST };
+enum class Turn { LEFT = -2, RIGHT = -1 };
 
 // https://leetcode-cn.com/problems/walking-robot-simulation/
 int robotSim(vector<int>& commands, vector<vector<int>>& obstacles) {
@@ -60,7 +60,6 @@ int robotSim(vector<int>& commands, vector<vector<int>>& obstacles) {
                 y = nextY;
                 distance = max(distance, x * x + y * y);
             }
-
         }
     }
 

@@ -1,10 +1,10 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <map>
-#include <set>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
+#include <map>
+#include <set>
+#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -20,14 +20,14 @@ vector<vector<string>> groupAnagrams(vector<string>& strs) {
     for (auto node : cache) {
         result.push_back(node.second);
     }
-    
+
     return result;
 }
 
 int main(int argc, char* argv[]) {
     vector<string> strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
     auto result = groupAnagrams(strs);
-    auto ans = vector<vector<string>>({{"bat"}, {"ate","eat","tea"}, {"nat","tan"}});
+    auto ans = vector<vector<string>>({{"bat"}, {"ate", "eat", "tea"}, {"nat", "tan"}});
 
     multiset<multiset<string>> ans_ref;
     for (auto strs : ans) {

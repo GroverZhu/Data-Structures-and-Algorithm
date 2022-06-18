@@ -1,5 +1,5 @@
-#include <iostream>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
@@ -10,7 +10,7 @@ double myPow(double x, int n) {
     if (abs(x - 1.0) < epsilon || n == 1) return x;
 
     long long nLong = static_cast<long long>(n);
-    bool flag = true; // n正数true，n负数false
+    bool flag = true;  // n正数true，n负数false
     if (n < 0) {
         flag = false;
         nLong = -nLong;
@@ -36,7 +36,6 @@ int main(int argc, char* argv[]) {
     ans = 1024.0;
     result = myPow(x, n);
     assert(abs(ans - result) < epsilon);
-
 
     x = 2.1;
     n = 3;

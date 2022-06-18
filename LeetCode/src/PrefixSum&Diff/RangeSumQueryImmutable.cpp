@@ -7,9 +7,7 @@ using namespace std;
 
 // https://leetcode-cn.com/problems/range-sum-query-immutable/
 class NumArray {
-
-public:
-
+   public:
     NumArray(vector<int>& nums) {
         int size = static_cast<int>(nums.size());
         prefix = vector<int>(size + 1, 0);
@@ -19,13 +17,10 @@ public:
     }
 
     // [left, right]
-    int sumRange(int left, int right) {
-        return prefix[right + 1] - prefix[left];
-    }
+    int sumRange(int left, int right) { return prefix[right + 1] - prefix[left]; }
 
-private:
+   private:
     vector<int> prefix;
-
 };
 
 int main(int argc, char* argv[]) {
@@ -34,7 +29,6 @@ int main(int argc, char* argv[]) {
     assert(1 == test.sumRange(0, 2));
     assert(-1 == test.sumRange(2, 5));
     assert(-3 == test.sumRange(0, 5));
-
 
     return 0;
 }

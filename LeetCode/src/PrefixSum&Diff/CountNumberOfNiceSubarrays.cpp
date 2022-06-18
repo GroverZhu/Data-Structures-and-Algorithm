@@ -1,7 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <map>
 #include <cassert>
+#include <iostream>
+#include <map>
+#include <vector>
 
 using namespace std;
 
@@ -34,8 +34,7 @@ int main(int argc, char* argv[]) {
     k = 1;
     assert(0 == numberOfSubarrays(nums, k));
 
-
-    nums = {2,2,2,1,2,2,1,2,2,2};
+    nums = {2, 2, 2, 1, 2, 2, 1, 2, 2, 2};
     k = 2;
     assert(16 == numberOfSubarrays(nums, k));
 

@@ -1,9 +1,8 @@
+#include <cassert>
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
-
 
 void floodFill(vector<vector<char>>& grid, int x, int y) {
     int rows = static_cast<int>(grid.size());
@@ -21,7 +20,6 @@ void floodFill(vector<vector<char>>& grid, int x, int y) {
             floodFill(grid, nextX, nextY);
         }
     }
-
 }
 
 // https://leetcode-cn.com/problems/number-of-islands/
@@ -45,12 +43,12 @@ int main(int argc, char* argv[]) {
     vector<vector<char>> grid;
     int ans, result;
 
-    grid = {{'1','1','1','1','0'},{'1','1','0','1','0'},{'1','1','0','0','0'},{'0','0','0','0','0'}};
+    grid = {{'1', '1', '1', '1', '0'}, {'1', '1', '0', '1', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '0', '0', '0'}};
     ans = 1;
     result = numIslands(grid);
     assert(ans == result);
 
-    grid = {{'1','1','0','0','0'},{'1','1','0','0','0'},{'0','0','1','0','0'},{'0','0','0','1','1'}};
+    grid = {{'1', '1', '0', '0', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '1', '0', '0'}, {'0', '0', '0', '1', '1'}};
     ans = 3;
     result = numIslands(grid);
     assert(ans == result);

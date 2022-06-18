@@ -1,6 +1,6 @@
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 #include <cassert>
 
@@ -47,7 +47,6 @@ vector<vector<int>> nSum(vector<int>& nums, int target, int n, int start) {
 
             while (i < size - 1 && nums[i] == nums[i + 1]) i++;
         }
-
     }
 
     return result;
@@ -58,8 +57,8 @@ int main(int argc, char* argv[]) {
     int target;
     vector<vector<int>> result;
     vector<vector<int>> ans;
-    
-    auto cmp = [](vector<int>& lhs, vector<int>& rhs){
+
+    auto cmp = [](vector<int>& lhs, vector<int>& rhs) {
         sort(lhs.begin(), lhs.end());
         sort(rhs.begin(), rhs.end());
         int size = static_cast<int>(lhs.size());
@@ -77,7 +76,6 @@ int main(int argc, char* argv[]) {
     sort(result.begin(), result.end(), cmp);
     assert(ans == result);
 
-
     nums = {2, 2, 2, 2, 2};
     target = 8;
     ans = {{2, 2, 2, 2}};
@@ -85,7 +83,6 @@ int main(int argc, char* argv[]) {
     sort(ans.begin(), ans.end(), cmp);
     sort(result.begin(), result.end(), cmp);
     assert(ans == result);
-
 
     return 0;
 }

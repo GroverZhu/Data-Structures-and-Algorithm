@@ -1,16 +1,15 @@
 // g++ joseph_ring.cpp  -o joseph_ring -D FORCE
 #include <iostream>
-#include <cstdio>
-#include <cstdio>
 #include <vector>
+
 #include <cassert>
+#include <cstdio>
 #include <ctime>
 
 using namespace std;
 
 // https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/
 int josephRing(int n, int m) {
-
 #if 0
     // 失业解法
     vector<int> circle(n, 0);
@@ -28,11 +27,11 @@ int josephRing(int n, int m) {
 
 #if 1
 
-   int ans = 0;
-   for (int i = 2; i <= n; i++) {
-       ans = (ans + m) % i;
-   }
-   return ans;
+    int ans = 0;
+    for (int i = 2; i <= n; i++) {
+        ans = (ans + m) % i;
+    }
+    return ans;
 
 #endif
 }
@@ -48,7 +47,7 @@ int main(int argc, char* argv[]) {
     end = clock();
     printf("Test1 costs time: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
 
-    //Test 2
+    // Test 2
     n = 5, m = 3;
     start = clock();
     assert(3 == josephRing(n, m));

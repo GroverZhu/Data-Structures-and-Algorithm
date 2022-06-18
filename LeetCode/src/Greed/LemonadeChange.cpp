@@ -1,6 +1,6 @@
+#include <cassert>
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -24,7 +24,6 @@ bool lemonadeChange(vector<int>& bills) {
             } else {
                 return false;
             }
-
         }
     }
     return true;
@@ -33,19 +32,19 @@ bool lemonadeChange(vector<int>& bills) {
 int main(int argc, char* argv[]) {
     vector<int> bills;
 
-    bills = {5,5,5,10,20};
+    bills = {5, 5, 5, 10, 20};
     assert(true == lemonadeChange(bills));
 
-    bills = {5,5,10,10,20};
+    bills = {5, 5, 10, 10, 20};
     assert(false == lemonadeChange(bills));
 
-    bills = {5,5,10};
+    bills = {5, 5, 10};
     assert(true == lemonadeChange(bills));
 
     bills = {10, 10};
     assert(false == lemonadeChange(bills));
 
-    bills = {5,5,10,20,5,5,5,5,5,5,5,5,5,10,5,5,20,5,20,5};
+    bills = {5, 5, 10, 20, 5, 5, 5, 5, 5, 5, 5, 5, 5, 10, 5, 5, 20, 5, 20, 5};
     assert(true == lemonadeChange(bills));
     return 0;
 }

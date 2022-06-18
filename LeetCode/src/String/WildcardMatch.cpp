@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <map>
+#include <string>
 
 #include <cassert>
 
@@ -37,7 +37,6 @@ bool matchHelper(string& s, int s_index, string& p, int p_index, map<pair<int, i
 }
 
 bool isMatch(string s, string p) {
-
 #if 0  // 采用递归调用
     if (p.size() == 0) return s.size() == 0;
     if (s.size() == 0) {
@@ -58,11 +57,9 @@ bool isMatch(string s, string p) {
 
     map<pair<int, int>, bool> memo;
     return matchHelper(s, 0, p, 0, memo);
-
 }
 
 int main(int argc, char* argv[]) {
-
     string s, p;
 
     s = "aa";
@@ -77,7 +74,6 @@ int main(int argc, char* argv[]) {
     p = "?a";
     assert(false == isMatch(s, p));
 
-
     s = "adceb";
     p = "*a*b";
     assert(true == isMatch(s, p));
@@ -85,7 +81,6 @@ int main(int argc, char* argv[]) {
     s = "acdcb";
     p = "a*c?b";
     assert(false == isMatch(s, p));
-
 
     s = "aaaabaaaabbbbaabbbaabbaababbabbaaaababaaabbbbbbaabbbabababbaaabaabaaaaaabbaabbbbaababbababaabbbaababbbba";
     p = "*****b*aba***babaa*bbaba***a*aaba*b*aa**a*b**ba***a*a*";

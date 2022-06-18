@@ -31,7 +31,7 @@ bool isIsomorphic(string s, string t) {
 
 int main(int argc, char* argv[]) {
     string s, t;
-    
+
     s = "egg";
     t = "add";
     assert(true == isIsomorphic(s, t));

@@ -1,8 +1,8 @@
+#include <climits>
 #include <iostream>
-#include <vector>
 #include <queue>
 #include <set>
-#include <climits>
+#include <vector>
 
 #include <cassert>
 
@@ -94,7 +94,7 @@ int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
     priority_queue<pair<pair<int, int>, int>, vector<pair<pair<int, int>, int>>, decltype(cmp)> q(cmp);
     q.push({{0, 0}, 1});
     grid[0][0] = 1;
-    
+
     while (!q.empty()) {
         auto node = q.top();
         int x = node.first.first;
@@ -119,7 +119,6 @@ int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
     }
     return -1;
 #endif
-
 }
 
 int main(int argc, char* argv[]) {
@@ -131,7 +130,6 @@ int main(int argc, char* argv[]) {
     result = shortestPathBinaryMatrix(grid);
     assert(ans == result);
 
-
     grid = {{0, 0, 0}, {1, 1, 0}, {1, 1, 0}};
     ans = 4;
     result = shortestPathBinaryMatrix(grid);
@@ -141,18 +139,20 @@ int main(int argc, char* argv[]) {
     ans = -1;
     result = shortestPathBinaryMatrix(grid);
     assert(ans == result);
-    
+
     grid = {{0}};
     ans = 1;
     result = shortestPathBinaryMatrix(grid);
     assert(ans == result);
 
-    grid = {{0,1,0,0,0,0},{0,1,1,1,1,1},{0,0,0,0,1,1},{0,1,0,0,0,1},{1,0,0,1,0,1},{0,0,1,0,1,0}};
+    grid = {{0, 1, 0, 0, 0, 0}, {0, 1, 1, 1, 1, 1}, {0, 0, 0, 0, 1, 1},
+            {0, 1, 0, 0, 0, 1}, {1, 0, 0, 1, 0, 1}, {0, 0, 1, 0, 1, 0}};
     ans = 7;
     result = shortestPathBinaryMatrix(grid);
     assert(ans == result);
 
-    grid = {{0,1,1,1,1,1,1,1},{0,1,1,0,0,0,0,0},{0,1,0,1,1,1,1,0},{0,1,0,1,1,1,1,0},{0,1,1,0,0,1,1,0},{0,1,1,1,1,0,1,0},{0,0,0,0,0,1,1,0},{1,1,1,1,1,1,1,0}};
+    grid = {{0, 1, 1, 1, 1, 1, 1, 1}, {0, 1, 1, 0, 0, 0, 0, 0}, {0, 1, 0, 1, 1, 1, 1, 0}, {0, 1, 0, 1, 1, 1, 1, 0},
+            {0, 1, 1, 0, 0, 1, 1, 0}, {0, 1, 1, 1, 1, 0, 1, 0}, {0, 0, 0, 0, 0, 1, 1, 0}, {1, 1, 1, 1, 1, 1, 1, 0}};
     ans = 25;
     result = shortestPathBinaryMatrix(grid);
     assert(ans == result);

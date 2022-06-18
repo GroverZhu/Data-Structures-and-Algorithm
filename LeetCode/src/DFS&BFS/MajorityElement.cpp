@@ -1,6 +1,6 @@
+#include <cassert>
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -64,8 +64,8 @@ int main() {
     ans = 3;
     result = majorityElement(nums);
     assert(result == ans);
-    
-    nums = {2,2,1,1,1,2,2};
+
+    nums = {2, 2, 1, 1, 1, 2, 2};
     ans = 2;
     result = majorityElement(nums);
     assert(result == ans);

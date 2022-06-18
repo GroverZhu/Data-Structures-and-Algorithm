@@ -1,16 +1,15 @@
 #include <iostream>
 #include <vector>
+
 #include <cassert>
 
 #include "List/ListNode.h"
 
 using namespace std;
 
-
 // https://leetcode-cn.com/problems/reverse-linked-list/
 
 ListNode* reverseList(ListNode* head) {
-
 #if 0
     // 迭代
     if (!head || !head->next) return head;
@@ -37,7 +36,6 @@ ListNode* reverseList(ListNode* head) {
     return last;
 
 #endif
-
 }
 
 // https://leetcode-cn.com/problems/swap-nodes-in-pairs/
@@ -50,7 +48,7 @@ ListNode* swapPair(ListNode* head) {
     auto first = head;
     auto second = head->next;
     second->next = first;
-    first->next = next; 
+    first->next = next;
 
     return second;
 }
@@ -104,7 +102,6 @@ int main(int argc, char* argv[]) {
         cur = cur->next;
     }
     destoryList(head);
-    
 
     nums = {1, 2};
     ans = {2, 1};
@@ -143,7 +140,7 @@ int main(int argc, char* argv[]) {
         assert(num == cur->val);
         cur = cur->next;
     }
-    destoryList(head);    
+    destoryList(head);
 
     nums = {1, 2, 3, 4, 5};
     ans = {3, 2, 1, 4, 5};
@@ -156,7 +153,7 @@ int main(int argc, char* argv[]) {
         assert(num == cur->val);
         cur = cur->next;
     }
-    destoryList(head);  
+    destoryList(head);
 
     return 0;
 }

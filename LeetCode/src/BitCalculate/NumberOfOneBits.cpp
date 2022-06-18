@@ -1,4 +1,3 @@
-#include <iostream>
 #include <cassert>
 
 using namespace std;
@@ -27,7 +26,6 @@ int main(int argc, char* argv[]) {
     ans = 1;
     result = hammingWeight(n);
     assert(ans == result);
-
 
     n = 0b11111111111111111111111111111101;
     ans = 31;

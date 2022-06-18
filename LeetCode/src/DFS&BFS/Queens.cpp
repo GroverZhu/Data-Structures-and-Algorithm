@@ -1,8 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <set>
 #include <cassert>
 #include <ctime>
+#include <iostream>
+#include <set>
+#include <vector>
 
 using namespace std;
 
@@ -28,7 +28,6 @@ void dfs(int& result, int n, int row, set<int>& cols, set<int>& postiveDiagonal,
         cols.erase(j);
         postiveDiagonal.erase(j - row);
         negativeDiagonal.erase(j + row);
-
     }
 }
 
@@ -36,7 +35,7 @@ int totalNQueens(int n) {
     if (n < 1) return 0;
     int result = 0;
     // dfsBits(result, n, 0, 0, 0, 0);
-    
+
     set<int> cols;
     set<int> pos;
     set<int> neg;
@@ -44,7 +43,6 @@ int totalNQueens(int n) {
 
     return result;
 }
-
 
 vector<string> genBoard(vector<int>& rows) {
     int size = static_cast<int>(rows.size());
@@ -56,7 +54,8 @@ vector<string> genBoard(vector<int>& rows) {
     return board;
 }
 
-void dfs(vector<vector<string>>& result, int n, int row, vector<int>& rows, set<int>& cols, set<int>& pos, set<int>& neg) {
+void dfs(vector<vector<string>>& result, int n, int row, vector<int>& rows, set<int>& cols, set<int>& pos,
+         set<int>& neg) {
     if (row == n) {
         result.push_back(genBoard(rows));
         return;
@@ -91,9 +90,7 @@ vector<vector<string>> solveNQueens(int n) {
     return result;
 }
 
-
 int main(int argc, char* argv[]) {
-
     assert(1 == totalNQueens(1));
     assert(0 == totalNQueens(2));
     assert(0 == totalNQueens(3));
@@ -109,12 +106,10 @@ int main(int argc, char* argv[]) {
     set<vector<string>> result_set = set<vector<string>>(result.begin(), result.end());
     assert(ans == result_set);
 
-    ans = {{".Q..","...Q","Q...","..Q."}, {"..Q.","Q...","...Q",".Q.."}};
+    ans = {{".Q..", "...Q", "Q...", "..Q."}, {"..Q.", "Q...", "...Q", ".Q.."}};
     result = solveNQueens(4);
     result_set = set<vector<string>>(result.begin(), result.end());
     assert(ans == result_set);
-
-
 
     return 0;
 }

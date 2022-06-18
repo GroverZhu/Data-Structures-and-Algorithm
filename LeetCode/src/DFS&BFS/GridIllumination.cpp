@@ -1,8 +1,8 @@
+#include <cassert>
 #include <iostream>
-#include <vector>
 #include <map>
 #include <unordered_set>
-#include <cassert>
+#include <vector>
 
 using namespace std;
 
@@ -61,10 +61,9 @@ vector<int> gridIllumination(int n, vector<vector<int>>& lamps, vector<vector<in
                 rows[next_x]--;
                 cols[next_y]--;
                 neg[next_y + next_x]--;
-                pos[next_y - next_x]--; 
+                pos[next_y - next_x]--;
             }
         }
-        
     }
     return result;
 }

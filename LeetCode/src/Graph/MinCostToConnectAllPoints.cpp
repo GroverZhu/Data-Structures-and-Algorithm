@@ -1,8 +1,8 @@
+#include <algorithm>
 #include <iostream>
-#include <vector>
 #include <map>
 #include <queue>
-#include <algorithm>
+#include <vector>
 
 #include <cassert>
 
@@ -10,8 +10,7 @@ using namespace std;
 
 // 并查集
 class UnionFind {
-
-public:
+   public:
     UnionFind(int n) {
         size = n;
         count = n;
@@ -48,10 +47,9 @@ public:
         --count;
     }
 
-    int getCount() {
-        return this->count;
-    }
-private:
+    int getCount() { return this->count; }
+
+   private:
     vector<int> parent;
     int size;
     int count;
@@ -69,9 +67,7 @@ int minCostConnectPoints(vector<vector<int>>& points) {
         }
     }
 
-    sort(connections.begin(), connections.end(), [](vector<int>& lhs, vector<int>& rhs){
-        return lhs[2] < rhs[2];
-    });
+    sort(connections.begin(), connections.end(), [](vector<int>& lhs, vector<int>& rhs) { return lhs[2] < rhs[2]; });
 
     UnionFind uf = UnionFind(size);
 
@@ -86,7 +82,6 @@ int minCostConnectPoints(vector<vector<int>>& points) {
     }
 
     return uf.getCount() == 1 ? minCost : -1;
-
 }
 
 // prim 最小生成树算法
@@ -106,9 +101,7 @@ int prim(vector<vector<int>>& points) {
     }
 
     vector<bool> visited(size, false);
-    auto cmp = [](const pair<int, int>& lhs, const pair<int, int>& rhs) {
-        return lhs.second > rhs.second;
-    };
+    auto cmp = [](const pair<int, int>& lhs, const pair<int, int>& rhs) { return lhs.second > rhs.second; };
 
     priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(cmp)> q(cmp);
     int minCost = 0;
@@ -139,8 +132,6 @@ int prim(vector<vector<int>>& points) {
     }
 
     return minCost;
-
-
 }
 
 int main(int argc, char* argv[]) {
@@ -153,7 +144,7 @@ int main(int argc, char* argv[]) {
     assert(18 == minCostConnectPoints(points));
     assert(minCostConnectPoints(points) == prim(points));
 
-    points = {{0,0}, {1,1}, {1, 0}, {-1, 1}};
+    points = {{0, 0}, {1, 1}, {1, 0}, {-1, 1}};
     assert(4 == minCostConnectPoints(points));
     assert(minCostConnectPoints(points) == prim(points));
 

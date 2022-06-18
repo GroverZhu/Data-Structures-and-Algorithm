@@ -1,5 +1,5 @@
-#include <iostream>
 #include <vector>
+
 #include <cassert>
 
 using namespace std;
@@ -19,12 +19,11 @@ int main(int argc, char* argv[]) {
 
     n = 2;
     ans = {0, 1, 1};
-    result =  countBits(n);
+    result = countBits(n);
     assert(ans == result);
-
 
     n = 5;
     ans = {0, 1, 1, 2, 1, 2};
-    result =  countBits(n);
+    result = countBits(n);
     assert(ans == result);
 }

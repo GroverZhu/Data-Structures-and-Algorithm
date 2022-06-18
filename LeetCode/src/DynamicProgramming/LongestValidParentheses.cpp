@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
 
     s = ")()())";
     assert(4 == longestValidParentheses(s));
-    
+
     s = "";
     assert(0 == longestValidParentheses(s));
 

@@ -1,12 +1,10 @@
-#include <iostream>
 #include <cassert>
+#include <iostream>
 
 using namespace std;
 
 // https://leetcode-cn.com/problems/power-of-two/
-bool isPowerOfTwo(int n) {
-    return n > 0 && (n & (n - 1)) == 0;
-}
+bool isPowerOfTwo(int n) { return n > 0 && (n & (n - 1)) == 0; }
 
 int main(int argc, char* argv[]) {
     assert(true == isPowerOfTwo(1));

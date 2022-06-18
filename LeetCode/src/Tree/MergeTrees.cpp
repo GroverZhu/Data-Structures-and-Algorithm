@@ -1,17 +1,17 @@
-#include <iostream>
-#include <vector>
-#include <stack>
 #include <cassert>
+#include <iostream>
+#include <stack>
+#include <vector>
 
 #include "Tree/BinaryTreeNode.h"
 
 using namespace std;
 
 // https://leetcode-cn.com/problems/merge-two-binary-trees/
-TreeNode* mergeTrees(TreeNode *t1, TreeNode *t2) {
+TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2) {
     if (t1 == nullptr && t2 == nullptr) return nullptr;
     if (t1 != nullptr && t2 == nullptr) return t1;
-    if (t1 == nullptr && t2 != nullptr) return t2;  
+    if (t1 == nullptr && t2 != nullptr) return t2;
     t1->val += t2->val;
     t1->left = mergeTrees(t1->left, t2->left);
     t1->right = mergeTrees(t1->right, t2->right);
@@ -24,9 +24,7 @@ TreeNode* mergeTrees(TreeNode *t1, TreeNode *t2) {
 bool isSameTree(TreeNode* root1, TreeNode* root2) {
     if (!root1 && !root2) return true;
     if (!root1 || !root2) return false;
-    return root1->val == root2->val && 
-           isSameTree(root1->left, root2->left) &&
-           isSameTree(root1->right, root2->right);
+    return root1->val == root2->val && isSameTree(root1->left, root2->left) && isSameTree(root1->right, root2->right);
 }
 
 int main() {
@@ -73,9 +71,9 @@ int main() {
     vector<int> pre2 = {2, 1, 4, 3, 7};
     vector<int> in2 = {1, 4, 2, 3, 7};
     int size2 = static_cast<int>(pre2.size());
-    struct TreeNode *root1 = buildTreeFromPreOrderAndInorderSerial(pre1, 0, size1 - 1, in1, 0, size1 - 1);
-    struct TreeNode *root2 = buildTreeFromPreOrderAndInorderSerial(pre2, 0, size2 - 1, in2, 0, size2 - 1);
-    struct TreeNode *merge = mergeTrees(root1, root2);
+    struct TreeNode* root1 = buildTreeFromPreOrderAndInorderSerial(pre1, 0, size1 - 1, in1, 0, size1 - 1);
+    struct TreeNode* root2 = buildTreeFromPreOrderAndInorderSerial(pre2, 0, size2 - 1, in2, 0, size2 - 1);
+    struct TreeNode* merge = mergeTrees(root1, root2);
     vector<int> pre3 = {3, 4, 5, 4, 5, 7};
     vector<int> in3 = {5, 4, 4, 3, 5, 7};
     auto tmp_pre = preorder(merge);

@@ -1,6 +1,6 @@
+#include <cassert>
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -42,7 +42,6 @@ int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
         }
     }
     return paths[rows - 1][cols - 1];
-    
 }
 
 void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int& result, int steps, int x, int y) {
@@ -107,7 +106,7 @@ int main(int argc, char* argv[]) {
 
     m = 3, n = 2;
     assert(3 == uniquePaths(m, n));
-    
+
     m = 7, n = 3;
     assert(28 == uniquePaths(m, n));
 
@@ -126,13 +125,13 @@ int main(int argc, char* argv[]) {
     assert(0 == uniquePathsWithObstacles(grid));
 
     // https://leetcode-cn.com/problems/unique-paths-iii/
-    grid = {{1,0,0,0}, {0,0,0,0}, {0, 0, 2, -1}};
+    grid = {{1, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 2, -1}};
     assert(2 == uniquePathsIII(grid));
 
-    grid = {{1,0,0,0}, {0,0,0,0}, {0, 0, 0, 2}};
+    grid = {{1, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 2}};
     assert(4 == uniquePathsIII(grid));
 
-    grid = {{0,1},{2,0}};
+    grid = {{0, 1}, {2, 0}};
     assert(0 == uniquePathsIII(grid));
     return 0;
 }

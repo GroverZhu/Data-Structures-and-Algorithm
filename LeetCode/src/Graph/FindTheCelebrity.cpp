@@ -1,14 +1,12 @@
-#include <iostream>
-#include <vector>
-#include <queue>
 #include <cassert>
+#include <iostream>
+#include <queue>
+#include <vector>
 
 using namespace std;
 
 vector<vector<bool>> graph;
-bool knows(int a, int b) {
-    return graph[a][b];
-}
+bool knows(int a, int b) { return graph[a][b]; }
 
 //  https://leetcode-cn.com/problems/find-the-celebrity/
 int findCelebrity(int n) {
@@ -56,7 +54,6 @@ int findCelebrity(int n) {
     return cand;
 
 #endif
-
 }
 
 int main(int argc, char* argv[]) {

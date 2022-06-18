@@ -1,7 +1,7 @@
 #include <iostream>
-#include <vector>
 #include <set>
 #include <string>
+#include <vector>
 
 #include <cassert>
 
@@ -25,11 +25,11 @@ int main(int argc, char* argv[]) {
     jewels = "aA";
     stones = "aAAbbbb";
     assert(3 == numJewIsInStones(jewels, stones));
-    
+
     jewels = "z";
     stones = "ZZ";
-    assert(0 == numJewIsInStones(jewels, stones));;
-
+    assert(0 == numJewIsInStones(jewels, stones));
+    ;
 
     return 0;
 }

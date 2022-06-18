@@ -24,19 +24,18 @@ int maxArea(vector<int>& height) {
     }
 
     return area;
-
 }
 
 int main(int argc, char* argv[]) {
     vector<int> height;
     int ans, result;
 
-    height = {1,8,6,2,5,4,8,3,7};
+    height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
     result = maxArea(height);
     ans = 49;
     assert(result == ans);
 
-    height = {1,1};
+    height = {1, 1};
     result = maxArea(height);
     ans = 1;
     assert(result == ans);

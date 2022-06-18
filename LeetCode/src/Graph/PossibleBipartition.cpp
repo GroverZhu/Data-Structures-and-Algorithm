@@ -1,8 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <queue>
 #include <cassert>
-
+#include <iostream>
+#include <queue>
+#include <vector>
 
 using namespace std;
 
@@ -49,7 +48,7 @@ int main(int argc, char* argv[]) {
     int n = 4;
     vector<vector<int>> dislikes = {{1, 2}, {1, 3}, {2, 4}};
     assert(true == possibleBipartition(n, dislikes));
-    
+
     n = 3;
     dislikes = {{1, 2}, {1, 3}, {2, 3}};
     assert(false == possibleBipartition(n, dislikes));

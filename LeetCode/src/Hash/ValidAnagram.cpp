@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <map>
+#include <string>
 
 #include <cassert>
 
@@ -22,7 +22,6 @@ bool isAnagram(string s, string t) {
         if (node.second != 0) return false;
     }
     return true;
-
 }
 
 int main(int argc, char* argv[]) {

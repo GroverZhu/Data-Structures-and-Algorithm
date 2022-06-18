@@ -1,20 +1,20 @@
+#include <cassert>
 #include <iostream>
 #include <list>
 #include <map>
-#include <cassert>
 
 using namespace std;
 
 // https://leetcode-cn.com/problems/lru-cache/
 class LRUCache {
-public:
+   public:
     LRUCache(int capacity) {
         size = 0;
         this->capacity = capacity;
         chain = {};
         cache = {};
     }
-    
+
     int get(int key) {
         if (cache.find(key) == cache.end()) return -1;
         auto node = cache[key];
@@ -22,17 +22,16 @@ public:
         chain.splice(chain.begin(), chain, node);
         return result;
     }
-    
+
     void put(int key, int value) {
-        
-        if (cache.find(key) != cache.end()) { // 已经存在，更新值并移动至chain头节点
+        if (cache.find(key) != cache.end()) {  // 已经存在，更新值并移动至chain头节点
             auto node = cache[key];
             chain.erase(node);
             cache.erase(key);
             chain.push_front({key, value});
             cache[key] = chain.begin();
-        } else { // 不存在，chain是否满，如果满，则先移除在添加，否则直接添加
-            if (size < capacity) { // 直接添加
+        } else {  // 不存在，chain是否满，如果满，则先移除在添加，否则直接添加
+            if (size < capacity) {  // 直接添加
                 chain.push_front({key, value});
                 cache[key] = chain.begin();
                 size++;
@@ -43,20 +42,17 @@ public:
                 chain.push_front({key, value});
                 cache[key] = chain.begin();
             }
-            
         }
     }
 
-private:
+   private:
     list<pair<int, int>> chain;
     map<int, list<pair<int, int>>::iterator> cache;
     int size;
     int capacity;
-
 };
 
 int main(int argc, char* argv[]) {
-
     LRUCache lru = LRUCache(2);
     lru.put(1, 1);
     lru.put(2, 2);

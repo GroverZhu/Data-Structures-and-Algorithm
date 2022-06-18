@@ -1,6 +1,6 @@
+#include <cassert>
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -28,8 +28,8 @@ void dfs(vector<vector<char>>& board, int x, int y) {
             int nextY = y + dy[i];
             if (nextX >= 0 && nextX < rows && nextY >= 0 && nextY < cols && board[nextX][nextY] == 'E') {
                 dfs(board, nextX, nextY);
+            }
         }
-    }
     }
 }
 
@@ -51,17 +51,17 @@ int main(int argc, char* argv[]) {
     vector<vector<char>> board, ans;
     vector<int> click;
 
-    board = {{'E','E','E','E','E'},{'E','E','M','E','E'},{'E','E','E','E','E'},{'E','E','E','E','E'}};
-    ans = {{'B','1','E','1','B'},{'B','1','M','1','B'},{'B','1','1','1','B'},{'B','B','B','B','B'}};
+    board = {
+        {'E', 'E', 'E', 'E', 'E'}, {'E', 'E', 'M', 'E', 'E'}, {'E', 'E', 'E', 'E', 'E'}, {'E', 'E', 'E', 'E', 'E'}};
+    ans = {{'B', '1', 'E', '1', 'B'}, {'B', '1', 'M', '1', 'B'}, {'B', '1', '1', '1', 'B'}, {'B', 'B', 'B', 'B', 'B'}};
     click = {3, 0};
     updateBoard(board, click);
     assert(board == ans);
 
-
-    board = {{'B','1','E','1','B'},{'B','1','M','1','B'},{'B','1','1','1','B'},{'B','B','B','B','B'}};
-    ans = {{'B','1','E','1','B'},{'B','1','X','1','B'},{'B','1','1','1','B'},{'B','B','B','B','B'}};
+    board = {
+        {'B', '1', 'E', '1', 'B'}, {'B', '1', 'M', '1', 'B'}, {'B', '1', '1', '1', 'B'}, {'B', 'B', 'B', 'B', 'B'}};
+    ans = {{'B', '1', 'E', '1', 'B'}, {'B', '1', 'X', '1', 'B'}, {'B', '1', '1', '1', 'B'}, {'B', 'B', 'B', 'B', 'B'}};
     click = {1, 2};
     updateBoard(board, click);
     assert(board == ans);
-
 }

@@ -1,12 +1,11 @@
+#include <cassert>
 #include <iostream>
 #include <stack>
-#include <cassert>
 
 using namespace std;
 
 class MinStack {
-
-public:
+   public:
     MinStack() {
         mini = {};
         normal = {};
@@ -19,7 +18,6 @@ public:
         } else {
             mini.push(min(val, mini.top()));
         }
-
     }
 
     void pop() {
@@ -27,18 +25,13 @@ public:
         mini.pop();
     }
 
-    int top() {
-        return normal.top();
-    }
+    int top() { return normal.top(); }
 
-    int getMin() {
-        return mini.top();
-    }
+    int getMin() { return mini.top(); }
 
-private:
+   private:
     stack<int> mini;
     stack<int> normal;
-
 };
 
 int main(int argc, char* argv[]) {

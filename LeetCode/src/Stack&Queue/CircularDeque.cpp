@@ -1,5 +1,5 @@
-#include <iostream>
 #include <cassert>
+#include <iostream>
 using namespace std;
 
 struct Node {
@@ -21,12 +21,11 @@ struct Node {
 
     Node(Node&) = delete;
     Node& operator=(Node& rhs) = delete;
-
 };
 
 // https://leetcode-cn.com/problems/design-circular-deque/
 class MyCircularDeque {
-public:
+   public:
     MyCircularDeque(int k) {
         this->size = 0;
         this->capacity = k;
@@ -65,7 +64,6 @@ public:
         ++this->size;
 
         return true;
-        
     }
 
     bool insertLast(int value) {
@@ -80,7 +78,6 @@ public:
 
         ++this->size;
         return true;
-
     }
 
     bool deleteFront() {
@@ -94,7 +91,6 @@ public:
 
         --this->size;
         return true;
-
     }
 
     bool deleteLast() {
@@ -108,7 +104,6 @@ public:
 
         --this->size;
         return true;
-
     }
 
     int getFront() {
@@ -121,20 +116,15 @@ public:
         return this->tail->prev->value;
     }
 
-    bool isEmpty() {
-        return this->size <= 0;
-    }
+    bool isEmpty() { return this->size <= 0; }
 
-    bool isFull() {
-        return this->size >= this->capacity;
-    }
+    bool isFull() { return this->size >= this->capacity; }
 
-private:
+   private:
     int size;
     int capacity;
     Node* head;
     Node* tail;
-
 };
 
 int main(int argc, char* argv[]) {

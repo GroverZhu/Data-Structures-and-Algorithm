@@ -1,8 +1,8 @@
 
 #include <iostream>
 #include <map>
-#include <set>
 #include <queue>
+#include <set>
 #include <vector>
 
 #include <cassert>
@@ -40,10 +40,8 @@ bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
             }
         }
     }
-    
+
     return visited == numCourses;
-
-
 }
 
 // https://leetcode-cn.com/problems/course-schedule-ii/
@@ -74,7 +72,7 @@ vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
         q.pop();
 
         result.emplace_back(node);
-        
+
         for (auto next : graph[node]) {
             indegree[next]--;
             if (indegree[next] == 0) {
@@ -85,7 +83,6 @@ vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
     }
 
     return visited == numCourses ? result : vector<int>();
-
 }
 
 int main(int argc, char* argv[]) {
@@ -107,7 +104,6 @@ int main(int argc, char* argv[]) {
     orderResult = {};
     assert(order == orderResult);
 
-    
     numCourses = 1;
     prerequisites = {};
     assert(true == canFinish(numCourses, prerequisites));

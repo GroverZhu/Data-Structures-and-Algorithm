@@ -1,6 +1,6 @@
+#include <cassert>
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -29,8 +29,6 @@ bool canPartition(vector<int>& nums) {
 
     return dp[size][cols - 1];
 }
-
-
 
 int main(int argc, char* argv[]) {
     vector<int> nums = {1, 5, 11, 5};

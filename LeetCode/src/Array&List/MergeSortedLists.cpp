@@ -1,12 +1,12 @@
 #include <iostream>
-#include <vector>
 #include <queue>
+#include <vector>
+
 #include <cassert>
 
 #include "List/ListNode.h"
 
 using namespace std;
-
 
 // https://leetcode-cn.com/problems/merge-two-sorted-lists/
 ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
@@ -31,12 +31,10 @@ ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
     if (list2) cur->next = list2;
 
     return dummy.next;
-
 }
 
 // https://leetcode-cn.com/problems/merge-k-sorted-lists/
 ListNode* mergeKLists(vector<ListNode*>& lists) {
-
 #if 0
     int size = static_cast<int>(lists.size());
     if (size == 0) return nullptr;
@@ -86,7 +84,6 @@ ListNode* mergeKLists(vector<ListNode*>& lists) {
     return mergeTwoLists(leftHead, rightHead);
 
 #endif
-
 }
 
 int main(int argc, char* argv[]) {

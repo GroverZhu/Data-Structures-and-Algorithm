@@ -1,7 +1,7 @@
 #include <iostream>
-#include <vector>
-#include <string>
 #include <set>
+#include <string>
+#include <vector>
 
 #include <cassert>
 
@@ -51,7 +51,6 @@ int openLock(vector<string>& deadends, string target) {
                     temp.insert(s);
                 }
 
-
                 s[i] = base;
             }
         }
@@ -76,7 +75,7 @@ int main(int argc, char* argv[]) {
     ans = 1;
     assert(ans == openLock(deadends, target));
 
-    deadends = {"8887","8889","8878","8898","8788","8988","7888","9888"};
+    deadends = {"8887", "8889", "8878", "8898", "8788", "8988", "7888", "9888"};
     target = "8888";
     ans = -1;
     assert(ans == openLock(deadends, target));
@@ -86,7 +85,7 @@ int main(int argc, char* argv[]) {
     ans = -1;
     assert(ans == openLock(deadends, target));
 
-    deadends = {"0201","0101","0102","1212","2002"};
+    deadends = {"0201", "0101", "0102", "1212", "2002"};
     target = "0000";
     ans = 0;
     assert(ans == openLock(deadends, target));

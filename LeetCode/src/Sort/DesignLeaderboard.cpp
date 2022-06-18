@@ -1,14 +1,13 @@
+#include <cassert>
 #include <iostream>
 #include <set>
 #include <unordered_map>
-#include <cassert>
 
 using namespace std;
 
 // https://leetcode-cn.com/problems/design-a-leaderboard/
 class Leaderboard {
-    
-public:
+   public:
     Leaderboard() {
         scores.clear();
         id2score.clear();
@@ -48,10 +47,9 @@ public:
         }
     }
 
-private: 
+   private:
     multiset<int, decltype(greater<int>())> scores{greater<int>()};
     unordered_map<int, int> id2score;
-
 };
 
 int main(int argc, char* argv[]) {

@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 
-
 #include <cassert>
 
 using namespace std;
@@ -19,13 +18,13 @@ int maxProfit(vector<int>& prices) {
 int main(int argc, char* argv[]) {
     vector<int> prices;
 
-    prices = {7,1,5,3,6,4};
+    prices = {7, 1, 5, 3, 6, 4};
     assert(7 == maxProfit(prices));
 
     prices = {1, 2, 3, 4, 5};
     assert(4 == maxProfit(prices));
 
-    prices = {7,6,4,3,1};
+    prices = {7, 6, 4, 3, 1};
     assert(0 == maxProfit(prices));
 
     return 0;

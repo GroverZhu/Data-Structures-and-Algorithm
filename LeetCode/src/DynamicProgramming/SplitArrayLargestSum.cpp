@@ -1,7 +1,7 @@
+#include <ctype.h>
+#include <climits>
 #include <iostream>
 #include <vector>
-#include <climits>
-#include <ctype.h>
 
 #include <cassert>
 
@@ -12,7 +12,7 @@ int splitArray(vector<int>& nums, int m) {
     int size = static_cast<int>(nums.size());
 
     vector<long long> prefixSum(size + 1, 0);
-    
+
     for (int i = 1; i <= size; i++) {
         prefixSum[i] = prefixSum[i - 1] + nums[i - 1];
     }

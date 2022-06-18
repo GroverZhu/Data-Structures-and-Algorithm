@@ -1,11 +1,11 @@
-#include <iostream>
-#include <map>
-#include <vector>
-#include <set>
-#include <string>
-#include <queue>
 #include <cassert>
 #include <ctime>
+#include <iostream>
+#include <map>
+#include <queue>
+#include <set>
+#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -27,15 +27,10 @@ struct TrieNode {
 };
 
 class Trie {
+   public:
+    Trie() { root = new TrieNode(); }
 
-public:
-    Trie() {
-        root = new TrieNode();
-    }
-
-    ~Trie() {
-        delete root;
-    }
+    ~Trie() { delete root; }
 
     void insert(string word) {
         auto node = root;
@@ -90,7 +85,7 @@ public:
         return prefix;
     }
 
-private:
+   private:
     TrieNode* root;
 };
 
@@ -121,14 +116,15 @@ void dfs(vector<vector<char>>& board, Trie& trie, set<string>& result, string& t
         int next_x = x + dx[k];
         int next_y = y + dy[k];
 
-        if (next_x >= 0 && next_x < rows && next_y >= 0 && next_y < cols && board[next_x][next_y] >= 'a' && level < 10) {
+        if (next_x >= 0 && next_x < rows && next_y >= 0 && next_y < cols && board[next_x][next_y] >= 'a' &&
+            level < 10) {
             temp.push_back(board[next_x][next_y]);
             dfs(board, trie, result, temp, next_x, next_y, level + 1);
             temp.pop_back();
         }
     }
 
-    board[x][y] += 'a'; 
+    board[x][y] += 'a';
 }
 
 vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
@@ -149,7 +145,6 @@ vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
     return vector<string>(result.begin(), result.end());
 }
 
-
 int main(int argc, char* argv[]) {
     auto begin = clock();
 
@@ -161,10 +156,10 @@ int main(int argc, char* argv[]) {
     trie1.insert("app");
     assert(true == trie1.search("app"));
 
-    vector<string> strs = {"flower","flow","flight"};
+    vector<string> strs = {"flower", "flow", "flight"};
     string ans = "fl";
     assert(ans == longestCommonPrefix(strs));
-    strs = {"dog","racecar","car"};
+    strs = {"dog", "racecar", "car"};
     ans = "";
     assert(ans == longestCommonPrefix(strs));
     strs = {"", "b"};
@@ -174,13 +169,19 @@ int main(int argc, char* argv[]) {
     ans = "abc";
     assert(ans == longestCommonPrefix(strs));
 
-    vector<vector<char>> board = {{'o','a','a','n'},{'e','t','a','e'},{'i','h','k','r'},{'i','f','l','v'}};
-    vector<string> words = {"oath","pea","eat","rain"};
+    vector<vector<char>> board = {
+        {'o', 'a', 'a', 'n'}, {'e', 't', 'a', 'e'}, {'i', 'h', 'k', 'r'}, {'i', 'f', 'l', 'v'}};
+    vector<string> words = {"oath", "pea", "eat", "rain"};
     vector<string> results = {"eat", "oath"};
     auto tmp = findWords(board, words);
     assert(results == tmp);
 
-    board = {{'b','d','a','a','c','c','b','e'},{'d','c','e','b','b','e','e','b'},{'b','d','b','e','b','a','a','e'},{'b','c','d','a','d','d','a','c'},{'e','d','b','c','a','d','a','c'},{'e','b','a','a','c','d','c','d'},{'d','e','c','c','b','d','d','c'},{'c','a','c','e','c','b','d','c'},{'a','e','d','b','c','b','a','a'},{'e','a','a','a','a','c','c','b'},{'d','e','e','e','c','b','c','e'}};
+    board = {{'b', 'd', 'a', 'a', 'c', 'c', 'b', 'e'}, {'d', 'c', 'e', 'b', 'b', 'e', 'e', 'b'},
+             {'b', 'd', 'b', 'e', 'b', 'a', 'a', 'e'}, {'b', 'c', 'd', 'a', 'd', 'd', 'a', 'c'},
+             {'e', 'd', 'b', 'c', 'a', 'd', 'a', 'c'}, {'e', 'b', 'a', 'a', 'c', 'd', 'c', 'd'},
+             {'d', 'e', 'c', 'c', 'b', 'd', 'd', 'c'}, {'c', 'a', 'c', 'e', 'c', 'b', 'd', 'c'},
+             {'a', 'e', 'd', 'b', 'c', 'b', 'a', 'a'}, {'e', 'a', 'a', 'a', 'a', 'c', 'c', 'b'},
+             {'d', 'e', 'e', 'e', 'c', 'b', 'c', 'e'}};
     words = {"cbcccec"};
     results = {"cbcccec"};
     tmp = findWords(board, words);
@@ -188,6 +189,6 @@ int main(int argc, char* argv[]) {
 
     auto end = clock();
     cout << "All tests passed. Time cost: " << (1.0 * (end - begin) / CLOCKS_PER_SEC * 1000) << "ms." << endl;
-    
+
     return 0;
 }

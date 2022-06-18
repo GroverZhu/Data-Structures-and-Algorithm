@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+
 #include <cassert>
 
 #include "List/ListNode.h"
@@ -13,7 +14,6 @@ bool isPalindromeRecursive(ListNode* right, ListNode*& left) {
     if (!result) return false;
     left = left->next;
     return result;
-
 }
 
 // [head, tail)
@@ -31,12 +31,10 @@ ListNode* reverse(ListNode* head, ListNode* tail) {
         cur = next;
     }
 
-
     return prev;
 }
 
 bool isPalindromeIteration(ListNode* head) {
-
 #if 1
     if (!head || !head->next) return true;
 
@@ -65,7 +63,6 @@ bool isPalindromeIteration(ListNode* head) {
     }
 
     return true;
-
 
 #endif
 

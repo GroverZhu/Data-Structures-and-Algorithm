@@ -1,12 +1,11 @@
+#include <cassert>
+#include <climits>
 #include <iostream>
 #include <vector>
-#include <climits>
-#include <cassert>
 
 using namespace std;
 
-
-// https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/ 
+// https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
 
 int maxProfitI(vector<int>& prices) {
     int size = static_cast<int>(prices.size());
@@ -28,7 +27,7 @@ int maxProfitI(vector<int>& prices) {
 int maxProfitII(vector<int>& prices) {
     int size = static_cast<int>(prices.size());
     if (size <= 1) return 0;
-    
+
     vector<vector<int>> profits(size, vector<int>(2, 0));
 
     profits[0][0] = 0;
@@ -42,7 +41,7 @@ int maxProfitII(vector<int>& prices) {
     return profits[size - 1][0];
 }
 
-// https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/ 
+// https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/
 int maxProfitIII(vector<int>& prices) {
     int size = static_cast<int>(prices.size());
     if (size <= 1) return 0;
@@ -65,10 +64,9 @@ int maxProfitIII(vector<int>& prices) {
     }
 
     return profits[size - 1][trade - 1][0];
-
 }
 
-// https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/ 
+// https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
 int maxProfitWithCooldown(vector<int>& prices) {
     int size = static_cast<int>(prices.size());
     if (size <= 1) return 0;
@@ -101,7 +99,7 @@ int maxProfitWithTransactionFee(vector<int>& prices, int fee) {
     return profits[size - 1][0];
 }
 
-// https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/ 
+// https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/
 int maxProfitIV(vector<int>& prices, int k) {
     int size = static_cast<int>(prices.size());
     if (size <= 1) return 0;
@@ -125,7 +123,6 @@ int maxProfitIV(vector<int>& prices, int k) {
     }
 
     return profits[size - 1][trade - 1][0];
-
 }
 
 int main(int argc, char* argv[]) {
@@ -138,7 +135,6 @@ int main(int argc, char* argv[]) {
     ans = 0;
     assert(ans == maxProfitI(prices));
 
-
     // https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/
     prices = {7, 1, 5, 3, 6, 4};
     ans = 7;
@@ -148,12 +144,11 @@ int main(int argc, char* argv[]) {
     ans = 4;
     assert(ans == maxProfitII(prices));
 
-
     prices = {7, 6, 4, 3, 1};
     ans = 0;
     assert(ans == maxProfitII(prices));
 
-    // https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/ 
+    // https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/
     prices = {3, 3, 5, 0, 0, 3, 1, 4};
     ans = 6;
     assert(ans == maxProfitIII(prices));
@@ -162,12 +157,11 @@ int main(int argc, char* argv[]) {
     ans = 4;
     assert(ans == maxProfitIII(prices));
 
-
     prices = {7, 6, 4, 3, 1};
     ans = 0;
     assert(ans == maxProfitIII(prices));
-    
-    // https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/ 
+
+    // https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
     prices = {1, 2, 3, 0, 2};
     ans = 3;
     assert(ans == maxProfitWithCooldown(prices));
@@ -197,6 +191,6 @@ int main(int argc, char* argv[]) {
     prices = {3, 2, 6, 5, 0, 3};
     ans = 7;
     assert(ans == maxProfitIV(prices, k));
-    
+
     return 0;
 }

@@ -1,7 +1,7 @@
 #include <iostream>
-#include <string>
 #include <map>
 #include <queue>
+#include <string>
 
 #include <cassert>
 
@@ -49,7 +49,7 @@ int main(int argc, char* argv[]) {
 
     s = "leetcode";
     assert(0 == firstUniqChar(s));
-    
+
     s = "loveleetcode";
     assert(2 == firstUniqChar(s));
 

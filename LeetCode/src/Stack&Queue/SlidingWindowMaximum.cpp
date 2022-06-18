@@ -1,11 +1,10 @@
+#include <deque>
 #include <iostream>
 #include <vector>
-#include <deque>
 
 #include <cassert>
 
 using namespace std;
-
 
 // https://leetcode-cn.com/problems/sliding-window-maximum/
 vector<int> maxSlidingWindow(vector<int>& nums, int k) {
@@ -47,9 +46,9 @@ int main(int argc, char* argv[]) {
     ans = {12};
     assert(ans == maxSlidingWindow(nums, k));
 
-    nums = {2,3,4,2,6,2,5,1};
+    nums = {2, 3, 4, 2, 6, 2, 5, 1};
     k = 3;
-    ans = {4,4,6,6,6,5};
+    ans = {4, 4, 6, 6, 6, 5};
     assert(ans == maxSlidingWindow(nums, k));
 
     return 0;

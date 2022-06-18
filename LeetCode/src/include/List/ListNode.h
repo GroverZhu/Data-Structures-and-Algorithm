@@ -28,9 +28,7 @@ void makeCycle(ListNode* cycleBegin, ListNode* cycleEnd) {
     cycleEnd->next = cycleBegin;
 }
 
-void clearCycle(ListNode* cycleEnd) {
-    cycleEnd->next = nullptr;
-}
+void clearCycle(ListNode* cycleEnd) { cycleEnd->next = nullptr; }
 
 void destoryList(ListNode* head) {
     auto cur = head;

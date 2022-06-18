@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+
 #include <cassert>
 
 using namespace std;
@@ -49,7 +50,6 @@ int main(int argc, char* argv[]) {
     ans = 1;
     result = findMin(nums);
     assert(ans == result);
-
 
     nums = {3, 1, 2};
     ans = 1;

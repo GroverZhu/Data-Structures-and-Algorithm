@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
+
 #include <cassert>
 
 using namespace std;
 
 // https://leetcode-cn.com/problems/find-peak-element/
 int findPeakElement(vector<int>& nums) {
-
 #if 0
     int size = static_cast<int>(nums.size());
     if (size == 1) return 0;
@@ -38,7 +38,7 @@ int findPeakElement(vector<int>& nums) {
         }
     }
     return left;
-# endif
+#endif
 }
 
 int main(int argc, char* argv[]) {

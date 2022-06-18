@@ -42,19 +42,14 @@ int rightBound(vector<int>& nums, int target) {
     }
 
     if (right <= 0 || nums[right - 1] != target) return -1;
-    return right - 1; 
-
+    return right - 1;
 }
 
 // https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
 
-vector<int> searchRange(vector<int>& nums, int target) {
-    return {leftBound(nums, target), rightBound(nums, target)};
-}
-
+vector<int> searchRange(vector<int>& nums, int target) { return {leftBound(nums, target), rightBound(nums, target)}; }
 
 int main(int argc, char* argv[]) {
-    
     vector<int> nums = {5, 7, 7, 8, 8, 10};
     int target = 8;
     vector<int> ans = {3, 4};

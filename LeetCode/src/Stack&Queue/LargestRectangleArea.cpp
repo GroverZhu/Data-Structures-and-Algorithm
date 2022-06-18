@@ -1,7 +1,7 @@
+#include <cassert>
 #include <iostream>
 #include <stack>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -44,6 +44,6 @@ int main(int argc, char* argv[]) {
     assert(4 == largestRectangleArea(heights));
 
     heights = {1, 1};
-    assert(2 == largestRectangleArea(heights));    
+    assert(2 == largestRectangleArea(heights));
     return 0;
 }

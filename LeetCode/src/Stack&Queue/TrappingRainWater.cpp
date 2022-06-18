@@ -1,7 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <stack>
 #include <ctime>
+#include <iostream>
+#include <stack>
+#include <vector>
 
 #include <cassert>
 
@@ -25,7 +25,6 @@ int trap(vector<int>& height) {
         stk.push(i);
     }
     return water;
-    
 }
 
 int main(int argc, char* argv[]) {

@@ -1,15 +1,15 @@
+#include <cassert>
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
 class UF {
-private:
+   private:
     int count;
     vector<int> parent;
 
-public:
+   public:
     UF(int n) {
         this->count = n;
         parent = vector<int>(n);
@@ -45,10 +45,7 @@ public:
         return root_i == root_j;
     }
 
-    int getCount() {
-        return this->count;
-    }
-
+    int getCount() { return this->count; }
 };
 
 // https://leetcode-cn.com/problems/graph-valid-tree/
@@ -76,11 +73,10 @@ int main(int argc, char* argv[]) {
     edges = {{0, 1}, {1, 2}, {2, 3}, {1, 3}, {1, 4}};
     assert(false == validTree(n, edges));
 
-
     n = 4;
     edges = {{0, 1}, {2, 3}};
     assert(false == validTree(n, edges));
-    
+
     n = 4;
     edges = {{0, 1}, {2, 3}, {1, 2}};
     assert(true == validTree(n, edges));

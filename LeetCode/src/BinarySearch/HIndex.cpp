@@ -22,11 +22,9 @@ int hIndex(vector<int>& citations) {
         } else if (citations[mid] == num) {
             right = mid;
         }
-
     }
 
     return size - left;
-
 }
 
 int main(int argc, char* argv[]) {

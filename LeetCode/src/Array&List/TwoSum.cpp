@@ -1,6 +1,7 @@
 #include <iostream>
-#include <vector>
 #include <map>
+#include <vector>
+
 #include <cassert>
 
 using namespace std;
@@ -9,7 +10,6 @@ using namespace std;
 vector<int> twoSum(vector<int>& nums, int target) {
     map<int, int> val2index;
     int size = static_cast<int>(nums.size());
-
 
     for (int i = 0; i < size; i++) {
         if (val2index.find(target - nums[i]) != val2index.end()) {

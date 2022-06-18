@@ -1,6 +1,6 @@
+#include <cassert>
 #include <iostream>
 #include <string>
-#include <cassert>
 
 #include "Tree/BinaryTreeNode.h"
 
@@ -32,9 +32,7 @@ TreeNode* deserializeHelper(string& data) {
     return root;
 }
 
-TreeNode* deserialize(string data) {
-    return deserializeHelper(data);
-}
+TreeNode* deserialize(string data) { return deserializeHelper(data); }
 
 // https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/
 int main(int argc, char* argv[]) {

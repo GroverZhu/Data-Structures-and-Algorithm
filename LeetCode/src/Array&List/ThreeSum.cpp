@@ -1,6 +1,6 @@
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 #include <cassert>
 
@@ -44,7 +44,6 @@ vector<vector<int>> threeSum(vector<int>& nums) {
 }
 
 int main(int argc, char* argv[]) {
-
     vector<int> nums;
     vector<vector<int>> result;
     vector<vector<int>> ans;
@@ -60,7 +59,7 @@ int main(int argc, char* argv[]) {
         return true;
     };
 
-    nums = {-1,0,1,2,-1,-4};
+    nums = {-1, 0, 1, 2, -1, -4};
     ans = {{-1, 0, 1}, {-1, -1, 2}};
     result = threeSum(nums);
 
@@ -68,8 +67,7 @@ int main(int argc, char* argv[]) {
     sort(result.begin(), result.end(), cmp);
     assert(ans == result);
 
-
-    nums = {-2,0,0,2,2};
+    nums = {-2, 0, 0, 2, 2};
     ans = {{-2, 0, 2}};
     result = threeSum(nums);
 

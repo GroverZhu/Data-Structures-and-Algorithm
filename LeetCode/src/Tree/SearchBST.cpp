@@ -1,13 +1,13 @@
+#include <cassert>
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 #include "Tree/BinaryTreeNode.h"
 
 using namespace std;
 
 // https://leetcode-cn.com/problems/search-in-a-binary-search-tree/
-TreeNode* searchBST(TreeNode *root, int val) {
+TreeNode* searchBST(TreeNode* root, int val) {
     if (root) {
         if (val < root->val) return searchBST(root->left, val);
         if (val > root->val) return searchBST(root->right, val);
@@ -15,7 +15,6 @@ TreeNode* searchBST(TreeNode *root, int val) {
     }
     return nullptr;
 }
-
 
 int main(int argc, char* argv[]) {
     vector<int> preorder = {4, 2, 1, 3, 7};

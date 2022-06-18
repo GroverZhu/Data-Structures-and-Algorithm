@@ -1,6 +1,7 @@
 #include <iostream>
-#include <cassert>
 #include <vector>
+
+#include <cassert>
 
 using namespace std;
 
@@ -47,7 +48,6 @@ int main(int argc, char* argv[]) {
     ans = 4;
     result = searchInsert(nums, target);
     assert(ans == result);
-
 
     nums = {1, 3, 5, 6};
     target = 0;

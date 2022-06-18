@@ -1,6 +1,6 @@
+#include <climits>
 #include <iostream>
 #include <vector>
-#include <climits>
 
 #include <cassert>
 
@@ -35,7 +35,7 @@ int jump(vector<int>& nums) {
 
     for (int i = 1; i < size; i++) {
         for (int j = i - 1; j >= 0; j--) {
-            if (j + nums[j] >= i) { // 题目中每个位置是可达的
+            if (j + nums[j] >= i) {  // 题目中每个位置是可达的
                 steps[i] = min(steps[i], steps[j] + 1);
             }
         }
@@ -52,17 +52,17 @@ int main(int argc, char* argv[]) {
     nums = {3, 2, 1, 0, 4};
     assert(false == canJump(nums));
 
-    nums = {2,5,0,0};
+    nums = {2, 5, 0, 0};
     assert(true == canJump(nums));
 
     nums = {2, 3, 1, 1, 4};
     assert(2 == jump(nums));
-    
+
     nums = {2, 3, 0, 1, 4};
     assert(2 == jump(nums));
-    
+
     nums = {2, 1};
     assert(1 == jump(nums));
-    
+
     return 0;
 }

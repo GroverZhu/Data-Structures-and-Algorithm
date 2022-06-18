@@ -1,6 +1,7 @@
 #include <iostream>
-#include <cassert>
 #include <vector>
+
+#include <cassert>
 
 using namespace std;
 
@@ -29,11 +30,11 @@ int main(int argc, char* argv[]) {
     vector<vector<int>> matrix;
     int target;
 
-    matrix = {{1,3,5,7},{10,11,16,20},{23,30,34,60}};
+    matrix = {{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}};
     target = 3;
     assert(true == searchMatrix(matrix, target));
 
-    matrix = {{1,3,5,7},{10,11,16,20},{23,30,34,60}};
+    matrix = {{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}};
     target = 13;
     assert(false == searchMatrix(matrix, target));
 

@@ -1,10 +1,10 @@
 // https://leetcode-cn.com/problems/maximum-subarray/
 
-#include <iostream>
-#include <vector>
-#include <deque>
-#include <numeric>
 #include <cassert>
+#include <deque>
+#include <iostream>
+#include <numeric>
+#include <vector>
 
 using namespace std;
 
@@ -36,7 +36,7 @@ vector<int> maxSubArrayList(vector<int>& nums) {
     for (int i = 1; i < size; i++) {
         // 第一次出现的最大子数组和
         sums[i] = max(sums[i - 1] + nums[i], nums[i]);
-        if (max_sum < sums[i]) { // < 第一次出现的(最短)，<= 最后一次出现的(最长)
+        if (max_sum < sums[i]) {  // < 第一次出现的(最短)，<= 最后一次出现的(最长)
             max_sum = sums[i];
             end = i;
         }
@@ -90,7 +90,6 @@ int main(int argc, char* argv[]) {
     assert(true == isSubsequence(nums, arr));
     // ans = {1};
 
-
     nums = {5, 4, -1, 7, 8};
     assert(23 == maxSubArray(nums));
     arr = maxSubArrayList(nums);
@@ -104,7 +103,7 @@ int main(int argc, char* argv[]) {
     assert(-1 == accumulate(arr.begin(), arr.end(), 0));
     assert(true == isSubsequence(nums, arr));
     // ans = {-1};
-    
+
     nums = {5, 4, -1, -1, 2};
     assert(9 == maxSubArray(nums));
     arr = maxSubArrayList(nums);

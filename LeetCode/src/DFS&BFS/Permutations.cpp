@@ -1,8 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <set>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
+#include <set>
+#include <vector>
 
 using namespace std;
 
@@ -32,7 +32,6 @@ vector<vector<int>> permute(vector<int>& nums) {
     vector<int> temp;
     dfs(result, nums, visited, temp);
     return result;
-
 }
 
 // https://leetcode-cn.com/problems/permutations-ii/
@@ -67,22 +66,20 @@ vector<vector<int>> permuteUnique(vector<int>& nums) {
     dfsUnique(result, nums, visited, temp);
 
     return result;
-
 }
-
 
 int main(int argc, char* argv[]) {
     // https://leetcode-cn.com/problems/permutations/
 
     vector<int> nums = {1, 2, 3};
-    set<vector<int>> ans = {{1,2,3},{1,3,2},{2,1,3},{2,3,1},{3,1,2},{3,2,1}};
+    set<vector<int>> ans = {{1, 2, 3}, {1, 3, 2}, {2, 1, 3}, {2, 3, 1}, {3, 1, 2}, {3, 2, 1}};
     auto result = permute(nums);
     set<vector<int>> transfer(result.begin(), result.end());
     assert(transfer == ans);
 
     // https://leetcode-cn.com/problems/permutations-ii/
     nums = {1, 1, 2};
-    ans = {{1,1,2},{1,2,1}, {2,1,1}};
+    ans = {{1, 1, 2}, {1, 2, 1}, {2, 1, 1}};
     result = permuteUnique(nums);
     transfer = set<vector<int>>(result.begin(), result.end());
     assert(transfer.size() == result.size());

@@ -1,7 +1,7 @@
+#include <cassert>
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cassert>
 
 using namespace std;
 
@@ -11,11 +11,11 @@ void getNext(vector<int>& next, string& pat) {
     next[0] = j;
 
     for (int i = 1; i < size; i++) {
-        while (j > 0 && pat[i] != pat[j]) { // 前后缀不相等
+        while (j > 0 && pat[i] != pat[j]) {  // 前后缀不相等
             j = next[j - 1];
         }
 
-        if (pat[i] == pat[j]) { // 前后缀相等
+        if (pat[i] == pat[j]) {  // 前后缀相等
             j++;
         }
         next[i] = j;

@@ -1,7 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <set>
 #include <cassert>
+#include <iostream>
+#include <set>
+#include <vector>
 
 using namespace std;
 
@@ -19,7 +19,6 @@ void dfs(vector<vector<int>>& result, int n, int k, int index, vector<int>& temp
             temp.pop_back();
         }
     }
-
 }
 
 vector<vector<int>> combine(int n, int k) {
@@ -27,13 +26,12 @@ vector<vector<int>> combine(int n, int k) {
     vector<int> temp;
     dfs(result, n, k, 1, temp);
     return result;
-
 }
 
 int main(int argc, char* argv[]) {
     int n = 4;
     int k = 2;
-    set<vector<int>> ans = {{2,4},{3,4},{2,3},{1,2},{1,3},{1,4}};
+    set<vector<int>> ans = {{2, 4}, {3, 4}, {2, 3}, {1, 2}, {1, 3}, {1, 4}};
     auto result = combine(n, k);
     set<vector<int>> transfer(result.begin(), result.end());
     assert(transfer == ans);

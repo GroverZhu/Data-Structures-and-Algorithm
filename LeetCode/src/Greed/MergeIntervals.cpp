@@ -19,7 +19,7 @@ vector<vector<int>> merge(vector<vector<int>>& intervals) {
     });
 
     vector<vector<int>> result;
-    
+
     result.push_back(intervals[0]);
 
     for (int i = 1; i < size; i++) {
@@ -29,13 +29,13 @@ vector<vector<int>> merge(vector<vector<int>>& intervals) {
             result.push_back(intervals[i]);
         }
     }
-    
+
     return result;
 }
 
 int main(int argc, char* argv[]) {
-    vector<vector<int>> intervals = {{1,3},{2,6},{8,10},{15,18}};
-    vector<vector<int>> ans = {{1,6},{8,10},{15,18}};
+    vector<vector<int>> intervals = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
+    vector<vector<int>> ans = {{1, 6}, {8, 10}, {15, 18}};
     assert(ans == merge(intervals));
 
     intervals = {{1, 4}, {4, 5}};

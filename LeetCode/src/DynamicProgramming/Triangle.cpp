@@ -16,9 +16,7 @@ int minimumTotal(vector<vector<int>>& triangle) {
         }
     }
     return triangle[0][0];
-
 }
-
 
 int main(int argc, char* argv[]) {
     vector<vector<int>> triangle;

@@ -1,8 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <map>
 #include <algorithm>
+#include <iostream>
+#include <map>
+#include <queue>
+#include <vector>
 
 #include <cassert>
 
@@ -29,9 +29,7 @@ void unions(vector<int>& nums, int i, int j) {
 
 // https://leetcode-cn.com/problems/connecting-cities-with-minimum-cost/
 int minimumCost(int n, vector<vector<int>>& connections) {
-    sort(connections.begin(), connections.end(), [](vector<int>& lhs, vector<int>& rhs) {
-        return lhs[2] < rhs[2];
-    });
+    sort(connections.begin(), connections.end(), [](vector<int>& lhs, vector<int>& rhs) { return lhs[2] < rhs[2]; });
 
     int min_cost = 0;
     vector<int> disjoint(n);
@@ -39,7 +37,7 @@ int minimumCost(int n, vector<vector<int>>& connections) {
         disjoint[i] = i;
     }
     for (auto edge : connections) {
-        int from  = edge[0] - 1;
+        int from = edge[0] - 1;
         int to = edge[1] - 1;
         int cost = edge[2];
 
@@ -50,7 +48,6 @@ int minimumCost(int n, vector<vector<int>>& connections) {
         }
         unions(disjoint, from, to);
         min_cost += cost;
-        
     }
 
     int count = 0;
@@ -59,9 +56,7 @@ int minimumCost(int n, vector<vector<int>>& connections) {
     }
 
     return count == 1 ? min_cost : -1;
-
 }
-
 
 int prim(int n, vector<vector<int>>& connections) {
     // 建图
@@ -79,7 +74,7 @@ int prim(int n, vector<vector<int>>& connections) {
 
     vector<bool> visited(n, false);
     auto cmp = [](pair<int, int>& lhs, pair<int, int>& rhs) {
-        return lhs.second > rhs.second; // 小根堆
+        return lhs.second > rhs.second;  // 小根堆
     };
     priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(cmp)> q(cmp);
     int minCost = 0;
@@ -111,8 +106,6 @@ int prim(int n, vector<vector<int>>& connections) {
     }
 
     return minCost;
-
-
 }
 
 int main(int argc, char* argv[]) {

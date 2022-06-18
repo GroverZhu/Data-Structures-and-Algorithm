@@ -1,7 +1,7 @@
-#include <iostream>
-#include <vector>
-#include <numeric>
 #include <cassert>
+#include <iostream>
+#include <numeric>
+#include <vector>
 
 using namespace std;
 
@@ -25,7 +25,7 @@ void Union(vector<int>& nums, int i, int j) {
 }
 
 // 省份数量
-// https://leetcode-cn.com/problems/number-of-provinces/ 
+// https://leetcode-cn.com/problems/number-of-provinces/
 int findCircleNum(vector<vector<int>>& isConnected) {
     int size = isConnected.size();
     if (size <= 1) return size;
@@ -69,7 +69,7 @@ int numIslands(vector<vector<char>>& grid) {
                 for (int k = 0; k < LEN; k++) {
                     int x = i + dx[k];
                     int y = j + dy[k];
-                    if (x >= 0 && x < rows && y >=0 && y < cols && grid[x][y] == '1') {
+                    if (x >= 0 && x < rows && y >= 0 && y < cols && grid[x][y] == '1') {
                         Union(disjoint, i * cols + j, x * cols + y);
                     }
                 }
@@ -99,7 +99,7 @@ void solve(vector<vector<char>>& board) {
     if (rows <= 1 || cols <= 1) return;
 
     int total = rows * cols + 1;
-    int dummy = rows * cols; // 哑节点，用来连接外部'O'的位置
+    int dummy = rows * cols;  // 哑节点，用来连接外部'O'的位置
 
     vector<int> disjoint(total, 0);
     iota(disjoint.begin(), disjoint.end(), 0);
@@ -140,23 +140,24 @@ void solve(vector<vector<char>>& board) {
     }
 }
 
-
 int main(int argc, char* argv[]) {
     // 省份数量
     vector<vector<int>> graph = {{1, 1, 0}, {1, 1, 0}, {0, 0, 1}};
     assert(2 == findCircleNum(graph));
-    graph = {{1,0,0},{0,1,0},{0,0,1}};
+    graph = {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
     assert(3 == findCircleNum(graph));
 
     // 岛屿数量
-    vector<vector<char>> grid = {{'1','1','1','1','0'}, {'1','1','0','1','0'}, {'1','1','0','0','0'}, {'0','0','0','0','0'}};
+    vector<vector<char>> grid = {
+        {'1', '1', '1', '1', '0'}, {'1', '1', '0', '1', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '0', '0', '0'}};
     assert(1 == numIslands(grid));
-    grid = {{'1','1','0','0','0'}, {'1','1','0','0','0'}, {'0','0','1','0','0'}, {'0','0','0','1','1'}};
+    grid = {{'1', '1', '0', '0', '0'}, {'1', '1', '0', '0', '0'}, {'0', '0', '1', '0', '0'}, {'0', '0', '0', '1', '1'}};
     assert(3 == numIslands(grid));
 
     // 被围绕的区域
-    vector<vector<char>> board = {{'X','X','X','X'},{'X','O','O','X'},{'X','X','O','X'},{'X','O','X','X'}};
-    vector<vector<char>> ans = {{'X','X','X','X'},{'X','X','X','X'},{'X','X','X','X'},{'X','O','X','X'}};
+    vector<vector<char>> board = {
+        {'X', 'X', 'X', 'X'}, {'X', 'O', 'O', 'X'}, {'X', 'X', 'O', 'X'}, {'X', 'O', 'X', 'X'}};
+    vector<vector<char>> ans = {{'X', 'X', 'X', 'X'}, {'X', 'X', 'X', 'X'}, {'X', 'X', 'X', 'X'}, {'X', 'O', 'X', 'X'}};
     solve(board);
     assert(board == ans);
     board = {{'X'}};

@@ -1,7 +1,7 @@
-#include <iostream>
-#include <unordered_map>
-#include <list>
 #include <cassert>
+#include <iostream>
+#include <list>
+#include <unordered_map>
 
 using namespace std;
 
@@ -21,7 +21,7 @@ struct Node {
 };
 
 class LFUCache {
-public:
+   public:
     LFUCache(int capacity) {
         this->capacity = capacity;
         size = 0;
@@ -29,14 +29,14 @@ public:
         freqTokeys = {};
         minFreq = 0;
     }
-    
+
     int get(int key) {
         auto iter = keyToNode.find(key);
         if (iter == keyToNode.end()) return -1;
 
         int freq = iter->second->freq;
         int value = iter->second->value;
-        
+
         freqTokeys[freq].erase(iter->second);
         if (freqTokeys[freq].size() == 0) {
             freqTokeys.erase(freq);
@@ -48,27 +48,27 @@ public:
 
         return value;
     }
-    
+
     void put(int key, int value) {
         if (capacity == 0) return;
         auto iter = keyToNode.find(key);
 
-        if (iter != keyToNode.end()) { // 已经存在，更新
+        if (iter != keyToNode.end()) {  // 已经存在，更新
             int freq = iter->second->freq;
             freqTokeys[freq].erase(iter->second);
             if (freqTokeys[freq].empty()) {
                 freqTokeys.erase(freq);
                 if (freq == minFreq) minFreq += 1;
-            } 
+            }
 
             freqTokeys[freq + 1].push_front(Node(key, value, freq + 1));
             keyToNode[key] = freqTokeys[freq + 1].begin();
 
-        } else { // 不存在
+        } else {  // 不存在
 
-            if (size < capacity) { // 还有空间
+            if (size < capacity) {  // 还有空间
                 ++size;
-            } else { // 没有空间
+            } else {  // 没有空间
                 // 删最小的freq的key
                 auto del = freqTokeys[minFreq].back();
                 keyToNode.erase(del.key);
@@ -81,18 +81,16 @@ public:
             freqTokeys[freq].push_front(Node(key, value, freq));
             keyToNode[key] = freqTokeys[freq].begin();
             minFreq = freq;
-
         }
     }
 
-private:
+   private:
     int capacity;
     int size;
     unordered_map<int, list<Node>::iterator> keyToNode;
     unordered_map<int, list<Node>> freqTokeys;
     int minFreq;
 };
-
 
 int main(int argc, char* argv[]) {
     int capacity = 2;
@@ -107,7 +105,6 @@ int main(int argc, char* argv[]) {
     assert(-1 == lfu.get(1));
     assert(3 == lfu.get(3));
     assert(4 == lfu.get(4));
-
 
     capacity = 2;
     lfu = LFUCache(capacity);

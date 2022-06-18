@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <set>
+#include <string>
 #include <vector>
 
 #include <cassert>
@@ -20,8 +20,6 @@ void dfs(vector<string>& result, string temp, int n, int left, int right) {
     if (right < left) {
         dfs(result, temp + ')', n, left, right + 1);
     }
-
-
 }
 
 vector<string> generateParenthesis(int n) {
@@ -29,13 +27,11 @@ vector<string> generateParenthesis(int n) {
     if (n <= 0) return result;
     dfs(result, "", n, 0, 0);
     return result;
-
 }
-
 
 int main(int argc, char* argv[]) {
     int n = 3;
-    set<string> ans = {"((()))","(()())","(())()","()(())","()()()"};
+    set<string> ans = {"((()))", "(()())", "(())()", "()(())", "()()()"};
     auto result = generateParenthesis(n);
     set<string> result_set(result.begin(), result.end());
     assert(ans == result_set);

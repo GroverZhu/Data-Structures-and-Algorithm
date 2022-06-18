@@ -21,7 +21,6 @@ void dfs(vector<vector<int>>& graph, vector<int>& visited, vector<int>& colors, 
             }
         }
     }
-
 }
 // https://leetcode-cn.com/problems/is-graph-bipartite/
 bool isBipartite(vector<vector<int>>& graph) {

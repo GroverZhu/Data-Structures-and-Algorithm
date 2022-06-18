@@ -1,8 +1,8 @@
+#include <cassert>
 #include <iostream>
-#include <vector>
 #include <queue>
 #include <set>
-#include <cassert>
+#include <vector>
 
 using namespace std;
 
@@ -12,7 +12,7 @@ struct Node {
     int y;
     int step;
 
-    Node (vector<vector<int>> _board, int _x, int _y, int _step) : board(_board), x(_x), y(_y), step(_step) {}
+    Node(vector<vector<int>> _board, int _x, int _y, int _step) : board(_board), x(_x), y(_y), step(_step) {}
 };
 
 // https://leetcode-cn.com/problems/sliding-puzzle/
@@ -37,7 +37,7 @@ int slidingPuzzle(vector<vector<int>>& board) {
     q.push({board, x, y, 0});
     set<vector<vector<int>>> visited;
     visited.insert(board);
-    
+
     while (!q.empty()) {
         auto node = q.front();
         q.pop();
@@ -60,7 +60,6 @@ int slidingPuzzle(vector<vector<int>>& board) {
     }
 
     return -1;
-
 }
 
 int main(int argc, char* argv[]) {
@@ -76,7 +75,6 @@ int main(int argc, char* argv[]) {
     ans = -1;
     result = slidingPuzzle(board);
     assert(ans == result);
-
 
     board = {{4, 1, 2}, {5, 0, 3}};
     ans = 5;

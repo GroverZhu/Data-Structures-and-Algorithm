@@ -1,7 +1,7 @@
 #include <iostream>
-#include <vector>
-#include <string>
 #include <set>
+#include <string>
+#include <vector>
 
 #include <cassert>
 
@@ -15,14 +15,11 @@ void bitsDFS(int& result, int n, int cols, int post, int neg, int row) {
 
     int bits = ((~(cols | post | neg)) & ((1 << n) - 1));
     while (bits) {
-        int pos = bits & (-bits); // 保留从右至左的第一位1
-        bits &= (bits - 1); // 将从右至左的第一位置0
+        int pos = bits & (-bits);  // 保留从右至左的第一位1
+        bits &= (bits - 1);        // 将从右至左的第一位置0
         bitsDFS(result, n, cols | pos, (post | pos) >> 1, (neg | pos) << 1, row + 1);
     }
-
 }
-
-
 
 // https://leetcode-cn.com/problems/n-queens-ii/description/
 int totalNQueens(int n) {
@@ -64,7 +61,6 @@ void dfs(vector<vector<string>>& result, int n, vector<int>& rows, int row, int 
         rows[row] = countTrailingZero(index);
         dfs(result, n, rows, row + 1, cols | index, (neg | index) >> 1, (pos | index) << 1);
     }
-
 }
 
 // https://leetcode-cn.com/problems/n-queens/
@@ -75,7 +71,6 @@ vector<vector<string>> solveNQueens(int n) {
     return result;
 }
 
-
 int main(int argc, char* argv[]) {
     int n, ans, result;
     n = 4;
@@ -84,7 +79,7 @@ int main(int argc, char* argv[]) {
     assert(ans == result);
     vector<vector<string>> board = solveNQueens(n);
     set<vector<string>> board_set(board.begin(), board.end());
-    set<vector<string>> board_ans = {{".Q..","...Q","Q...","..Q."}, {"..Q.","Q...","...Q",".Q.."}};
+    set<vector<string>> board_ans = {{".Q..", "...Q", "Q...", "..Q."}, {"..Q.", "Q...", "...Q", ".Q.."}};
     assert(board_ans == board_set);
 
     n = 1;

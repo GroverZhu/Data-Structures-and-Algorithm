@@ -31,23 +31,23 @@ bool carPooling(vector<vector<int>>& trips, int capacity) {
 }
 
 int main(int argc, char* argv[]) {
-    vector<vector<int>> trips = {{2,1,5},{3,3,7}};
+    vector<vector<int>> trips = {{2, 1, 5}, {3, 3, 7}};
     int capactity = 4;
     assert(false == carPooling(trips, capactity));
 
-    trips = {{2,1,5},{3,3,7}};
+    trips = {{2, 1, 5}, {3, 3, 7}};
     capactity = 5;
     assert(true == carPooling(trips, capactity));
 
-    trips = {{2,1,5},{3,5,7}};
+    trips = {{2, 1, 5}, {3, 5, 7}};
     capactity = 3;
     assert(true == carPooling(trips, capactity));
 
-    trips = {{9,0,1},{3,3,7}};
+    trips = {{9, 0, 1}, {3, 3, 7}};
     capactity = 4;
     assert(false == carPooling(trips, capactity));
 
-    trips = {{7,5,6},{6,7,8}, {10,1,6}};
+    trips = {{7, 5, 6}, {6, 7, 8}, {10, 1, 6}};
     capactity = 16;
     assert(false == carPooling(trips, capactity));
 

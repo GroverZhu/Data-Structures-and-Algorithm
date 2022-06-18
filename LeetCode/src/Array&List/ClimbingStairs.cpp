@@ -1,9 +1,9 @@
 #include <iostream>
 #include <vector>
 
-#include <ctime>
-#include <cstdlib>
 #include <cassert>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -35,7 +35,7 @@ int climbStairs(int n) {
     if (n <= 0) return 0;
     if (n == 1) return 1;
     if (n == 2) return 2;
-    
+
     int first = 1;
     int second = 2;
 
@@ -45,12 +45,11 @@ int climbStairs(int n) {
         second = first + second;
         first = tmp;
     }
-    
+
     return second;
 }
 
 int main(int argc, char* argv[]) {
-
     int n = 1;
     int ans1 = climbStairsRecursive(n);
     int ans2 = climbStairsIteration(n);
@@ -58,7 +57,7 @@ int main(int argc, char* argv[]) {
 
     assert(ans1 == ans2);
     assert(ans2 == ans3);
-    
+
     clock_t begin, end;
 
     n = 20;
@@ -98,6 +97,6 @@ int main(int argc, char* argv[]) {
 
     assert(ans1 == ans2);
     assert(ans2 == ans3);
-    
+
     return 0;
 }

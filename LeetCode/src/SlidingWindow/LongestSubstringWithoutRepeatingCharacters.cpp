@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <map>
+#include <string>
 
 #include <cassert>
 
@@ -19,7 +19,7 @@ int lengthOfLongestSubstring(string s) {
         auto add = s[right];
         right++;
         cnt[add]++;
-        
+
         while (cnt[add] > 1) {
             auto del = s[left];
             left++;
@@ -27,7 +27,6 @@ int lengthOfLongestSubstring(string s) {
         }
 
         result = max(result, right - left);
-
     }
     return result;
 }

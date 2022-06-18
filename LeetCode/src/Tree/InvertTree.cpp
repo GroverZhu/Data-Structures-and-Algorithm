@@ -1,6 +1,6 @@
+#include <cassert>
 #include <iostream>
 #include <vector>
-#include <cassert>
 
 #include "Tree/BinaryTreeNode.h"
 
@@ -8,10 +8,10 @@ using namespace std;
 
 // https://leetcode-cn.com/problems/invert-binary-tree/
 
-TreeNode* invertTree(TreeNode *root) {
+TreeNode* invertTree(TreeNode* root) {
     if (!root) return NULL;
-    TreeNode *left = invertTree(root->left);
-    TreeNode *right = invertTree(root->right);
+    TreeNode* left = invertTree(root->left);
+    TreeNode* right = invertTree(root->right);
 
     root->left = right;
     root->right = left;
@@ -22,9 +22,7 @@ TreeNode* invertTree(TreeNode *root) {
 bool isSameTree(TreeNode* root1, TreeNode* root2) {
     if (!root1 && !root2) return true;
     if (!root1 || !root2) return false;
-    return root1->val == root2->val && 
-           isSameTree(root1->left, root2->left) &&
-           isSameTree(root1->right, root2->right);
+    return root1->val == root2->val && isSameTree(root1->left, root2->left) && isSameTree(root1->right, root2->right);
 }
 
 int main(int argc, char* argv[]) {

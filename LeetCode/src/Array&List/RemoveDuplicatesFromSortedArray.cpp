@@ -32,11 +32,11 @@ int main(int argc, char* argv[]) {
         assert(nums[i] == ans[i]);
     }
 
-    nums = {0,0,1,1,1,2,2,3,3,4};
+    nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
     len_ans = 5;
     len = removeDuplicates(nums);
     assert(len == len_ans);
-    ans = {0,1,2,3,4};
+    ans = {0, 1, 2, 3, 4};
     for (int i = 0; i < len; i++) {
         assert(nums[i] == ans[i]);
     }

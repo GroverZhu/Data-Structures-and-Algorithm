@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include <map>
+#include <string>
 
 #include <cassert>
 
@@ -32,7 +32,6 @@ bool matchHelper(string s, int s_index, string p, int p_index, map<pair<int, int
     memo[{s_index, p_index}] = ans;
 
     return ans;
-
 }
 
 bool isMatch(string s, string p) {
@@ -54,7 +53,6 @@ bool isMatch(string s, string p) {
 }
 
 int main(int argc, char* argv[]) {
-
     string s, p;
 
     s = "aa";

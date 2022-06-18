@@ -45,18 +45,17 @@ int main(int argc, char* argv[]) {
     result = longestSubarray(nums);
     assert(result == ans);
 
-    nums = {0,1,1,1,0,1,1,0,1};
+    nums = {0, 1, 1, 1, 0, 1, 1, 0, 1};
     ans = 5;
     result = longestSubarray(nums);
     assert(result == ans);
 
-
-    nums = {1,1,1};
+    nums = {1, 1, 1};
     ans = 2;
     result = longestSubarray(nums);
     assert(result == ans);
 
-    nums = {1,1,0,0,1,1,1,0,1};
+    nums = {1, 1, 0, 0, 1, 1, 1, 0, 1};
     ans = 4;
     result = longestSubarray(nums);
     assert(result == ans);

@@ -1,6 +1,6 @@
+#include <algorithm>
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 #include <cassert>
 
@@ -8,7 +8,6 @@ using namespace std;
 
 // https://leetcode-cn.com/problems/assign-cookies/
 int findContentChildren(vector<int>& g, vector<int>& s) {
-
     sort(g.begin(), g.end());
     sort(s.begin(), s.end());
 
@@ -28,10 +27,7 @@ int findContentChildren(vector<int>& g, vector<int>& s) {
     }
 
     return gIndex;
-
 }
-
-
 
 int main(int argc, char* argv[]) {
     vector<int> g, s;

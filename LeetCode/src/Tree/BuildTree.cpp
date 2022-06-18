@@ -1,20 +1,20 @@
+#include <cassert>
 #include <cstdio>
 #include <cstdlib>
-#include <iostream>
-#include <vector>
-#include <stack>
-#include <queue>
 #include <deque>
-#include <cassert>
+#include <iostream>
+#include <queue>
+#include <stack>
+#include <vector>
 
 #include "Tree/BinaryTreeNode.h"
 
 using namespace std;
 
-
 // 从前序与中序遍历序列 https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
 // [pre_bgn, pre_end], [in_bgn, in_end]
-TreeNode* buildTreeFromPreOrderAndInorder(vector<int>& preorder, int pre_bgn, int pre_end, vector<int>& inorder, int in_bgn, int in_end) {
+TreeNode* buildTreeFromPreOrderAndInorder(vector<int>& preorder, int pre_bgn, int pre_end, vector<int>& inorder,
+                                          int in_bgn, int in_end) {
     if (pre_bgn > pre_end) return nullptr;
     TreeNode* root = new TreeNode(preorder[pre_bgn]);
 
@@ -26,10 +26,10 @@ TreeNode* buildTreeFromPreOrderAndInorder(vector<int>& preorder, int pre_bgn, in
     int size = index - in_bgn;
 
     root->left = buildTreeFromPreOrderAndInorder(preorder, pre_bgn + 1, pre_bgn + size, inorder, in_bgn, index - 1);
-    root->right = buildTreeFromPreOrderAndInorder(preorder, pre_bgn + size + 1, pre_end, inorder, in_bgn + size + 1, in_end);
+    root->right =
+        buildTreeFromPreOrderAndInorder(preorder, pre_bgn + size + 1, pre_end, inorder, in_bgn + size + 1, in_end);
 
     return root;
-
 }
 
 TreeNode* buildTreeFromPreIn(vector<int>& preorder, vector<int>& inorder) {
@@ -39,11 +39,10 @@ TreeNode* buildTreeFromPreIn(vector<int>& preorder, vector<int>& inorder) {
     return buildTreeFromPreOrderAndInorder(preorder, 0, pre_size - 1, inorder, 0, in_size - 1);
 }
 
-
-
 // 后序与中序构造二叉树 https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
 // 均为闭区间[in_bgn, in_end], [post_bgn, post_end]
-TreeNode* buildTreeFromInorderAndPostOrder(vector<int>& inorder, int in_bgn, int in_end, vector<int>& postorder, int post_bgn, int post_end) {
+TreeNode* buildTreeFromInorderAndPostOrder(vector<int>& inorder, int in_bgn, int in_end, vector<int>& postorder,
+                                           int post_bgn, int post_end) {
     if (in_bgn > in_end) return nullptr;
 
     int pivot = postorder[post_end];
@@ -54,7 +53,8 @@ TreeNode* buildTreeFromInorderAndPostOrder(vector<int>& inorder, int in_bgn, int
     int size = index - in_bgn;
 
     root->left = buildTreeFromInorderAndPostOrder(inorder, in_bgn, index - 1, postorder, post_bgn, post_bgn + size - 1);
-    root->right = buildTreeFromInorderAndPostOrder(inorder, index + 1, in_end, postorder, post_bgn + size, post_end - 1);
+    root->right =
+        buildTreeFromInorderAndPostOrder(inorder, index + 1, in_end, postorder, post_bgn + size, post_end - 1);
 
     return root;
 }
@@ -66,7 +66,6 @@ TreeNode* buildTreeFromInPost(vector<int>& inorder, vector<int>& postorder) {
 
     return buildTreeFromInorderAndPostOrder(inorder, 0, in_size - 1, postorder, 0, post_size - 1);
 }
-
 
 // 前序遍历 https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
 vector<int> preorderTraversalIteration(TreeNode* root) {
@@ -99,8 +98,6 @@ vector<int> preorderTraversalRecursive(TreeNode* root) {
     preorderTraversalRecursiveHelper(root, result);
     return result;
 }
-
-
 
 // 中序遍历 https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
 vector<int> inorderTraversalIteration(TreeNode* root) {
@@ -136,8 +133,6 @@ vector<int> inorderTraversalRecursive(TreeNode* root) {
     return result;
 }
 
-
-
 // 后序遍历 https://leetcode-cn.com/problems/binary-tree-postorder-traversal/
 vector<int> postorderTraversalIteration(TreeNode* root) {
     vector<int> result;
@@ -157,7 +152,6 @@ vector<int> postorderTraversalIteration(TreeNode* root) {
 
     result = vector<int>(temp.begin(), temp.end());
     return result;
-
 }
 
 void postorderTraversalRecursiveHelper(TreeNode* root, vector<int>& result) {
@@ -213,11 +207,10 @@ vector<vector<int>> levelOrderRecursive(TreeNode* root) {
     return result;
 }
 
-
 int main() {
-    vector<int> preorder = {3,9,20,15,7};
-    vector<int> inorder = {9,3,15,20,7};
-    vector<int> postorder = {9,15,7,20,3};
+    vector<int> preorder = {3, 9, 20, 15, 7};
+    vector<int> inorder = {9, 3, 15, 20, 7};
+    vector<int> postorder = {9, 15, 7, 20, 3};
     vector<vector<int>> levelorder = {{3}, {9, 20}, {15, 7}};
 
     TreeNode* root1 = buildTreeFromPreIn(preorder, inorder);
@@ -245,8 +238,6 @@ int main() {
 
     destroyTree(root1);
     destroyTree(root2);
-
-
 
     preorder = {1, 2, 3};
     inorder = {1, 3, 2};
@@ -278,14 +269,13 @@ int main() {
     destroyTree(root1);
     destroyTree(root2);
 
-
     preorder = {1, 2, 3, 4, 5};
     inorder = {2, 1, 4, 3, 5};
     postorder = {2, 4, 5, 3, 1};
     levelorder = {{1}, {2, 3}, {4, 5}};
     root1 = buildTreeFromPreIn(preorder, inorder);
     root2 = buildTreeFromInPost(inorder, postorder);
-    
+
     assert(preorder == preorderTraversalIteration(root1));
     assert(preorder == preorderTraversalRecursive(root1));
     assert(preorder == preorderTraversalIteration(root2));
@@ -305,7 +295,7 @@ int main() {
     assert(levelorder == levelOrderRecursive(root1));
     assert(levelorder == levelOrderIteration(root2));
     assert(levelorder == levelOrderRecursive(root2));
-    
+
     destroyTree(root1);
     destroyTree(root2);
 

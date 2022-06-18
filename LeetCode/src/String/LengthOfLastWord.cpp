@@ -1,6 +1,6 @@
+#include <cassert>
 #include <iostream>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -12,7 +12,6 @@ int lengthOfLastWord(string s) {
     int end = index;
     while (index >= 0 && s[index] != ' ') --index;
     return end - index;
-
 }
 
 int main(int argc, char* argv[]) {

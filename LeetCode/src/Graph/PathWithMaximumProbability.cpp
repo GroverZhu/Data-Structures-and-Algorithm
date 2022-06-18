@@ -1,8 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <map>
 #include <cassert>
+#include <iostream>
+#include <map>
+#include <queue>
+#include <vector>
 
 using namespace std;
 
@@ -30,9 +30,7 @@ double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succPro
     vector<double> probs(n, -1.0);
     probs[start] = 1.0;
 
-    auto cmp = [](const State& lhs, const State& rhs) {
-        return lhs.probility < rhs.probility;
-    };
+    auto cmp = [](const State& lhs, const State& rhs) { return lhs.probility < rhs.probility; };
 
     priority_queue<State, vector<State>, decltype(cmp)> q(cmp);
     q.push(State(start, 1));

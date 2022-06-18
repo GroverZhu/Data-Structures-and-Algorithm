@@ -34,10 +34,10 @@ int main(int argc, char* argv[]) {
     cost = {10, 15, 20};
     assert(15 == minCostClimbingStairs(cost));
 
-    cost = {1,100,1,1,1,100,1,1,100,1};
+    cost = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
     assert(6 == minCostClimbingStairs(cost));
-    
-    cost = {1,100};
+
+    cost = {1, 100};
     assert(1 == minCostClimbingStairs(cost));
     return 0;
 }

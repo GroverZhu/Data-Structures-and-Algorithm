@@ -1,10 +1,10 @@
+#include <cassert>
+#include <climits>
 #include <iostream>
+#include <queue>
+#include <set>
 #include <string>
 #include <vector>
-#include <set>
-#include <queue>
-#include <climits>
-#include <cassert>
 
 using namespace std;
 
@@ -110,16 +110,16 @@ int main(int argc, char* argv[]) {
 
     beginWord = "hit";
     endWord = "cog";
-    wordList = {"hot","dot","dog","lot","log","cog"};
+    wordList = {"hot", "dot", "dog", "lot", "log", "cog"};
     assert(5 == ladderLength(beginWord, endWord, wordList));
     lists = findLadders(beginWord, endWord, wordList);
     result_set = set<vector<string>>(lists.begin(), lists.end());
-    ans_set = {{"hit","hot","dot","dog","cog"}, {"hit","hot","lot","log","cog"}};
+    ans_set = {{"hit", "hot", "dot", "dog", "cog"}, {"hit", "hot", "lot", "log", "cog"}};
     assert(ans_set == result_set);
 
     beginWord = "hit";
     endWord = "cog";
-    wordList = {"hot","dot","dog","lot","log"};
+    wordList = {"hot", "dot", "dog", "lot", "log"};
     assert(0 == ladderLength(beginWord, endWord, wordList));
     lists = findLadders(beginWord, endWord, wordList);
     result_set = set<vector<string>>(lists.begin(), lists.end());
@@ -128,7 +128,7 @@ int main(int argc, char* argv[]) {
 
     beginWord = "hot";
     endWord = "dog";
-    wordList = {"hot","dog"};
+    wordList = {"hot", "dog"};
     assert(0 == ladderLength(beginWord, endWord, wordList));
     lists = findLadders(beginWord, endWord, wordList);
     result_set = set<vector<string>>(lists.begin(), lists.end());
@@ -137,13 +137,12 @@ int main(int argc, char* argv[]) {
 
     beginWord = "red";
     endWord = "tax";
-    wordList = {"ted","tex","red","tax","tad","den","rex","pee"};
+    wordList = {"ted", "tex", "red", "tax", "tad", "den", "rex", "pee"};
     assert(4 == ladderLength(beginWord, endWord, wordList));
     lists = findLadders(beginWord, endWord, wordList);
     result_set = set<vector<string>>(lists.begin(), lists.end());
-    ans_set = {{"red","ted","tad","tax"},{"red","ted","tex","tax"},{"red","rex","tex","tax"}};
+    ans_set = {{"red", "ted", "tad", "tax"}, {"red", "ted", "tex", "tax"}, {"red", "rex", "tex", "tax"}};
     assert(ans_set == result_set);
-
 
     return 0;
 }

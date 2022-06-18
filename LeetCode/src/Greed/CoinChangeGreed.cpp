@@ -1,8 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <climits>
 #include <algorithm>
+#include <climits>
+#include <iostream>
+#include <queue>
+#include <vector>
 
 #include <cassert>
 
@@ -27,7 +27,7 @@ int coinChange(vector<int>& coins, int amount) {
         q.pop();
         int num = node.first;
         int step = node.second;
-        if (num == 0) { // 不能提前返回
+        if (num == 0) {  // 不能提前返回
             steps = min(steps, step);
         }
         for (auto coin : coins) {
@@ -38,7 +38,6 @@ int coinChange(vector<int>& coins, int amount) {
     }
 
     return steps == INT_MAX ? -1 : steps;
-
 }
 
 int main(int argc, char* argv[]) {
@@ -49,11 +48,10 @@ int main(int argc, char* argv[]) {
     amount = 11;
     assert(3 == coinChange(coins, amount));
 
-
     coins = {2};
     amount = 3;
     assert(-1 == coinChange(coins, amount));
-    
+
     coins = {1};
     amount = 0;
     assert(0 == coinChange(coins, amount));
@@ -63,7 +61,7 @@ int main(int argc, char* argv[]) {
     amount = 100;
     assert(20 == coinChange(coins, amount));
 
-    coins = {186,419,83,408};
+    coins = {186, 419, 83, 408};
     amount = 6249;
     assert(20 == coinChange(coins, amount));
 

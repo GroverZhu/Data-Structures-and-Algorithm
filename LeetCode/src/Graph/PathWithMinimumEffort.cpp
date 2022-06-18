@@ -1,8 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <map>
 #include <climits>
+#include <iostream>
+#include <map>
 #include <queue>
+#include <vector>
 
 #include <cassert>
 
@@ -24,9 +24,7 @@ int minimumEffortPath(vector<vector<int>>& heights) {
     vector<vector<int>> efforts(rows, vector<int>(cols, INT_MAX));
     efforts[0][0] = 0;
 
-    auto cmp = [](const State& lhs, const State& rhs) {
-        return lhs.effort > rhs.effort;
-    };
+    auto cmp = [](const State& lhs, const State& rhs) { return lhs.effort > rhs.effort; };
 
     priority_queue<State, vector<State>, decltype(cmp)> q(cmp);
     q.push(State(0, 0, 0));
@@ -54,11 +52,9 @@ int minimumEffortPath(vector<vector<int>>& heights) {
                 }
             }
         }
-        
     }
 
     return -1;
-
 }
 
 int main(int argc, char* argv[]) {
@@ -66,7 +62,7 @@ int main(int argc, char* argv[]) {
 
     heights = {{1, 2, 2}, {3, 8, 2}, {5, 3, 5}};
     assert(2 == minimumEffortPath(heights));
-    
+
     heights = {{1, 2, 3}, {3, 8, 4}, {5, 3, 5}};
     assert(1 == minimumEffortPath(heights));
 

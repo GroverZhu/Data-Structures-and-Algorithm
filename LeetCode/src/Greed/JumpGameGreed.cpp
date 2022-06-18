@@ -16,7 +16,6 @@ bool canJump(vector<int>& nums) {
         if (lens <= i) return false;
     }
     return lens >= size - 1;
-
 }
 
 // https://leetcode-cn.com/problems/jump-game-ii/
@@ -35,7 +34,6 @@ int jump(vector<int>& nums) {
         }
     }
 
-    
     return step;
 }
 

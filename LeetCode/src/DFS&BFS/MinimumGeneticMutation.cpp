@@ -1,8 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <set>
 #include <cassert>
+#include <iostream>
+#include <set>
+#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -18,7 +18,7 @@ int minMutation(string start, string end, vector<string>& bank) {
 
     begin.insert(start);
     finish.insert(end);
-    
+
     cache.erase(start);
     cache.erase(end);
 
@@ -26,10 +26,10 @@ int minMutation(string start, string end, vector<string>& bank) {
 
     while (!begin.empty() && !finish.empty()) {
         set<string> temp;
-        for(auto s : begin) {
+        for (auto s : begin) {
             for (int i = 0; i < static_cast<int>(s.size()); i++) {
                 char base = s[i];
-                
+
                 for (auto c : gens) {
                     if (base == c) continue;
                     s[i] = c;

@@ -1,7 +1,7 @@
+#include <cassert>
 #include <iostream>
 #include <stack>
 #include <string>
-#include <cassert>
 
 using namespace std;
 
@@ -9,7 +9,7 @@ using namespace std;
 bool isValid(string s) {
     int size = static_cast<int>(s.size());
     if (size == 0) return true;
-    if (size % 2 == 1) return false; 
+    if (size % 2 == 1) return false;
 
     stack<char> stk;
 
@@ -32,17 +32,14 @@ bool isValid(string s) {
 }
 
 int main(int argc, char* argv[]) {
-
     string s = "()";
     assert(true == isValid(s));
 
     s = "()[]{}";
     assert(true == isValid(s));
 
-
     s = "(]";
     assert(false == isValid(s));
-
 
     s = "([)]";
     assert(false == isValid(s));

@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
+
 #include <cassert>
 
 using namespace std;
 
-// https://leetcode-cn.com/problems/merge-sorted-array/ 
+// https://leetcode-cn.com/problems/merge-sorted-array/
 void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
     int end = m + n - 1;
     int index1 = m - 1;
@@ -23,7 +24,6 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
 
     while (index1 >= 0) nums1[end--] = nums1[index1--];
     while (index2 >= 0) nums1[end--] = nums2[index2--];
-
 }
 
 int main(int argc, char* argv[]) {

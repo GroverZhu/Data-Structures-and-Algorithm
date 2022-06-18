@@ -8,7 +8,7 @@ using namespace std;
 // https://leetcode-cn.com/problems/range-sum-query-2d-immutable/
 
 class NumMatrix {
-public:
+   public:
     NumMatrix(vector<vector<int>>& matrix) {
         int rows = static_cast<int>(matrix.size());
         int cols = static_cast<int>(matrix[0].size());
@@ -27,23 +27,18 @@ public:
         //     }
         //     cout << endl;
         // }
-
     }
-    
+
     int sumRegion(int row1, int col1, int row2, int col2) {
-        return prefix[row2 + 1][col2 + 1]
-               - prefix[row1][col2 + 1]
-               - prefix[row2 + 1][col1]
-               + prefix[row1][col1];
+        return prefix[row2 + 1][col2 + 1] - prefix[row1][col2 + 1] - prefix[row2 + 1][col1] + prefix[row1][col1];
     }
 
-private:
+   private:
     vector<vector<int>> prefix;
 };
 
 int main(int argc, char* argv[]) {
-
-    vector<vector<int>> nums = {{3,0,1,4,2},{5,6,3,2,1},{1,2,0,1,5},{4,1,0,1,7},{1,0,3,0,5}};
+    vector<vector<int>> nums = {{3, 0, 1, 4, 2}, {5, 6, 3, 2, 1}, {1, 2, 0, 1, 5}, {4, 1, 0, 1, 7}, {1, 0, 3, 0, 5}};
     NumMatrix test(nums);
 
     assert(8 == test.sumRegion(2, 1, 4, 3));

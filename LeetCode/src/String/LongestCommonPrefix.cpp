@@ -1,8 +1,8 @@
 #include <iostream>
-#include <vector>
-#include <string>
 #include <map>
 #include <queue>
+#include <string>
+#include <vector>
 
 #include <cassert>
 
@@ -13,7 +13,7 @@ struct TrieNode {
     bool isEnd;
     map<char, TrieNode*> children;
 
-    TrieNode () {
+    TrieNode() {
         c = '\0';
         isEnd = false;
         children = {};
@@ -33,11 +33,8 @@ struct TrieNode {
 };
 
 class Trie {
-
-public:
-    Trie() {
-        root = new TrieNode();
-    }
+   public:
+    Trie() { root = new TrieNode(); }
 
     void insert(string s) {
         auto cur = root;
@@ -46,7 +43,7 @@ public:
             if (node == cur->children.end()) {
                 cur->children[c] = new TrieNode(c);
             }
-            cur = cur->children[c]; 
+            cur = cur->children[c];
         }
         cur->isEnd = true;
     }
@@ -69,7 +66,7 @@ public:
         return result;
     }
 
-private:
+   private:
     TrieNode* root;
 };
 
@@ -80,27 +77,25 @@ string longestCommonPrefix(vector<string>& strs) {
         trie.insert(str);
     }
     return trie.longestCommonPrefix();
-
 }
-
 
 int main(int argc, char* argv[]) {
     vector<string> strs;
     string ans;
 
-    strs = {"flower","flow","flight"};
+    strs = {"flower", "flow", "flight"};
     ans = "fl";
     assert(ans == longestCommonPrefix(strs));
 
-    strs = {"dog","racecar","car"};
+    strs = {"dog", "racecar", "car"};
     ans = "";
     assert(ans == longestCommonPrefix(strs));
 
-    strs = {"","b"};
+    strs = {"", "b"};
     ans = "";
     assert(ans == longestCommonPrefix(strs));
 
-    strs = {"ab","a"};
+    strs = {"ab", "a"};
     ans = "a";
     assert(ans == longestCommonPrefix(strs));
 

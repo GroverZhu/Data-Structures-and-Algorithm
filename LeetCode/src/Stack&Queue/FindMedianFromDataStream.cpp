@@ -1,5 +1,5 @@
-#include <iostream>
 #include <functional>
+#include <iostream>
 #include <queue>
 
 #include <cassert>
@@ -7,13 +7,12 @@
 using namespace std;
 
 class MedianFinder {
-
-public:
+   public:
     MedianFinder() {
         small = {};
         large = {};
     }
-    
+
     void addNum(int num) {
         if (small.size() > large.size()) {
             small.push(num);
@@ -25,7 +24,7 @@ public:
             large.pop();
         }
     }
-    
+
     double findMedian() {
         if (small.size() > large.size()) {
             return small.top();
@@ -35,11 +34,11 @@ public:
             return (large.top() + small.top()) / 2.0;
         }
     }
-private:
+
+   private:
     priority_queue<int, vector<int>, greater<int>> small;
     priority_queue<int, vector<int>, less<int>> large;
 };
-
 
 int main(int argc, char* argv[]) {
     MedianFinder test;
@@ -47,7 +46,7 @@ int main(int argc, char* argv[]) {
     test.addNum(1);
     test.addNum(2);
     assert(abs(test.findMedian() - 1.5) < epsilon);
-    test.addNum(3);    
+    test.addNum(3);
     assert(abs(test.findMedian() - 2.0) < epsilon);
 
     return 0;

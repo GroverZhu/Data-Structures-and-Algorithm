@@ -6,7 +6,7 @@
 
 using namespace std;
 
-// https://leetcode-cn.com/problems/valid-palindrome/ 
+// https://leetcode-cn.com/problems/valid-palindrome/
 bool isPalindrome(string s) {
     int size = static_cast<int>(s.size());
     int left = 0;
@@ -27,7 +27,6 @@ bool isPalindrome(string s) {
         --right;
     }
     return true;
-
 }
 
 // https://leetcode-cn.com/problems/valid-palindrome-ii/
@@ -62,7 +61,7 @@ string longestPalindrome(string s) {
     if (size <= 1) return s;
     vector<vector<int>> lens(size, vector<int>(size, 0));
 
-    for (int i = 0; i < size; i++) lens[i][i] = 1; // base case
+    for (int i = 0; i < size; i++) lens[i][i] = 1;  // base case
     int maxLen = 1;
     int begin = 0;
 
@@ -70,7 +69,7 @@ string longestPalindrome(string s) {
         for (int i = 0; i < size - offset; i++) {
             int j = i + offset;
             if (s[i] == s[j]) {
-                if (j - i < 2) { // base case 长度为2的回文串
+                if (j - i < 2) {  // base case 长度为2的回文串
                     lens[i][j] = 2;
                 } else if (lens[i + 1][j - 1] != 0) {
                     lens[i][j] = lens[i + 1][j - 1] + 2;
@@ -86,7 +85,6 @@ string longestPalindrome(string s) {
     }
 
     return s.substr(begin, maxLen);
-
 }
 
 // https://leetcode-cn.com/problems/longest-palindromic-subsequence/
@@ -105,7 +103,7 @@ int longestPalindromeSubseq(string s) {
                 if (j - i < 2) {
                     lens[i][j] = 2;
                 } else {
-                    lens[i][j] = lens[i + 1][j - 1] + 2; 
+                    lens[i][j] = lens[i + 1][j - 1] + 2;
                 }
             } else {
                 lens[i][j] = max(lens[i + 1][j], lens[i][j - 1]);
@@ -117,7 +115,6 @@ int longestPalindromeSubseq(string s) {
 }
 
 int main(int argc, char* argv[]) {
-
     // https://leetcode-cn.com/problems/valid-palindrome/
     string s = "A man, a plan, a canal: Panama";
     assert(true == isPalindrome(s));
@@ -157,7 +154,6 @@ int main(int argc, char* argv[]) {
     s = "aacabdkacaa";
     ans = longestPalindrome(s);
     assert(3 == ans.size() && isPalindrome(ans));
-
 
     // https://leetcode-cn.com/problems/longest-palindromic-subsequence/
     s = "bbbab";

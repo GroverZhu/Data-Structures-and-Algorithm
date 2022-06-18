@@ -1,11 +1,11 @@
 #include <iostream>
-#include <cassert>
 #include <vector>
+
+#include <cassert>
 
 #include "List/ListNode.h"
 
 using namespace std;
-
 
 // https://leetcode-cn.com/problems/linked-list-cycle/
 bool hasCycle(ListNode* head) {
@@ -90,7 +90,6 @@ int main(int argc, char* argv[]) {
     assert(2 == cycleNums(head));
     clearCycle(tail);
     destoryList(head);
-
 
     nums = {1, 2};
     pairs = buildList(nums);

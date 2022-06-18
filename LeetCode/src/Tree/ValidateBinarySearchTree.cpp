@@ -1,6 +1,6 @@
-#include <iostream>
-#include <climits>
 #include <cassert>
+#include <climits>
+#include <iostream>
 
 #include "Tree/BinaryTreeNode.h"
 
@@ -17,16 +17,13 @@ bool isValidBSTHelper(TreeNode* root, long long left, long long right) {
 }
 
 // https://leetcode-cn.com/problems/validate-binary-search-tree/
-bool isValidBST(TreeNode* root) {
-    return isValidBSTHelper(root, LONG_LONG_MIN, LONG_LONG_MAX);
-}
+bool isValidBST(TreeNode* root) { return isValidBSTHelper(root, LONG_LONG_MIN, LONG_LONG_MAX); }
 
 int main(int argc, char* argv[]) {
     string data = "2,1,#,#,3,#,#";
     auto root = deserialBinaryTree(data);
     assert(true == isValidBST(root));
     destroyTree(root);
-
 
     data = "5,1,#,#,4,3,#,#,6,#,#";
     root = deserialBinaryTree(data);

@@ -15,7 +15,7 @@ int minimumMoves(vector<int>& arr) {
     for (int offset = 1; offset < size; offset++) {
         for (int i = 0; i < size - offset; i++) {
             int j = i + offset;
-            operations[i][j] = offset + 1; // 初始化最大值，i->j 的长度
+            operations[i][j] = offset + 1;  // 初始化最大值，i->j 的长度
             if (j - i < 2) {
                 if (arr[i] == arr[j]) operations[i][j] = 1;
 
@@ -27,19 +27,18 @@ int minimumMoves(vector<int>& arr) {
                 if (arr[i] == arr[j]) {
                     operations[i][j] = min(operations[i + 1][j - 1], operations[i][j]);
                 }
-
             }
         }
     }
 
- #if 0
+#if 0
      for (auto& lst : operations) {
          for (auto& num : lst) {
              cout << num << "\t";
          }
          cout << endl;
      }
- #endif
+#endif
 
     return operations[0][size - 1];
 }

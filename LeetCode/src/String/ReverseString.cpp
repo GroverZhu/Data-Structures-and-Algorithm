@@ -1,7 +1,7 @@
 
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 #include <cassert>
 
@@ -67,7 +67,7 @@ string reverseWord(string s) {
     int right = 0;
     int size = static_cast<int>(s.size());
 
-    while (right  < size) {
+    while (right < size) {
         while (left < size && s[left] == ' ') ++left;
         right = left;
         while (right < size && !(s[right] == ' ')) ++right;
@@ -78,7 +78,6 @@ string reverseWord(string s) {
         left = right;
     }
     return s;
-
 }
 
 // https://leetcode-cn.com/problems/reverse-words-in-a-string-iii
@@ -88,17 +87,17 @@ string reverseWords(string s) {
     int slow = 0;
     // 先去除左边的空格
     while (fast < size && s[fast] == ' ') ++fast;
-    
+
     while (fast < size) {
         // 去除连续的空格
         if (fast - 1 >= 0 && s[fast - 1] == ' ' && s[fast] == s[fast - 1]) {
             ++fast;
-        } else { // 将字符往前移动
+        } else {  // 将字符往前移动
             s[slow++] = s[fast++];
         }
     }
 
-    if (slow - 1 >= 0 && s[slow - 1] == ' ') { // 末尾有多个空格的，会保留一个要去除
+    if (slow - 1 >= 0 && s[slow - 1] == ' ') {  // 末尾有多个空格的，会保留一个要去除
         s.resize(slow - 1);
         size = slow - 1;
     } else {
@@ -137,12 +136,9 @@ string reverseOnlyLetters(string s) {
         --right;
     }
     return s;
-
 }
 
-
 int main(int argc, char* argv[]) {
-
     // https://leetcode-cn.com/problems/reverse-string
     vector<char> s, ans;
     s = {'h', 'e', 'l', 'l', 'o'};
@@ -200,7 +196,6 @@ int main(int argc, char* argv[]) {
     s1 = "ab-cd";
     ans1 = "dc-ba";
     assert(ans1 == reverseOnlyLetters(s1));
-
 
     s1 = "a-bC-dEf-ghIj";
     ans1 = "j-Ih-gfE-dCba";

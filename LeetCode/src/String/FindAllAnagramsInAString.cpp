@@ -1,7 +1,7 @@
 #include <iostream>
-#include <vector>
 #include <map>
 #include <string>
+#include <vector>
 
 #include <cassert>
 
@@ -41,9 +41,7 @@ vector<int> findAnagrams(string s, string p) {
                 if (window[del] == need[del]) --count;
                 window[del]--;
             }
-
         }
-
     }
 
     return result;
@@ -98,7 +96,6 @@ int main(int argc, char* argv[]) {
     p = "abc";
     ans = {0, 6};
     assert(ans == findAnagrams(s, p));
-
 
     s = "abab";
     p = "ab";
