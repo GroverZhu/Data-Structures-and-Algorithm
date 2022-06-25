@@ -85,6 +85,59 @@ vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
     return visited == numCourses ? result : vector<int>();
 }
 
+// follow up 所有可能的上课顺序
+bool allTopologySortOrdersHelper(vector<vector<int>>& orders, vector<int>& order, map<int, vector<int>>& graph,
+                                 vector<int>& indegree, vector<bool>& visited, int verticeNum) {
+    if (static_cast<int>(order.size()) == verticeNum) {
+        orders.emplace_back(order);
+        return true;
+    }
+    bool flag = false;
+    for (int i = 0; i < verticeNum; i++) {
+        if (indegree[i] == 0 && !visited[i]) {
+            order.emplace_back(i);
+            visited[i] = true;
+            for (auto& next : graph[i]) {
+                indegree[next] -= 1;
+            }
+
+            allTopologySortOrdersHelper(orders, order, graph, indegree, visited, verticeNum);
+
+            order.pop_back();
+            visited[i] = false;
+            for (auto& next : graph[i]) {
+                indegree[next] += 1;
+            }
+
+            flag = true;
+        }
+    }
+
+    return flag;
+}
+
+vector<vector<int>> allTopologySortOrders(int numCourses, vector<vector<int>>& prerequisites) {
+    if (numCourses == 0) {
+        return vector<vector<int>>();
+    }
+    if (numCourses == 1) {
+        return vector<vector<int>>{{0}};
+    }
+    vector<vector<int>> result;
+    vector<int> order;
+    vector<int> indegree(numCourses, 0);
+    vector<bool> visited(numCourses, false);
+    map<int, vector<int>> graph;
+    for (auto& link : prerequisites) {
+        auto to = link[0];
+        auto from = link[1];
+        graph[from].emplace_back(to);
+        indegree[to] += 1;
+    }
+    allTopologySortOrdersHelper(result, order, graph, indegree, visited, numCourses);
+    return result;
+}
+
 int main(int argc, char* argv[]) {
     int numCourses = 2;
     vector<vector<int>> prerequisites = {{1, 0}};
@@ -92,10 +145,14 @@ int main(int argc, char* argv[]) {
     vector<int> order = findOrder(numCourses, prerequisites);
     vector<int> orderResult = {0, 1};
     assert(order == orderResult);
+    vector<vector<int>> topologyOrders = allTopologySortOrders(numCourses, prerequisites);
+    assert(1 == topologyOrders.size());
 
     numCourses = 4;
-    prerequisites = {{1, 0}, {2, 0}};
+    prerequisites = {{1, 0}, {2, 0}, {3, 1}, {3, 2}};
     assert(true == canFinish(numCourses, prerequisites));
+    topologyOrders = allTopologySortOrders(numCourses, prerequisites);
+    assert(2 == topologyOrders.size());
 
     numCourses = 2;
     prerequisites = {{1, 0}, {0, 1}};
@@ -103,6 +160,8 @@ int main(int argc, char* argv[]) {
     order = findOrder(numCourses, prerequisites);
     orderResult = {};
     assert(order == orderResult);
+    topologyOrders = allTopologySortOrders(numCourses, prerequisites);
+    assert(0 == topologyOrders.size());
 
     numCourses = 1;
     prerequisites = {};
@@ -110,5 +169,7 @@ int main(int argc, char* argv[]) {
     order = findOrder(numCourses, prerequisites);
     orderResult = {0};
     assert(order == orderResult);
+    topologyOrders = allTopologySortOrders(numCourses, prerequisites);
+    assert(1 == topologyOrders.size());
     return 0;
 }
