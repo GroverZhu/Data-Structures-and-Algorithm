@@ -27,7 +27,7 @@ struct TrieNode {
 };
 
 class Trie {
-   public:
+public:
     Trie() { root = new TrieNode(); }
 
     ~Trie() { delete root; }
@@ -85,7 +85,7 @@ class Trie {
         return prefix;
     }
 
-   private:
+private:
     TrieNode* root;
 };
 

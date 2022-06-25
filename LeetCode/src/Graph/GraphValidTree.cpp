@@ -5,11 +5,11 @@
 using namespace std;
 
 class UF {
-   private:
+private:
     int count;
     vector<int> parent;
 
-   public:
+public:
     UF(int n) {
         this->count = n;
         parent = vector<int>(n);

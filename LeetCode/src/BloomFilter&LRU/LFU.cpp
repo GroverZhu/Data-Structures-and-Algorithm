@@ -21,7 +21,7 @@ struct Node {
 };
 
 class LFUCache {
-   public:
+public:
     LFUCache(int capacity) {
         this->capacity = capacity;
         size = 0;
@@ -84,7 +84,7 @@ class LFUCache {
         }
     }
 
-   private:
+private:
     int capacity;
     int size;
     unordered_map<int, list<Node>::iterator> keyToNode;

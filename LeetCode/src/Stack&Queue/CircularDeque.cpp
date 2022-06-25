@@ -25,7 +25,7 @@ struct Node {
 
 // https://leetcode-cn.com/problems/design-circular-deque/
 class MyCircularDeque {
-   public:
+public:
     MyCircularDeque(int k) {
         this->size = 0;
         this->capacity = k;
@@ -120,7 +120,7 @@ class MyCircularDeque {
 
     bool isFull() { return this->size >= this->capacity; }
 
-   private:
+private:
     int size;
     int capacity;
     Node* head;

@@ -7,7 +7,7 @@ using namespace std;
 
 // https://leetcode-cn.com/problems/design-a-leaderboard/
 class Leaderboard {
-   public:
+public:
     Leaderboard() {
         scores.clear();
         id2score.clear();
@@ -47,7 +47,7 @@ class Leaderboard {
         }
     }
 
-   private:
+private:
     multiset<int, decltype(greater<int>())> scores{greater<int>()};
     unordered_map<int, int> id2score;
 };

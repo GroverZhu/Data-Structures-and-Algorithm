@@ -5,7 +5,7 @@
 using namespace std;
 
 class MinStack {
-   public:
+public:
     MinStack() {
         mini = {};
         normal = {};
@@ -29,7 +29,7 @@ class MinStack {
 
     int getMin() { return mini.top(); }
 
-   private:
+private:
     stack<int> mini;
     stack<int> normal;
 };

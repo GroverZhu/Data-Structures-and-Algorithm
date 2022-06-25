@@ -7,7 +7,7 @@
 using namespace std;
 
 class MedianFinder {
-   public:
+public:
     MedianFinder() {
         small = {};
         large = {};
@@ -35,7 +35,7 @@ class MedianFinder {
         }
     }
 
-   private:
+private:
     priority_queue<int, vector<int>, greater<int>> small;
     priority_queue<int, vector<int>, less<int>> large;
 };

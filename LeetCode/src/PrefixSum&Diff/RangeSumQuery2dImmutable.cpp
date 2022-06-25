@@ -8,7 +8,7 @@ using namespace std;
 // https://leetcode-cn.com/problems/range-sum-query-2d-immutable/
 
 class NumMatrix {
-   public:
+public:
     NumMatrix(vector<vector<int>>& matrix) {
         int rows = static_cast<int>(matrix.size());
         int cols = static_cast<int>(matrix[0].size());
@@ -33,7 +33,7 @@ class NumMatrix {
         return prefix[row2 + 1][col2 + 1] - prefix[row1][col2 + 1] - prefix[row2 + 1][col1] + prefix[row1][col1];
     }
 
-   private:
+private:
     vector<vector<int>> prefix;
 };
 

@@ -33,7 +33,7 @@ struct TrieNode {
 };
 
 class Trie {
-   public:
+public:
     Trie() { root = new TrieNode(); }
 
     void insert(string s) {
@@ -66,7 +66,7 @@ class Trie {
         return result;
     }
 
-   private:
+private:
     TrieNode* root;
 };
 

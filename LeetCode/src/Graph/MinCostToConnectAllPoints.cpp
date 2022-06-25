@@ -10,7 +10,7 @@ using namespace std;
 
 // 并查集
 class UnionFind {
-   public:
+public:
     UnionFind(int n) {
         size = n;
         count = n;
@@ -49,7 +49,7 @@ class UnionFind {
 
     int getCount() { return this->count; }
 
-   private:
+private:
     vector<int> parent;
     int size;
     int count;
