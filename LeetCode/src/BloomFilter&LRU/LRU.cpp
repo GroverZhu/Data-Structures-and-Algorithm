@@ -10,7 +10,7 @@ using namespace std;
 // https://leetcode-cn.com/problems/lru-cache/
 #if 0  // 使用内部数据结构
 class LRUCache {
-   public:
+public:
     LRUCache(int capacity) {
         size = 0;
         this->capacity = capacity;
@@ -48,7 +48,7 @@ class LRUCache {
         }
     }
 
-   private:
+private:
     list<pair<int, int>> chain;
     map<int, list<pair<int, int>>::iterator> cache;
     int size;
@@ -72,7 +72,7 @@ struct BiListNode {
 
 class LRUCache {
 public:
-    LRUCache(int _capacity): capacity(_capacity), size(0) {
+    LRUCache(int _capacity) : capacity(_capacity), size(0) {
         head = new BiListNode();
         tail = new BiListNode();
         head->next = tail;
@@ -123,10 +123,10 @@ private:
     // 要保证存在节点，才能删除
     bool removeTail() {
         BiListNode* del = tail->prev;
-        if (del == head) { // 保证在没有节点的情况下删除
+        if (del == head) {  // 保证在没有节点的情况下删除
             return false;
         }
-        
+
         del->prev->next = tail;
         tail->prev = del->prev;
 
@@ -183,13 +183,11 @@ int main(int argc, char* argv[]) {
     assert(lru.get(3) == 3);
     assert(lru.get(4) == 4);
 
-
-
     LRUCache lru2 = LRUCache(2);
-    lru2.put(2,1);
-    lru2.put(1,1);
-    lru2.put(2,3);
-    lru2.put(4,1);
+    lru2.put(2, 1);
+    lru2.put(1, 1);
+    lru2.put(2, 3);
+    lru2.put(4, 1);
     assert(lru2.get(1) == -1);
     assert(lru2.get(2) == 3);
 
