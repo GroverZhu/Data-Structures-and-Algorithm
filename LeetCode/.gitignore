@@ -265,3 +265,5 @@ docs/dev
 
 # something private
 src/Company
+
+.cache/

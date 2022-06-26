@@ -71,7 +71,7 @@ string longestPalindrome(string s) {
             if (s[i] == s[j]) {
                 if (j - i < 2) {  // base case 长度为2的回文串
                     lens[i][j] = 2;
-                } else if (lens[i + 1][j - 1] != 0) {
+                } else if (lens[i + 1][j - 1] != 0) {  // 头尾相等，但是也要保证中间部分是回文
                     lens[i][j] = lens[i + 1][j - 1] + 2;
                 }
                 if (lens[i][j] > maxLen) {
