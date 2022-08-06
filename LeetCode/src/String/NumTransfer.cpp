@@ -221,21 +221,21 @@ int ChineseToArabicNumeral(string str) {
 
 int main() {
     clock_t start, end;
-#if 0
+#if 1
     start = clock();
-    for (int i = 0; i < INT_MAX; i++) {
+    for (int i = 0; i < 10000; i++) {
         string english_expr = ArabicNumeralToEnglish(i);
         string chinese_expr = ArabicNumeralToChinese(i);
         int english_parse = EnglishToArabicNumeral(english_expr);
         int chinese_parse = ChineseToArabicNumeral(chinese_expr);
-        assert(i == english_parse && i == chinese_parse /* &&
+        assert(i == english_parse && i == chinese_parse &&
                (cout << "Current number is: " << i << ", the English expression is: " << english_expr
                      << ", English parse: " << english_parse << ", the Chinese expression is: " << chinese_expr
-                     << ", Chinese parse: " << chinese_parse << endl)*/);
+                     << ", Chinese parse: " << chinese_parse << endl));
     }
 #endif
 
-#if 1  // 使用多线程测试 hard test，测一次估计等要个20分钟左右吧
+#if 0  // 使用多线程测试 hard test，测一次估计得要个20分钟左右吧，线程数根据自己的CPU调整
     int thread_nums = 16;
     vector<thread> threads(thread_nums);
     vector<vector<int>> parts(thread_nums);

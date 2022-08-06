@@ -35,7 +35,7 @@ ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
 
 // https://leetcode-cn.com/problems/merge-k-sorted-lists/
 ListNode* mergeKLists(vector<ListNode*>& lists) {
-#if 0
+#if 1
     int size = static_cast<int>(lists.size());
     if (size == 0) return nullptr;
     if (size == 1) return lists[0];
@@ -69,7 +69,7 @@ ListNode* mergeKLists(vector<ListNode*>& lists) {
     return dummy.next;
 #endif
 
-#if 1
+#if 0
 
     int size = static_cast<int>(lists.size());
     if (size == 0) return nullptr;
