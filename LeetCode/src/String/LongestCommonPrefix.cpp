@@ -36,6 +36,12 @@ class Trie {
 public:
     Trie() { root = new TrieNode(); }
 
+    ~Trie() {
+        if (root) {
+            delete root;
+        }
+    }
+
     void insert(string s) {
         auto cur = root;
         for (auto c : s) {

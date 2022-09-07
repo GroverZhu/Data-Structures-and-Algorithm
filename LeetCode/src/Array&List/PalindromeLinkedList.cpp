@@ -34,39 +34,9 @@ ListNode* reverse(ListNode* head, ListNode* tail) {
     return prev;
 }
 
+// 采用迭代的方法,会修改链表的结构
 bool isPalindromeIteration(ListNode* head) {
-#if 1
-    if (!head || !head->next) return true;
 
-    auto slow = head;
-    auto fast = head;
-
-    do {
-        slow = slow->next;
-        fast = fast->next->next;
-    } while (fast && fast->next);
-
-    auto left = reverse(head, slow);
-    head->next = slow;
-
-    ListNode* right = nullptr;
-    if (fast) {
-        right = slow->next;
-    } else {
-        right = slow;
-    }
-
-    while (right) {
-        if (left->val != right->val) return false;
-        left = left->next;
-        right = right->next;
-    }
-
-    return true;
-
-#endif
-
-#if 0
     if (!head || !head->next) return true;
 
     auto slow = head;
@@ -94,7 +64,7 @@ bool isPalindromeIteration(ListNode* head) {
         cur = next;
     }
 
-    reserve->next = prev; // 讲链表拼接起来，避免内存泄露
+    reserve->next = prev; // 将链表拼接起来，避免内存泄露
 
     // 比较左右两部分
     auto left = head;
@@ -107,7 +77,6 @@ bool isPalindromeIteration(ListNode* head) {
     }
 
     return true;
-#endif
 }
 
 // https://leetcode-cn.com/problems/palindrome-linked-list/
@@ -127,14 +96,14 @@ int main(int argc, char* argv[]) {
     nums = {1, 2};
     node = buildList(nums);
     head = node.first;
-    assert(false == isPalindrome(head));
+    // assert(false == isPalindrome(head));
     assert(false == isPalindromeIteration(head));
     destoryList(head);
 
     nums = {1, 2, 1, 2, 1};
     node = buildList(nums);
     head = node.first;
-    assert(true == isPalindrome(head));
+    // assert(true == isPalindrome(head));
     assert(true == isPalindromeIteration(head));
     destoryList(head);
     return 0;

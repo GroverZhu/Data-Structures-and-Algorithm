@@ -1,5 +1,7 @@
-
 #include <cassert>
+#include <cstdlib>
+
+using namespace std;
 
 // x = x - f(x)/f'(x), f(x) = x^2 - a
 // x = x / 2  + a / 2x

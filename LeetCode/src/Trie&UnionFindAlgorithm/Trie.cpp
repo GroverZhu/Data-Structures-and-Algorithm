@@ -21,7 +21,7 @@ struct TrieNode {
 
     ~TrieNode() {
         for (auto node : next) {
-            if (!node.second) delete node.second;
+            if (node.second) delete node.second;
         }
     }
 };
@@ -30,7 +30,11 @@ class Trie {
 public:
     Trie() { root = new TrieNode(); }
 
-    ~Trie() { delete root; }
+    ~Trie() {
+        if (root) {
+            delete root; 
+        }
+    }
 
     void insert(string word) {
         auto node = root;
