@@ -8,6 +8,7 @@
 using namespace std;
 
 // https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/
+// 递归解法
 TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
     if (!root) return root;
     if (root->val == p->val || root->val == q->val) return root;
@@ -36,6 +37,8 @@ void preorder(TreeNode* root, map<TreeNode*, TreeNode*>& childToParent) {
     preorder(root->left, childToParent);
     preorder(root->right, childToParent);
 }
+
+// 迭代解法
 TreeNode* lowestCommonAncestorIter(TreeNode* root, TreeNode* p, TreeNode* q) {
     if (!root || root->val == p->val || root->val == q->val) {
         return root;

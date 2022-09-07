@@ -32,7 +32,7 @@ public:
 
     ~Trie() {
         if (root) {
-            delete root; 
+            delete root;
         }
     }
 

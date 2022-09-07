@@ -36,7 +36,6 @@ ListNode* reverse(ListNode* head, ListNode* tail) {
 
 // 采用迭代的方法,会修改链表的结构
 bool isPalindromeIteration(ListNode* head) {
-
     if (!head || !head->next) return true;
 
     auto slow = head;
@@ -64,7 +63,7 @@ bool isPalindromeIteration(ListNode* head) {
         cur = next;
     }
 
-    reserve->next = prev; // 将链表拼接起来，避免内存泄露
+    reserve->next = prev;  // 将链表拼接起来，避免内存泄露
 
     // 比较左右两部分
     auto left = head;
