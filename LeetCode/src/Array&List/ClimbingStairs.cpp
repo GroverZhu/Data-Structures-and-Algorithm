@@ -83,12 +83,12 @@ int main(int argc, char* argv[]) {
     begin = clock();
     ans1 = climbStairsRecursive(n);
     end = clock();
-    cout << "Recursive time cost: " << (end - begin) / CLOCKS_PER_SEC * 1000.0 << "ms\t";
+    cout << "Recursive time cost: " << 1.0 * (end - begin) / CLOCKS_PER_SEC * 1000.0 << "ms\t";
 
     begin = clock();
     ans2 = climbStairsIteration(n);
     end = clock();
-    cout << "Iteration time cost: " << (end - begin) / CLOCKS_PER_SEC * 1000.0 << "ms\t";
+    cout << "Iteration time cost: " << 1.0 * (end - begin) / CLOCKS_PER_SEC * 1000.0 << "ms\t";
 
     begin = clock();
     ans3 = climbStairs(n);
