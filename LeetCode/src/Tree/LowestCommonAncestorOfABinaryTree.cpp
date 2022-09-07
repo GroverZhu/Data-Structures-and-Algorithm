@@ -35,7 +35,6 @@ void preorder(TreeNode* root, map<TreeNode*, TreeNode*>& childToParent) {
 
     preorder(root->left, childToParent);
     preorder(root->right, childToParent);
-
 }
 TreeNode* lowestCommonAncestorIter(TreeNode* root, TreeNode* p, TreeNode* q) {
     if (!root || root->val == p->val || root->val == q->val) {

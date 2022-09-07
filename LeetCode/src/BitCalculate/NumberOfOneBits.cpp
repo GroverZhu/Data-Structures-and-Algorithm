@@ -1,4 +1,5 @@
 #include <cassert>
+#include <cstdint>
 
 using namespace std;
 
