@@ -1,5 +1,0 @@
-numpy
-parsel
-Pillow
-Scrapy
-selenium

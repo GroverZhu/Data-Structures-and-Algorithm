@@ -1,0 +1,64 @@
+name: CMake Build Matrix
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  BUILD_TYPE: Debug
+
+jobs:
+  build:
+    name: ${{ matrix.config.name }}
+    runs-on: ${{ matrix.config.os }}
+
+    strategy:
+      fail-fast: true
+      matrix:
+        config:
+          - {
+            name: "Ubuntu 22.04 GCC",
+            os: "ubuntu-22.04",
+            cc: "/usr/bin/gcc",
+            cxx: "/usr/bin/g++",
+            format: "/usr/bin/clang-format-11",
+          }
+          - {
+            name: "macOS 11 (Big Sur) AppleClang",
+            os: macos-11,
+            cc: "/usr/bin/clang",
+            cxx: "/usr/bin/clang++",
+            format: "/usr/local/bin/clang-format",
+          }
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Print env
+        run: |
+          echo github.event.action: ${{ github.event.action }}
+          echo github.event_name: ${{ github.event_name }}
+      - name: Install Dependencies (Ubuntu)
+        if: runner.os == 'Linux'
+        working-directory: ${{github.workspace}}
+        run: sudo bash ./build_support/packages.sh -y
+
+      - name: Install Dependencies (OSX)
+        if: runner.os == 'macOS'
+        working-directory: ${{github.workspace}}
+        run: bash ./build_support/packages.sh -y
+
+      - name: Configure CMake
+        run: CC=${{matrix.config.cc}} CXX=${{matrix.config.cxx}} cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DCLANG_FORMAT_BIN=${{matrix.config.format}} -DCLANG_TIDY_BIN=${{matrix.config.tidy}}
+
+      - name: Build
+        run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+      - name: Check Format
+        working-directory: ${{github.workspace}}/build
+        run: make check-format
+
+      - name: Check Tests
+        working-directory: ${{github.workspace}}/build/bin
+        run: bash ../../build_support/run_executable.sh
