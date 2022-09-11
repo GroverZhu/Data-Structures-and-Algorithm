@@ -221,7 +221,7 @@ int ChineseToArabicNumeral(string str) {
 
 int main() {
     clock_t start, end;
-#if 0
+#if 1
     start = clock();
     for (int i = 0; i < 10000; i++) {
         string english_expr = ArabicNumeralToEnglish(i);
@@ -235,7 +235,7 @@ int main() {
     }
 #endif
 
-#if 1  // 使用多线程测试 hard test，测一次估计得要个20分钟左右吧，线程数根据自己的CPU调整
+#if 0  // 使用多线程测试 hard test，测一次估计得要个20分钟左右吧，线程数根据自己的CPU调整
     int thread_nums = 16;
     vector<thread> threads(thread_nums);
     vector<vector<int>> parts(thread_nums);
