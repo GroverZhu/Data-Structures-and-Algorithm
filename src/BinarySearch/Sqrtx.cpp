@@ -3,27 +3,16 @@
 
 using namespace std;
 
-// x = x - f(x)/f'(x), f(x) = x^2 - a
-// x = x / 2  + a / 2x
-int newtonIter(int x) {
-    if (x <= 1) return x;
-    double epsilon = 1e-5;
-    double cur = x;
-    double next = cur / 2.0 + x / (2.0 * cur);
-    while (abs(next - cur) > epsilon) {
-        cur = next;
-        next = cur / 2.0 + x / (2.0 * cur);
-    }
-    return next;
-}
 // https://leetcode-cn.com/problems/sqrtx/
 int mySqrt(int x) {
-#if 0
+#if 0  // 二分搜索
     if (x <= 1) return x;
+
     double left = 0;
     double right = x;
     double mid;
     double epsilon = 1e-5;
+
     while (left <= right) {
         mid = (right - left) / 2.0 + left;
         double tmp = mid * mid;
@@ -35,11 +24,24 @@ int mySqrt(int x) {
             left = mid;
         }
     }
+
     return mid;
 #endif
 
-#if 1
-    return newtonIter(x);
+#if 1  // 牛顿迭代法
+    // x = x - f(x)/f'(x), f(x) = x^2 - a
+    // x = x / 2  + a / 2x
+    if (x <= 1) return x;
+
+    double epsilon = 1e-5;
+
+    double cur = x;
+    double next = cur / 2.0 + x / (2.0 * cur);
+    while (abs(next - cur) > epsilon) {
+        cur = next;
+        next = cur / 2.0 + x / (2.0 * cur);
+    }
+    return next;
 #endif
 }
 
