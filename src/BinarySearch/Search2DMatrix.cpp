@@ -1,4 +1,3 @@
-#include <pthread.h>
 #include <climits>
 #include <iostream>
 #include <vector>
