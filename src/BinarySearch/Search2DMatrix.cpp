@@ -8,6 +8,7 @@ using namespace std;
 
 // https://leetcode-cn.com/problems/search-a-2d-matrix/
 bool searchMatrix(vector<vector<int>>& matrix, int target) {
+#if 0  // 缩小范围
     int rows = static_cast<int>(matrix.size());
     int cols = static_cast<int>(matrix[0].size());
 
@@ -25,10 +26,42 @@ bool searchMatrix(vector<vector<int>>& matrix, int target) {
     }
 
     return false;
+#endif
+
+#if 1  // 二分搜索，该二维矩阵按行展开后是一个有序列表
+    int rows = static_cast<int>(matrix.size());
+    if (rows == 0) {
+        return false;
+    }
+    int cols = static_cast<int>(matrix[0].size());
+    if (cols == 0) {
+        return false;
+    }
+
+    int left = 0;
+    int right = rows * cols;
+    int mid;
+
+    while (left < right) {
+        mid = (right - left) / 2 + left;
+        int x = mid / cols;
+        int y = mid % cols;
+
+        if (matrix[x][y] == target) {
+            return true;
+        } else if (matrix[x][y] < target) {
+            left = mid + 1;
+        } else if (matrix[x][y] > target) {
+            right = mid;
+        }
+    }
+
+    return false;
+
+#endif
 }
 
 // https://leetcode.cn/problems/kth-smallest-element-in-a-sorted-matrix/
-
 int lessEqualThanCount(vector<vector<int>>& matrix, int val) {
     int rows = static_cast<int>(matrix.size());
     int cols = static_cast<int>(matrix[0].size());
