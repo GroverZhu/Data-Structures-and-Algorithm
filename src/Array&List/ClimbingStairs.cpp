@@ -1,9 +1,9 @@
 #include <iostream>
 #include <vector>
 
+#include <cassert>
 #include <cstdlib>
 #include <ctime>
-#include <cassert>
 
 using namespace std;
 

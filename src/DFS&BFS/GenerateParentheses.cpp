@@ -7,6 +7,7 @@
 
 using namespace std;
 
+// https://leetcode.cn/problems/generate-parentheses/
 void dfs(vector<string>& result, string temp, int n, int left, int right) {
     if (n == left && left == right) {
         result.emplace_back(temp);
