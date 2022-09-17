@@ -26,7 +26,7 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     if (CMAKE_CXX_COMPILER_VERSION GREATER_EQUAL "^11.")
         message(STATUS "You're using ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}")
     else ()
-        message(WARNING "!! We recommend that you use clang-12 for developing LeetCodeJounery. You're using ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}, a different version.")
+        message(WARNING "!! We recommend that you use clang-11 for developing LeetCodeJounery. You're using ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}, a different version.")
     endif ()
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
     message(STATUS "You're using ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}")
@@ -46,9 +46,9 @@ find_program(CLANG_FORMAT_BIN
         HINTS ${LEETCODEJONERY_CLANG_SEARCH_PATH})
 
 if ("${CLANG_FORMAT_BIN}" STREQUAL "CLANG_FORMAT_BIN-NOTFOUND")
-    message(WARNING "LeetCodeJounery/main couldn't find clang-format.")
+    message(WARNING "LeetCodeJounery/master couldn't find clang-format.")
 else ()
-    message(STATUS "LeetCodeJounery/main found clang-format at ${CLANG_FORMAT_BIN}")
+    message(STATUS "LeetCodeJounery/master found clang-format at ${CLANG_FORMAT_BIN}")
 endif ()
 
 # attempt to find the binary if user did not specify
@@ -61,11 +61,11 @@ find_program(CLANG_APPLY_REPLACEMENTS_BIN
         HINTS ${LEETCODEJONERY_CLANG_SEARCH_PATH})
 
 if ("${CLANG_APPLY_REPLACEMENTS_BIN}" STREQUAL "CLANG_APPLY_REPLACEMENTS_BIN-NOTFOUND")
-    message(WARNING "LeetCodeJounery/main couldn't find clang-apply-replacements.")
+    message(WARNING "LeetCodeJounery/master couldn't find clang-apply-replacements.")
 else ()
     # Output compile_commands.json
     set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
-    message(STATUS "LeetCodeJounery/main found clang-apply-replacements at ${CLANG_APPLY_REPLACEMENTS_BIN}")
+    message(STATUS "LeetCodeJounery/master found clang-apply-replacements at ${CLANG_APPLY_REPLACEMENTS_BIN}")
 endif ()
 
 ######################################################################################################################
