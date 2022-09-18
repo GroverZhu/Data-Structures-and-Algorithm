@@ -1,4 +1,3 @@
-// g++ joseph_ring.cpp  -o joseph_ring -D FORCE
 #include <iostream>
 #include <vector>
 
