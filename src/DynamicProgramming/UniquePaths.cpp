@@ -6,6 +6,7 @@ using namespace std;
 
 // https://leetcode-cn.com/problems/unique-paths/
 int uniquePaths(int m, int n) {
+#if 0
     vector<vector<int>> paths(m, vector<int>(n, 1));
 
     for (int i = 1; i < m; i++) {
@@ -15,10 +16,23 @@ int uniquePaths(int m, int n) {
     }
 
     return paths[m - 1][n - 1];
+#endif
+
+#if 1  // 状态压缩
+    vector<int> paths(n, 1);
+    for (int i = 1; i < m; i++) {
+        paths[0] = 1;
+        for (int j = 1; j < n; j++) {
+            paths[j] = paths[j - 1] + paths[j];
+        }
+    }
+    return paths[n - 1];
+#endif
 }
 
 // https://leetcode-cn.com/problems/unique-paths-ii/
 int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
+#if 0
     int rows = static_cast<int>(obstacleGrid.size());
     int cols = static_cast<int>(obstacleGrid[0].size());
 
@@ -42,6 +56,44 @@ int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
         }
     }
     return paths[rows - 1][cols - 1];
+#endif
+
+#if 1
+    int rows = static_cast<int>(obstacleGrid.size());
+    if (rows == 0) {
+        return 0;
+    }
+    int cols = static_cast<int>(obstacleGrid[0].size());
+    if (cols == 0) {
+        return 0;
+    }
+
+    vector<int> line(cols, 0);
+    for (int j = 0; j < cols; j++) {
+        if (obstacleGrid[0][j] == 1) {
+            break;
+        }
+        line[j] = 1;
+    }
+
+    for (int i = 1; i < rows; i++) {
+        if (obstacleGrid[i][0] == 1 || line[0] == 0) {
+            line[0] = 0;
+        } else {
+            line[0] = 1;
+        }
+
+        for (int j = 1; j < cols; j++) {
+            if (obstacleGrid[i][j] == 1) {
+                line[j] = 0;
+            } else {
+                line[j] = line[j - 1] + line[j];
+            }
+        }
+    }
+
+    return line[cols - 1];
+#endif
 }
 
 void dfs(vector<vector<int>>& grid, vector<vector<bool>>& visited, int& result, int steps, int x, int y) {

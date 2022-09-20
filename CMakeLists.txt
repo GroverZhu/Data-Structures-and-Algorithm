@@ -31,7 +31,7 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
     message(STATUS "You're using ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}")
 else ()
-    message(WARNING "!! We recommend that you use clang-12 for developing LeetCodeJounery. You're using ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}, which is not clang.")
+    message(WARNING "!! We recommend that you use clang-11 for developing LeetCodeJounery. You're using ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}, which is not clang.")
 endif ()
 
 ######################################################################################################################
