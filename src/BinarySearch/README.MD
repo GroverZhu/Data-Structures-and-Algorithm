@@ -9,3 +9,5 @@
 - https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/
 - https://leetcode-cn.com/problems/search-in-rotated-sorted-array/ 
 - https://leetcode-cn.com/problems/search-a-2d-matrix/
+- https://leetcode.cn/problems/koko-eating-bananas/
+- https://leetcode.cn/problems/minimize-max-distance-to-gas-station/

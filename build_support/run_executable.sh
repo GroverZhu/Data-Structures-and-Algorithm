@@ -1,3 +1,6 @@
+#!/bin/bash
+
+# run all executable files 
 for file in ` ls `
     do 
         if [[ -f ${file} && -x ${file} ]]; then
