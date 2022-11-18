@@ -1,19 +1,5 @@
 #!/bin/bash
 
-## =================================================================
-## BUSTUB PACKAGE INSTALLATION
-##
-## This script will install all the packages that are needed to
-## build and run the DBMS.
-##
-## Supported environments:
-##  * Ubuntu 18.04 (x86-64)
-##  * Ubuntu 20.04 (x86-64)
-##  * Ubuntu 22.04 (x86-64)
-##  * macOS 11 Big Sur (x86-64 or ARM)
-##  * macOS 12 Monterey (x86-64 or ARM)
-## =================================================================
-
 main() {
   set -o errexit
 
@@ -61,9 +47,6 @@ give_up() {
   echo "Please contact our support team for additional help."
   echo "Be sure to include the contents of this message."
   echo "Platform: $(uname -a)"
-  echo
-  echo "https://github.com/cmu-db/bustub/issues"
-  echo
   exit 1
 }
 
@@ -81,7 +64,7 @@ install_mac() {
   brew ls --versions doxygen || brew install doxygen
   brew ls --versions git || brew install git
   brew ls --versions clang-format || brew install clang-format
-  (brew ls --versions llvm | grep 12) || brew install llvm@12
+  (brew ls --versions llvm | grep 11) || brew install llvm@11
 }
 
 install_linux() {
