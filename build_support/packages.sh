@@ -64,7 +64,7 @@ install_mac() {
   brew ls --versions doxygen || brew install doxygen
   brew ls --versions git || brew install git
   brew ls --versions clang-format || brew install clang-format
-  (brew ls --versions llvm | grep 11) || brew install llvm@11
+  (brew ls --versions llvm | grep 15) || brew install llvm@15
 }
 
 install_linux() {

@@ -19,8 +19,8 @@ endif ()
 
 # Expected directory structure.
 set(LEETCODEJONERY_BUILD_SUPPORT_DIR "${CMAKE_SOURCE_DIR}/build_support")
-set(LEETCODEJONERY_CLANG_SEARCH_PATH "/usr/local/bin" "/usr/bin" "/usr/local/opt/llvm/bin" "/usr/local/opt/llvm@11/bin"
-        "/usr/local/Cellar/llvm/11.0.1/bin" "/opt/homebrew/opt/llvm@11/bin/")
+set(LEETCODEJONERY_CLANG_SEARCH_PATH "/usr/local/bin" "/usr/bin" "/usr/local/opt/llvm/bin" "/usr/local/opt/llvm@15/bin"
+"/opt/homebrew/opt/llvm@15/bin/")
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     if (CMAKE_CXX_COMPILER_VERSION GREATER_EQUAL "^11.")
