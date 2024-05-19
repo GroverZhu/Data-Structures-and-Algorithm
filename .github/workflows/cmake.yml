@@ -26,8 +26,8 @@ jobs:
             format: "/usr/bin/clang-format-11",
           }
           - {
-            name: "macOS 11 (Big Sur) AppleClang",
-            os: macos-11,
+            name: "macOS 14 (Sonoma) AppleClang",
+            os: macos-14,
             cc: "/usr/bin/clang",
             cxx: "/usr/bin/clang++",
             format: "/usr/local/bin/clang-format",
