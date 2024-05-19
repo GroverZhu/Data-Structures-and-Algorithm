@@ -4,8 +4,25 @@ Record the data structures and algorithm jounery, the cpskill move to this [repo
 
 The `build_support`, `.github`, `CmakeLists.txt` is modify from [bustub](https://github.com/cmu-db/bustub)
 
-# 运行项目
+project structure
+```
+./
+├── CMakeLists.txt
+├── LICENSE
+├── README.md
+├── build_support
+└── src
+```
 
-- 支持的平台：Linux, MacOS
-- 软件：g++ 或者 LLVM, CMAKE
-- 项目编译：在该文件夹下建立 `build` 文件夹，进入 `build` 文件夹运行 `cmake ..`，要在 debug 模式下运行命令为 `cmake -DCMAKE_BUILD_TYPE=DEBUG ..`, 使用 `make all` 编译所有代码，在 `build` 文件夹下有 `bin` 文件，里面为编译后的可执行文件
+# run this project
+
+
+
+- Supported OS: Linux or MacOS
+- Software: g++ or LLVM, CMAKE
+- Build the project: 
+    - in the current dirctory, use the command `mkdir build && cd build && cmake .. && make all -j`
+    - if you want in the debug mode, use this command `mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=DEBUG .. && make all -j`
+    - all the executable files are in the directory `build/bin`
+    - `make format` can format all the code which defined in the file `.clang-format`
+    - in `build/bin` directory, run `bash ../../build_support/run_executable.sh` will run all the algorithms.

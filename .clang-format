@@ -1,6 +1,5 @@
 BasedOnStyle: Google
 DerivePointerAlignment: false
-PointerAlignment: Right
 ColumnLimit: 120
 # 缩进宽度
 IndentWidth:	4

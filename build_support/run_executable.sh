@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # run all executable files 
+echo "Start running all algorithms"
+
 for file in ` ls `
     do 
         if [[ -f ${file} && -x ${file} ]]; then
@@ -13,4 +15,4 @@ for file in ` ls `
         fi
     done
 
-echo "In debug mode all tests passed!"
+echo "All tests passed!"
