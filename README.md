@@ -26,3 +26,4 @@ project structure
     - all the executable files are in the directory `build/bin`
     - `make format` can format all the code which defined in the file `.clang-format`
     - in `build/bin` directory, run `bash ../../build_support/run_executable.sh` will run all the algorithms.
+    - `make check-format`
