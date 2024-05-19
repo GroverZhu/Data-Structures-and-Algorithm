@@ -18,21 +18,21 @@ if (EXISTS "${PATH_TO_CMAKELISTS_TXT}")
 endif ()
 
 # Expected directory structure.
-set(LEETCODEJONERY_BUILD_SUPPORT_DIR "${CMAKE_SOURCE_DIR}/build_support")
-set(LEETCODEJONERY_CLANG_SEARCH_PATH "/usr/local/bin" "/usr/bin" "/usr/local/opt/llvm/bin" "/usr/local/opt/llvm@15/bin"
-"/opt/homebrew/opt/llvm@15/bin/")
+set(BUSTUB_BUILD_SUPPORT_DIR "${CMAKE_SOURCE_DIR}/build_support")
+set(BUSTUB_CLANG_SEARCH_PATH "/usr/local/bin" "/usr/bin" "/usr/local/opt/llvm/bin" "/usr/local/opt/llvm@14/bin"
+        "/opt/homebrew/opt/llvm@14/bin/")
 
-if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-    if (CMAKE_CXX_COMPILER_VERSION GREATER_EQUAL "^11.")
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+        if(CMAKE_CXX_COMPILER_VERSION MATCHES "^14.")
+                message(STATUS "You're using ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}")
+        else()
+                message(WARNING "!! We recommend that you use clang-14 for developing BusTub. You're using ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}, a different version.")
+        endif()
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
         message(STATUS "You're using ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}")
-    else ()
-        message(WARNING "!! We recommend that you use clang-11 for developing LeetCodeJounery. You're using ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}, a different version.")
-    endif ()
-elseif (CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
-    message(STATUS "You're using ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}")
-else ()
-    message(WARNING "!! We recommend that you use clang-11 for developing LeetCodeJounery. You're using ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}, which is not clang.")
-endif ()
+else()
+        message(WARNING "!! We recommend that you use clang-14 for developing BusTub. You're using ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}, which is not clang.")
+endif()
 
 ######################################################################################################################
 # DEPENDENCIES
@@ -42,22 +42,22 @@ endif ()
 
 # attempt to find the binary if user did not specify
 find_program(CLANG_FORMAT_BIN
-        NAMES clang-format clang-format-11
-        HINTS ${LEETCODEJONERY_CLANG_SEARCH_PATH})
+        NAMES clang-format clang-format-14
+        HINTS ${BUSTUB_CLANG_SEARCH_PATH})
 
-if ("${CLANG_FORMAT_BIN}" STREQUAL "CLANG_FORMAT_BIN-NOTFOUND")
-    message(WARNING "LeetCodeJounery/master couldn't find clang-format.")
-else ()
-    message(STATUS "LeetCodeJounery/master found clang-format at ${CLANG_FORMAT_BIN}")
-endif ()
+if("${CLANG_FORMAT_BIN}" STREQUAL "CLANG_FORMAT_BIN-NOTFOUND")
+        message(WARNING "LeetCodeJounery/master  couldn't find clang-format.")
+else()
+        message(STATUS "LeetCodeJounery/master  found clang-format at ${CLANG_FORMAT_BIN}")
+endif()
 
 # attempt to find the binary if user did not specify
 find_program(CLANG_TIDY_BIN
-        NAMES clang-tidy clang-tidy-11
-        HINTS ${LEETCODEJONERY_CLANG_SEARCH_PATH})
+        NAMES clang-tidy clang-tidy-14
+        HINTS ${BUSTUB_CLANG_SEARCH_PATH})
 
 find_program(CLANG_APPLY_REPLACEMENTS_BIN
-        NAMES clang-apply-replacements clang-apply-replacements-11
+        NAMES clang-apply-replacements clang-apply-replacements-14
         HINTS ${LEETCODEJONERY_CLANG_SEARCH_PATH})
 
 if ("${CLANG_APPLY_REPLACEMENTS_BIN}" STREQUAL "CLANG_APPLY_REPLACEMENTS_BIN-NOTFOUND")

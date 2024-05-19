@@ -54,7 +54,7 @@ install_mac() {
   # Install Homebrew.
   if test ! $(which brew); then
     echo "Installing Homebrew (https://brew.sh/)"
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   fi
   # Update Homebrew.
   brew update
@@ -63,8 +63,8 @@ install_mac() {
   brew ls --versions coreutils || brew install coreutils
   brew ls --versions doxygen || brew install doxygen
   brew ls --versions git || brew install git
-  brew ls --versions clang-format || brew install clang-format
-  (brew ls --versions llvm | grep 15) || brew install llvm@15
+  (brew ls --versions llvm | grep 14) || brew install llvm@14
+  brew ls --versions libelf || brew install libelf
 }
 
 install_linux() {
@@ -73,15 +73,16 @@ install_linux() {
   # Install packages.
   apt-get -y install \
       build-essential \
-      clang-11 \
-      clang-format-11 \
-      clang-tidy-11 \
+      clang-14 \
+      clang-format-14 \
+      clang-tidy-14 \
       cmake \
       doxygen \
       git \
-      g++-11 \
       pkg-config \
-      zlib1g-dev
+      zlib1g-dev \
+      libelf-dev \
+      libdwarf-dev
 }
 
 main "$@"
