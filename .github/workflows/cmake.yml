@@ -30,7 +30,8 @@ jobs:
             os: macos-14,
             cc: "/usr/bin/clang",
             cxx: "/usr/bin/clang++",
-            format: "/usr/local/bin/clang-format",
+            format: "/usr/local/opt/llvm@14/bin/clang-format",
+            tidy: "/usr/local/opt/llvm@14/bin/clang-tidy",
           }
     steps:
       - uses: actions/checkout@v2
