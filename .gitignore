@@ -265,5 +265,6 @@ docs/dev
 
 # something private
 src/Company
+src/Test/
 
 .cache/

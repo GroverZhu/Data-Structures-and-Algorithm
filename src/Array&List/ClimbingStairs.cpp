@@ -49,6 +49,10 @@ int climbStairs(int n) {
     return second;
 }
 
+// 进阶版，可以一次走一步，一次走两步，但是当前的选择不能跟前一次一样，比如不能连续两次都是走一步或者连续都走两步
+
+// 更进阶版，给你一个数组，问有多少可能
+
 int main(int argc, char* argv[]) {
     int n = 1;
     int ans1 = climbStairsRecursive(n);
