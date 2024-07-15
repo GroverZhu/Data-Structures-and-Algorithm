@@ -49,9 +49,30 @@ int climbStairs(int n) {
     return second;
 }
 
-// 进阶版，可以一次走一步，一次走两步，但是当前的选择不能跟前一次一样，比如不能连续两次都是走一步或者连续都走两步
+// 进阶版，可以一次走一步，两步，三步，但是当前的选择不能跟前一次一样，比如不能连续两次都是走一步或者连续都走两步
+int climbStairsInDiff(int n) {
+    if (n <= 0) return 0;
+    if (n == 1 || n == 2) return 1;
+    if (n == 3) return 3;
 
-// 更进阶版，给你一个数组，问有多少可能
+    vector<vector<int>> steps(n + 1, vector<int>(4, 0));
+
+    steps[1][1] = 1;
+    steps[2][2] = 1;
+    steps[3][1] = 1;
+    steps[3][2] = 1;
+    steps[3][3] = 1;
+
+    for (int i = 4; i <= n; i++) {
+        steps[i][1] = steps[i - 1][2] + steps[i - 1][3];
+        steps[i][2] = steps[i - 2][1] + steps[i - 2][3];
+        steps[i][3] = steps[i - 3][1] + steps[i - 3][2];
+    }
+
+    return steps[n][1] + steps[n][2] + steps[n][3];
+}
+
+// 更进阶版，给你一个数组，问有多少可能，这个就是组合，需要用到dfs，或者说是找零钱的解法
 
 int main(int argc, char* argv[]) {
     int n = 1;
@@ -101,6 +122,13 @@ int main(int argc, char* argv[]) {
 
     assert(ans1 == ans2);
     assert(ans2 == ans3);
+
+    assert(1 == climbStairsInDiff(1));
+    assert(1 == climbStairsInDiff(2));
+    assert(3 == climbStairsInDiff(3));
+    assert(3 == climbStairsInDiff(4));
+    assert(8 == climbStairsInDiff(6));
+    assert(9 == climbStairsInDiff(7));
 
     return 0;
 }
