@@ -156,7 +156,7 @@ int main(int argc, char* argv[]) {
     vector<int> ans;
 
     nums = {8, 3, 9, 1, 12, 4};
-    ans = {1, 3, 4, 9, 8, 12};
+    ans = {1, 3, 4, 8, 9, 12};
     assert(ans == sortArray(nums));
 
     nums = {5, 2, 3, 1};
