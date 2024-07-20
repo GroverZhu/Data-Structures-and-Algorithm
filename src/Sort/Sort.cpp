@@ -6,9 +6,21 @@
 using namespace std;
 
 // https://www.cnblogs.com/onepixel/p/7674659.html
+// https://leetcode.cn/problems/sort-an-array
 
-#if 0
+#if 1
 // 冒泡排序
+void bubbleSort(vector<int>& nums) {
+    int size = static_cast<int>(nums.size());
+
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (nums[j] > nums[j + 1]) {
+                swap(nums[j], nums[j + 1]);
+            }
+        }
+    }
+}
 #endif
 
 #if 0
@@ -67,9 +79,35 @@ void mergeSort(vector<int>& nums, int begin, int end) {
 // 快速排序
 // [begin, end]
 void quickSort(vector<int>& nums, int begin, int end) {
+#if 1
+    // 三路快排
+    if (begin >= end) {
+        return;
+    }
+    // int randomIndex = (rand() % (end - begin + 1)) + begin;
+    // if (randomIndex != begin) swap(nums[randomIndex], nums[begin]);
+    int pivot = nums[begin];
+    int left = begin;
+    int right = end;
+    int i = begin + 1;
+    while (i <= right) {
+        if (nums[i] < pivot) {
+            swap(nums[i++], nums[left++]);
+        } else if (nums[i] > pivot) {
+            swap(nums[i], nums[right--]);
+        } else {
+            i++;
+        }
+    }
+    quickSort(nums, begin, left - 1);
+    quickSort(nums, right + 1, end);
+
+#endif
+
+#if 0
     if (begin >= end) return;
     int randomIndex = (rand() % (end - begin + 1)) + begin;
-    if (randomIndex != begin) swap(nums[randomIndex], nums[begin]);  // 蒙特卡洛算法，均摊复杂度
+    if (randomIndex != begin) swap(nums[randomIndex], nums[begin]);  // 舍伍德算法，均摊复杂度
     int pivot = nums[begin];
     int left = begin + 1;
     int right = end;
@@ -85,6 +123,8 @@ void quickSort(vector<int>& nums, int begin, int end) {
 
     quickSort(nums, begin, right - 1);
     quickSort(nums, right + 1, end);
+
+#endif
 }
 #endif
 
@@ -115,6 +155,10 @@ int main(int argc, char* argv[]) {
     vector<int> nums;
     vector<int> ans;
 
+    nums = {8, 3, 9, 1, 12, 4};
+    ans = {1, 3, 4, 9, 8, 12};
+    assert(ans == sortArray(nums));
+
     nums = {5, 2, 3, 1};
     ans = {1, 2, 3, 5};
     assert(ans == sortArray(nums));
@@ -123,5 +167,8 @@ int main(int argc, char* argv[]) {
     ans = {0, 0, 1, 1, 2, 5};
     assert(ans == sortArray(nums));
 
+    nums = {3, 2, 2, 2, 2, 2, 2, 2, 2};
+    ans = {2, 2, 2, 2, 2, 2, 2, 2, 3};
+    assert(ans == sortArray(nums));
     return 0;
 }

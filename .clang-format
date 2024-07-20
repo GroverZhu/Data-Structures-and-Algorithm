@@ -9,3 +9,9 @@ PointerAlignment:	Left
 # compatibility for students with modern clangs
 IncludeBlocks: Preserve
 AccessModifierOffset: -4
+StatementMacros:
+  - if
+  - for
+  - while
+  - switch
+  - foreach
