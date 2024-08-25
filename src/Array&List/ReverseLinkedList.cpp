@@ -55,6 +55,60 @@ ListNode* swapPair(ListNode* head) {
 
 // https://leetcode-cn.com/problems/reverse-nodes-in-k-group/
 
+#if 1  // 迭代解法
+// [begin, end)
+pair<ListNode*, ListNode*> reverseList(ListNode* begin, ListNode* end) {
+    if (begin == end) return {begin, end};
+
+    ListNode* prev = nullptr;
+    ListNode* cur = begin;
+    ListNode* next;
+
+    while (cur != end) {
+        next = cur->next;
+        cur->next = prev;
+        prev = cur;
+        cur = next;
+    }
+
+    return {prev, begin};
+}
+
+ListNode* reverseKGroup(ListNode* head, int k) {
+    if (!head || !head->next || k == 1) return head;
+
+    ListNode dummy;
+    dummy.next = head;
+
+    ListNode* left_part_head = &dummy;
+    ListNode* cur = head;
+
+    ListNode* begin;
+    ListNode* end;
+    int index = 0;
+
+    while (cur) {
+        begin = cur;
+        for (index = 0; index < k; index++) {
+            if (!cur) break;
+            cur = cur->next;
+        }
+        if (index != k) break;
+        end = cur;
+
+        pair<ListNode*, ListNode*> reversed = reverseList(begin, end);
+
+        left_part_head->next = reversed.first;
+        reversed.second->next = end;
+        left_part_head = reversed.second;
+    }
+
+    return dummy.next;
+}
+
+#endif
+
+#if 0  // 递归解法
 // [begin, end)
 ListNode* reverseList(ListNode* begin, ListNode* end) {
     ListNode* cur = begin;
@@ -89,6 +143,7 @@ ListNode* reverseKGroup(ListNode* head, int k) {
 
     return left;
 }
+#endif
 
 int main(int argc, char* argv[]) {
     vector<int> nums = {1, 2, 3, 4, 5};

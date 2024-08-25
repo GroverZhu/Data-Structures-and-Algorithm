@@ -26,7 +26,7 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
     while (index2 >= 0) nums1[end--] = nums2[index2--];
 }
 
-// todo 中位数，第k个数
+// 中位数，第k个数
 double findKthFromSortedArrays(vector<int>& left, int left_bgn, vector<int>& right, int right_bgn, int k) {
     int left_size = static_cast<int>(left.size());
     int right_size = static_cast<int>(right.size());
