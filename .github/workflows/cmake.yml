@@ -35,7 +35,7 @@ jobs:
               tidy: "/usr/local/opt/llvm@14/bin/clang-tidy",
             }
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Print env
         run: |
